@@ -39,6 +39,7 @@ session_cache_limiter('nocache, must-revalidate');
         
         // put your code here
         $pid = $_POST['p_id'];
+        $plastname = $_POST['p_lastname'];
         $pname = $_POST['p_name'];
         $deptname = $_POST['dept_name'];
         ?>
@@ -48,6 +49,7 @@ session_cache_limiter('nocache, must-revalidate');
         <form method ="post" action="do_modify.php" id="myform" onsubmit ="return validateForm('myform');"> 
              <div>
                  <input type ='hidden' name ='person_id' value = '<?php echo $pid?>'>
+                 lastname : <input type ="text" name ="person_lastname" id = 'p_lastname' value = '<?php echo $plastname ?>'>
                  name : <input type ="text" name ="person_name" id = 'p_name' value = '<?php echo $pname ?>'>
              </div>
              <div>

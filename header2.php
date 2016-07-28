@@ -1,4 +1,8 @@
 
+
+
+
+?>
 <header>
 
 	<nav>
@@ -16,7 +20,7 @@
                 <button onclick="window.location.href='person_log/form_list.php'"> Person_log </button>
                 <button onclick="window.location.href='dept_log/form_list.php'"> Department_log </button>
                 <button onclick="window.location.href='loc_log/form_list.php'"> Location_log </button>
-                <button onclick="window.location.href='excelhandler.php'"> asdfsffads </button>
+               
                 <?php }
                 ?>     
                 <button onclick="window.location.href='do_logout.php'"> logout </button>

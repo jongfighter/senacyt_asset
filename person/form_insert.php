@@ -36,46 +36,16 @@ session_cache_limiter('nocache, must-revalidate');
     <head>
         <meta charset="UTF-8">
         <title></title>
-        <script type = "text/javascript">
-               function isNull(text){
-                      if(text===null||text===""){
-                          return true;
-                      }
-                      else{
-                          return false;
-                      }
-                  }
-              function chk(){
 
-                  var name= document.getElementById("p_name").value;     
-                  var loc = document.getElementById("dept_name").value;
-                 
-                  if(isNull(loc)||isNull(name)){
-                      alert("invalid input");
-                      return false;
-                  }
-                  return true;
-                  
-                  
-                  
-              }
-              
-                
-            
-            
-       
-        </script>
     </head>
     <body>
         <form method ="post"  action ='do_insert.php' onsubmit='return chk()'>
              <div>
+                 lastname : <input type ="text" name ="p_lastname" id = 'p_lastname'>
+             </div>
+             <div>
                  name : <input type ="text" name ="p_name" id = 'p_name'>
              </div>
-            <div>
-                apellido : <input type="text" name ="p_firstname" id ="p_firstname">
-                
-            </div>
-            
              <div>
                       department :       <select name ='dept_name' id = 'dept_name'>
                  <?php

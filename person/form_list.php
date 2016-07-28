@@ -27,6 +27,13 @@ and open the template in the editor.
             include_once("../header.php");
             include_once ("../form_search.html");
 
+?>
+        <form method ='post' action="../do_export_excel.php">
+            <input type ='hidden' name ='searchtext' value ='<?php echo $_POST['keyword'];?>'>
+            <input type ='hidden' name ='checkvalue' value =<?php echo $_POST['check'];?>>
+            <input type ='submit' name ='print' value = 'excel'>
+        </from>
+<?php
             
             $db_host = "localhost";
             $db_user = "sa";
@@ -38,12 +45,12 @@ and open the template in the editor.
             if(isset($_POST['keyword'])){
                 $p_name = $_POST['keyword'];
                
-                $sql = $sql."select p_id ,  Department.dept_id as dept_id, p_name as name, dept_name as department, dept_location as location from Person inner join Department on Department.dept_id=Person.dept_id where 
+                $sql = $sql."select p_id , Department.dept_id as dept_id, p_lastname as lastname, p_name as name, dept_name as department, dept_location as location from Person inner join Department on Department.dept_id=Person.dept_id where 
 p_name like '%{$p_name}%' or dept_name like '%{$p_name}%';";
                
             }
             else{
-                $sql = $sql."select p_id, Department.dept_id as dept_id, p_name as name, dept_name as department, dept_location as location from Person inner join Department on Department.dept_id=Person.dept_id;";
+                $sql = $sql."select p_id, Department.dept_id as dept_id, p_lastname as lastname, p_name as name, dept_name as department, dept_location as location from Person inner join Department on Department.dept_id=Person.dept_id;";
             }
             $result = mssql_query($sql,$conn);
             echo "<table border='1'><tr>";
@@ -57,7 +64,7 @@ p_name like '%{$p_name}%' or dept_name like '%{$p_name}%';";
 // Print the data
     while($row = mssql_fetch_row($result)) {
         $num = 0;
-        $arraypass[4];
+        $arraypass[6];
         echo "<tr>";
         foreach($row as $_column) {
             if($num<=1){
@@ -72,9 +79,10 @@ p_name like '%{$p_name}%' or dept_name like '%{$p_name}%';";
         echo '<td>';
         echo '<form method="post"> ';
         echo '<input type ="hidden" name = "p_id" value = "'.$arraypass[0].'">';
-        echo '<input type ="hidden" name = "p_name" value = "'.$arraypass[2].'">';
-        echo'<input type ="hidden" name = "dept_name" value = "'.$arraypass[3].'">';
-        echo'<input type ="hidden" name = "dept_location" value = "'.$arraypass[4].'">';
+        echo '<input type ="hidden" name = "p_lastname" value = "'.$arraypass[2].'">';
+        echo '<input type ="hidden" name = "p_name" value = "'.$arraypass[3].'">';
+        echo'<input type ="hidden" name = "dept_name" value = "'.$arraypass[4].'">';
+        echo'<input type ="hidden" name = "dept_location" value = "'.$arraypass[5].'">';
         echo '<input type="submit" name ="submit" value = "modify" formaction="form_modify.php" > ';
         echo '<input type="submit" name ="submit" value = "delete" formaction="do_delete.php"> ';
         ?><input type="submit" name ="submit" value = "view" formaction="form_person_view.php">

@@ -22,6 +22,7 @@ session_cache_limiter('nocache, must-revalidate');
 
         // put your code here
         $p_id = $_POST['p_id'];
+        $p_lastname = $_POST['p_lastname'];
         $p_name = $_POST['p_name'];
         $d_name = $_POST['dept_name'];
         $db_host = "localhost";

@@ -92,8 +92,8 @@ session_cache_limiter('nocache, must-revalidate');
                  ?>
             
             </select>
-            <div>lease date <input type='date' name ='asset_out' value = '<?php echo date("Y-m-d");?>'required > </div>
-            <div> return date <input type ='date' name ='asset_in' value = '<?php echo date("Y-m-d");?>'required>  </div>
+            <div>lease date <input type='date' name ='asset_out' value = '<?php echo date("Y-m-d");?>' min="2010-01-01" required > </div>
+            <div> return date <input type ='date' name ='asset_in' value = '<?php echo date("Y-m-d");?>' min="2010-01-01" required>  </div>
             
              <div>
                  

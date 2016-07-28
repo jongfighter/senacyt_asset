@@ -3,6 +3,8 @@
 session_cache_limiter('nocache, must-revalidate');
 
     session_start();
+    include_once '../udf_php.php';
+    
     echo "account : ".$_SESSION['user_id'];
     if($_SESSION['user_id']!='admin'){    
         ?>

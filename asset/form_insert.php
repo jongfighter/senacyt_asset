@@ -3,6 +3,7 @@
 session_cache_limiter('nocache, must-revalidate');
 
     session_start();
+    include_once '../udf_php.php';
    echo "account : ".$_SESSION['user_id'];
     if($_SESSION['user_id']!='admin'){    
         ?>
@@ -10,7 +11,8 @@ session_cache_limiter('nocache, must-revalidate');
 <meta http-equiv="refresh" content="0;url=../main.php">
 <?php
     }
-        
+
+   
 ?>
 
 <html>
@@ -110,13 +112,13 @@ session_cache_limiter('nocache, must-revalidate');
        
              barcode : <input type ="text" name ="asset_barcode" id = "barcode">  <br>
              description : <input type ="text" name ="asset_desc" id = "desc" >  <br>
-             brand : <input type ="text" name ="asset_brand" id = "brand">  <br>
-             model : <input type ="text" name ="asset_model" id = "model">  <br>
+             brand : <input type ="text" name ="asset_brand" id = "brand" autocomplete="on">  <br>
+             model : <input type ="text" name ="asset_model" id = "model" autocomplete="on">  <br>
              serial : <input type ="text" name ="asset_serial" id = "serial">  <br>
-             purchase date : <input type ="date" name ="asset_bought_date" id = "purchase_date">  <br>
-             gurantee end : <input type ="date" name ="asset_guarantee_expired" id = "guarantee_end">  <br>
-             purchase price : <input type ="number" step="0.01" name ="asset_price" id = "purchase_price">  <br>
-             provider : <input type ="text" name ="asset_provider" id = "asset_provider">  <br>
+             purchase date : <input type ="date" name ="asset_bought_date" id = "purchase_date" min="2010-01-01">  <br>
+             warranty end : <input type ="date" name ="asset_guarantee_expired" id = "guarantee_end" min="2010-01-01">  <br>
+             purchase price : <input type ="number" step="0.01" name ="asset_price" id = "purchase_price" >  <br>
+             provider : <input type ="text" name ="asset_provider" id = "asset_provider" autocomplete="on">  <br>
              type : <select>
                  <?php
                     while($row = mssql_fetch_array($result)){

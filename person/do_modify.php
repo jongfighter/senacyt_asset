@@ -22,6 +22,7 @@ session_cache_limiter('nocache, must-revalidate');
 
         // put your code here
         $p_id = $_POST['person_id'];
+        $p_lastname = $_POST['person_lastname'];
         $p_name = $_POST['person_name'];
         $d_name = $_POST['dept_name'];
         $db_host = "localhost";
@@ -41,10 +42,10 @@ session_cache_limiter('nocache, must-revalidate');
             echo '<br><a href="form_modify.php">that department is unknowned</a>';
         }
         else{
-            $sql = "UPDATE dbo.Person SET p_name ='{$p_name}', dept_id = {$d_id} WHERE p_id = {$p_id};";
+            $sql = "UPDATE dbo.Person SET p_lastname ='{$p_lastname}', p_name ='{$p_name}', dept_id = {$d_id} WHERE p_id = {$p_id};";
             mssql_query($sql,$conn);
         
-            $sql = "select p_id, p_name, dept_id from dbo.Person where p_id = ".$p_id.";";
+            $sql = "select p_id, p_lastname, p_name, dept_id from dbo.Person where p_id = ".$p_id.";";
             $res = mssql_query($sql, $conn);
   
             $rearray = mssql_fetch_array($res);

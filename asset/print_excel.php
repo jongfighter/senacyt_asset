@@ -31,6 +31,7 @@ if ($yourname=='') $yourname = "(no name)";
 $in_date = $_POST['asset_in'];
 $out_date = $_POST['asset_out'];
 $x_in = date("d-m-Y", strtotime($in_date));
+
 $x_out = date("d-m-Y", strtotime($out_date)); //the date format must be converted later 
 
 $x_desc = $_POST['asset_desc'];
@@ -73,6 +74,10 @@ $x_person = $p_row['p_name'];
 // -----------------
 
 $template = '../FormulariodePrestamosdeEquipo.xlsx';
+if($_POST['asset_in']==NULL){
+    $template = '../FormulariodeUsodeEquiponuevo.xlsx';
+}
+
 $TBS->LoadTemplate($template, OPENTBS_ALREADY_UTF8); // Also merge some [onload] automatic fields (depends of the type of document).
 
 // ----------------------
