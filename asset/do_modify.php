@@ -3,7 +3,7 @@
 session_cache_limiter('nocache, must-revalidate');
 
     session_start();
-include_once '../udf_php.php';
+
     if($_SESSION['user_id']!='admin'){    
         ?>
 <script>alert("no access right");</script>

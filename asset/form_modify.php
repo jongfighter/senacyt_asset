@@ -3,8 +3,6 @@
 session_cache_limiter('nocache, must-revalidate');
 
     session_start();
-    include_once '../udf_php.php';
-    
     echo "account : ".$_SESSION['user_id'];
     if($_SESSION['user_id']!='admin'){    
         ?>
@@ -42,35 +40,73 @@ session_cache_limiter('nocache, must-revalidate');
     <head>
         <meta charset="UTF-8">
         <title></title>
-        <script src="../js/jquery-3.1.0.min.js"></script>
-        <script src="../js/jquery-ui.js"></script>
-        <script type="text/javascript" src="../chk.js"></script>
-       <script>
-        
-  $(function() {
-    $( "#datepicker").datepicker({
-        changeMonth : true,
-        changeYear : true,
-        nextText: 'next',
-        prevText: 'previous',
-        currentText : 'today',
-        closeText : 'close',
-        dateFormat: 'yy-mm-dd'
-    });
-  });
-  $(function() {
-    $( "#datepicker2").datepicker({
-        changeMonth : true,
-        changeYear : true,
-        nextText: 'next',
-        prevText: 'previous',
-        currentText : 'today',
-        closeText : 'close',
-        dateFormat: 'yy-mm-dd'
-    });
-  });
-       </script>
-        
+       <script type = "text/javascript">
+               function isNull(text){
+                      if(text==null||text==""){
+                          return true;
+                      }
+                      else{
+                          return false;
+                      }
+                  }
+              function chk(){
+
+                  var barcode = document.getElementById("barcode").value;     
+                  var desc = document.getElementById("desc").value;
+                  var brand = document.getElementById("brand").value;
+                  var model = document.getElementById("model").value;
+                  var serial = document.getElementById("serial").value;
+                  var purchase = document.getElementById("purchase_date").value;
+                  var guarantee = document.getElementById("guarantee_end").value;
+                  var price = document.getElementById("purchase_price").value;
+                  var provider = document.getElementById("asset_provider").value;
+                  
+                  if(isNull(barcode)){
+                      alert("invalid barcode");
+                      return false;
+                  }
+                  if(isNull(desc)){
+                      alert("invalid description");
+                      return false;
+                  }
+                  if(isNull(brand)){
+                      alert("invalid brand");                      
+                      return false;
+                  }
+                  if(isNull(model)){
+                      alert("invalid model");   
+                      return false;
+                  }
+                  if(isNull(serial)){
+                      alert("invalid serial");   
+                      return false;
+                  }
+                  if(isNull(purchase)){
+                      alert("invalid purchase date");  
+                      return false;
+                  }
+                  if(isNull(guarantee)){
+                      alert("invalid guarantee date");  
+                      return false;
+                  }
+                  if(isNull(price)){
+                      alert("invalid price");  
+                      return false;
+                  }
+                  if(isNull(provider)){
+                      alert("invalid provider name");  
+                      return false;
+                  }
+                  return true;
+                  
+                  
+                  
+              }
+                
+            
+            
+       
+        </script>  
         
     </head>
     
@@ -84,9 +120,9 @@ session_cache_limiter('nocache, must-revalidate');
              brand : <input type ="text" name ="asset_brand" id = 'brand' value = "<?php echo $row1['asset_brand']?>">  <br>
              model : <input type ="text" name ="asset_model" id = 'model' value = "<?php echo $row1['asset_model']?>">  <br>
              serial : <input type ="text" name ="asset_serial" id = 'serial' value = "<?php echo $row1['asset_serial']?>">  <br>
-             details : <input type ="text" name ="asset_details" id = 'details' value = "<?php echo $row1['asset_details']?>">  <br>
-             purchase date : <input type ="date" name ="asset_bought_date" id = 'datepicker' value = "<?php echo $row1['asset_bought_date']?>">  <br>
-             guarantee end : <input type ="date" name ="asset_guarantee_expired" id='datepicker2' value = "<?php echo $row1['asset_guarantee_expired']?>">  <br>
+             details : <input type ="text" name ="asset_details" id = 'serial' value = "<?php echo $row1['asset_details']?>">  <br>
+             purchase date : <input type ="date" name ="asset_bought_date" id = 'purchase_date' value = "<?php echo $row1['asset_bought_date']?>">  <br>
+             guarantee end : <input type ="date" name ="asset_guarantee_expired" id = 'guarantee' value = "<?php echo $row1['asset_guarantee_expired']?>">  <br>
              purchase price : <input type ="number" step="0.01" name ="asset_price" id ='price' value = "<?php echo $row1['asset_price']?>">  <br>
              provider : <input type ="text" name ="asset_provider" id = 'provider' value = "<?php echo $row1['asset_provider']?>">  <br>
              person who rent :

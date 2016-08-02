@@ -3,7 +3,7 @@
 session_cache_limiter('nocache, must-revalidate');
 
     session_start();
-include_once '../udf_php.php';
+
     if($_SESSION['user_id']!='admin'){    
         ?>
 <script>alert("no access right");</script>
@@ -14,12 +14,9 @@ include_once '../udf_php.php';
 ?>
 
 <?php
-            include_once '../udf_php.php';
-            
             $asset_id = $_POST['asset_id'];
             $in = $_POST['asset_in'];
             $out = $_POST['asset_out'];
-
             $loc_id = $_POST['loc_id'];
             $p_id  = $_POST['p_id'];
             $today = date("Y-m-d");
@@ -34,17 +31,14 @@ include_once '../udf_php.php';
             if(isset($_POST['asset_in'])){
                
                  $sql = "update dbo.Asset set asset_in = '{$in}', asset_out = '{$out}', loc_id = {$loc_id}, p_id = {$p_id}, pos={$z}, "
-            . "asset_last_touch = '{$today}'  "
-            . "where asset_id = {$asset_id} ;";
-            
-       
+                . "asset_last_touch = '{$today}'  "
+                . "where asset_id = {$asset_id} ;";
             }
             
             else{
-          $sql = "update Asset set asset_in = '9999-12-31', asset_out = '{$out}', loc_id ={$loc_id}, p_id = {$p_id}, pos={$z}, "
+            $sql = "update Asset set asset_in = '9999-12-31', asset_out = '{$out}', loc_id ={$loc_id}, p_id = {$p_id}, pos={$z}, "
             . "asset_last_touch = '{$today}'  "
             . "where asset_id = {$asset_id} ;";
-            
             }
 
             

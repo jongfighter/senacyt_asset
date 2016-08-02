@@ -3,7 +3,6 @@
 session_cache_limiter('nocache, must-revalidate');
 
     session_start();
-    include_once '../udf_php.php';
    echo "account : ".$_SESSION['user_id'];
     if($_SESSION['user_id']!='admin'){    
         ?>
@@ -11,8 +10,7 @@ session_cache_limiter('nocache, must-revalidate');
 <meta http-equiv="refresh" content="0;url=../main.php">
 <?php
     }
-
-   
+        
 ?>
 
 <html>
@@ -21,63 +19,96 @@ session_cache_limiter('nocache, must-revalidate');
         
         <meta charset="UTF-8">
         <title></title>
-        <script src="../js/jquery-3.1.0.min.js"></script>
-        <script src="../js/jquery-ui.js"></script>
-        <script type="text/javascript" src="../chk.js"></script>
-   <script>
         
-  $(function() {
-    $( "#datepicker", "#datepicker2", "#datepicker3" ).datepicker({
-        changeMonth : true,
-        changeYear : true,
-        nextText: 'next',
-        prevText: 'previous',
-        currentText : 'today',
-        closeText : 'close',
-        dateFormat: 'yy-mm-dd'
-    });
-  });
+        <script type = "text/javascript">
+               function isNull(text){
+                      if(text==null||text==""){
+                          return true;
+                      }
+                      else{
+                          return false;
+                      }
+                  }
+              function chk(){
 
-       </script>
-    
+                  var barcode = document.getElementById("barcode").value;     
+                  var desc = document.getElementById("desc").value;
+                  var brand = document.getElementById("brand").value;
+                  var model = document.getElementById("model").value;
+                  var serial = document.getElementById("serial").value;
+                  var purchase = document.getElementById("purchase_date").value;
+                  var guarantee = document.getElementById("guarantee_end").value;
+                  var price = document.getElementById("purchase_price").value;
+                  var provider = document.getElementById("asset_provider").value;
+                  
+                  if(isNull(barcode)){
+                      alert("invalid barcode");
+                      
+                      
+                      return false;
+                  }
+                  if(isNull(desc)){
+                      alert("invalid description");
+                      return false;
+                  }
+                  if(isNull(brand)){
+                      alert("invalid brand");                      
+                      return false;
+                  }
+                  if(isNull(model)){
+                      alert("invalid model");   
+                      return false;
+                  }
+                  if(isNull(serial)){
+                      
+                      alert("invalid serial");   
+                      return false;
+                  }
+                  if(isNull(purchase)){
+                      alert("invalid purchase date");  
+                      return false;
+                  }
+                  if(isNull(guarantee)){
+                      alert("invalid guarantee date");  
+                      return false;
+                  }
+                  if(isNull(price)){
+                      alert("invalid price");  
+                      return false;
+                  }
+                  if(isNull(provider)){
+                      alert("invalid provider name");  
+                      return false;
+                  }
+                  return true;
+                  
+                  
+                  
+              }
+                
+            
+            
+       
+        </script>
+            
     </head>
     
     <body>
-        <?php include_once("../header.php");
-         $db_host = "localhost";
-            $db_user = "sa";
-            $db_pw = "vamosit";
-            $db_name = "senacyt_asset";
-            $conn = mssql_connect($db_host, $db_user, $db_pw);
-            mssql_select_db($db_name, $conn);
-            $sql = "select * from tipo;";
-            $result =mssql_query($sql, $conn);
-
-        ?>
-        <form method ="post" action ="do_insert.php" id = 'insertion' onsubmit = "return validateForm('insertion')">
+        <?php include_once("../header.php");?>
+        <form method ="post" action ="do_insert.php" onsubmit = "return chk()">
              
        
              barcode : <input type ="text" name ="asset_barcode" id = "barcode">  <br>
              description : <input type ="text" name ="asset_desc" id = "desc" >  <br>
-             brand : <input type ="text" name ="asset_brand" id = "brand" autocomplete="on">  <br>
-             model : <input type ="text" name ="asset_model" id = "model" autocomplete="on">  <br>
+             brand : <input type ="text" name ="asset_brand" id = "brand">  <br>
+             model : <input type ="text" name ="asset_model" id = "model">  <br>
              serial : <input type ="text" name ="asset_serial" id = "serial">  <br>
-             purchase date : <input type ="date" name ="asset_bought_date" id = "datepicker">  <br>
-             warranty end : <input type ="date" name ="asset_guarantee_expired" id = "datepicker2">  <br>
-             purchase price : <input type ="number" step="0.01" name ="asset_price" id = "purchase_price" >  <br>
-             provider : <input type ="text" name ="asset_provider" id = "asset_provider" autocomplete="on">  <br>
-             type : <select>
-                 <?php
-                    while($row = mssql_fetch_array($result)){
-                        ?>
-              <option value="<?php echo $row['t_id']; ?>" > <?php echo $row['t_name']; ?>  </option>
-                            <?php
-                 ?>
-                <?php
-                    }
-                 ?>
-                 
-             </select><br>
+             details : <input type ="text" name ="asset_details" id = "details">  <br>
+             purchase date : <input type ="date" name ="asset_bought_date" id = "purchase_date">  <br>
+             gurantee end : <input type ="date" name ="asset_guarantee_expired" id = "guarantee_end">  <br>
+             purchase price : <input type ="number" step="0.01" name ="asset_price" id = "purchase_price">  <br>
+             provider : <input type ="text" name ="asset_provider" id = "asset_provider">  <br>
+
            
              <div>
                  <input type="submit" name ="submit" value = "insert">

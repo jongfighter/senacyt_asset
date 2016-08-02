@@ -16,11 +16,7 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <title></title>
         <link rel="stylesheet" href="../mystyle.css">
-        <script src='../js/jquery-3.1.0.min.js'></script>
-        <script src='../js/jquery-ui.min.js'></script>
-        <link rel ='stylesheet' href ='../js/jquery-ui.min.css'>
-
-                
+        
     </head>
     
     <body>

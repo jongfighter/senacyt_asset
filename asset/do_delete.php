@@ -3,8 +3,6 @@
 session_cache_limiter('nocache, must-revalidate');
 
     session_start();
-
-
     if(!isset($_POST['asset_id'])){
 ?>
 <script>alert("invalid access");</script>
@@ -27,7 +25,6 @@ session_cache_limiter('nocache, must-revalidate');
         ?> <script> alert("delete success");</script><?php
         }
 ?>
-        
              <meta http-equiv="refresh" content="0;url=form_list.php">
         
     </body>

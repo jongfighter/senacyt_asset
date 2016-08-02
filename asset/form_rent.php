@@ -7,12 +7,11 @@ session_cache_limiter('nocache, must-revalidate');
     if($_SESSION['user_id']!='admin'){    
         ?>
 <script>alert("no access right");</script>
-
 <meta http-equiv="refresh" content="0;url=../main.php">
 <?php
     }
-    include_once '../udf_php.php';
-?>  
+        
+?>
 
 <?php 
 
@@ -45,44 +44,14 @@ session_cache_limiter('nocache, must-revalidate');
 
         <meta charset="UTF-8">
         <title></title>
-        
-        <script src="../js/jquery-3.1.0.min.js"></script>
-        <script src="../js/jquery-ui.js"></script>
         <script type="text/javascript" src="../chk.js"></script>
-
-        <script>
-        
-  $(function() {
-    $("#datepicker").datepicker({
-        changeMonth : true,
-        changeYear : true,
-        nextText: 'next',
-        prevText: 'prev',
-        currentText : 'today',
-        closeText : 'close',
-        dateFormat: 'yy-mm-dd'
-    });
-  });
-  $(function() {
-    $("#datepicker2").datepicker({
-        changeMonth : true,
-        changeYear : true,
-        nextText: 'next',
-        prevText: 'prev',
-        currentText : 'today',
-        closeText : 'close',
-        dateFormat: 'yy-mm-dd'
-    });
-  });
-       </script>
-        
     </head>
     <body>
              <?php include_once("../header.php");
               $_SESSION['location_before'] = $row1['loc_id'];
              
              ?>
-        <form method ="post"  id="myform" onsubmit="return validateForm('myform');" > 
+        <form method ="post"  id="myform" onsubmit="return validateForm('myform')" > 
              
             
              <input type ="hidden" name ="asset_id" value = "<?php echo $row1['asset_id']?>">   <br>
@@ -92,6 +61,7 @@ session_cache_limiter('nocache, must-revalidate');
              brand : <input type ="hidden" name ="asset_brand" value = "<?php echo $row1['asset_brand']?>" > <?php echo $row1['asset_brand']?> <br>
              model : <input type ="hidden" name ="asset_model" value = "<?php echo $row1['asset_model']?>"   > <?php echo $row1['asset_model']?> <br>
              serial : <input type ="hidden" name ="asset_serial" value = "<?php echo $row1['asset_serial']?>" > <?php echo $row1['asset_serial']?> <br>
+             details : <input type ="hidden" name ="asset_details" value = "<?php echo $row1['asset_details']?>" > <?php echo $row1['asset_details']?> <br>
              bought date : <input type ="hidden" name ="asset_bought_date" value = "<?php echo $row1['asset_bought_date']?>" > <?php echo $row1['asset_bought_date']?> <br>
              gurantee end : <input type ="hidden" name ="asset_guarantee_expired" value = "<?php echo $row1['asset_guarantee_expired']?>" > <?php echo $row1['asset_guarantee_expired']?> <br>
              purchase price : <input type ="hidden" step="0.01" name ="asset_price" value = "<?php echo $row1['asset_price']?>"><?php echo $row1['asset_price']?> <br>
@@ -123,12 +93,8 @@ session_cache_limiter('nocache, must-revalidate');
                  ?>
             
             </select>
-        
-
-            <div>lease date <input type='date' name ='asset_out' id='datepicker' value = '<?php echo date("Y-m-d");?>' required> </div>
-          
-            
-            <div> return date <input type ='date' name ='asset_in' id='datepicker2' value = '<?php echo date("Y-m-d");?>'  required>  </div>
+            <div>lease date <input type='date' name ='asset_out' value = '<?php echo date("Y-m-d");?>'required > </div>
+            <div> return date <input type ='date' name ='asset_in' value = '<?php echo date("Y-m-d");?>'required>  </div>
             
              <div>
                  

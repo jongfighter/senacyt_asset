@@ -31,7 +31,7 @@ session_cache_limiter('nocache, must-revalidate');
         $rearray = mssql_fetch_array($res);
         $d_id = $rearray[0];
         
-        $sql = "INSERT into dbo.Person (p_lastname, p_name, dept_id) values('".$p_lastname."',"."'".$p_name."',"."'".$d_id."');";
+        $sql = "INSERT into person (p_lastname, p_name, dept_id) values('".$p_lastname."',"."'".$p_name."',"."".$d_id.");";
         mssql_query($sql,$conn);
         
         $sql = "select p_id, p_lastname, p_name, dept_id from dbo.Person where p_id = (select max(p_id) from dbo.person)";

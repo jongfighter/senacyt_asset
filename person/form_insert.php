@@ -39,7 +39,7 @@ session_cache_limiter('nocache, must-revalidate');
 
     </head>
     <body>
-        <form method ="post"  action ='do_insert.php' id = 'insertform' onsubmit="return validateForm('insertform')">
+        <form method ="post"  action ='do_insert.php' onsubmit='return chk()'>
              <div>
                  lastname : <input type ="text" name ="p_lastname" id = 'p_lastname'>
              </div>

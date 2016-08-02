@@ -16,22 +16,21 @@ if (version_compare(PHP_VERSION,'5.1.0')>=0) {
 $TBS = new clsTinyButStrong; // new instance of TBS
 $TBS->Plugin(TBS_INSTALL, OPENTBS_PLUGIN); // load the OpenTBS plugin
 
-// ------------------------------
-// Prepare some data for the demo
-// ------------------------------
+// ------------------------------//
+// Prepare some data for the demo//
+// ------------------------------//
 
-// Retrieve the user name to display
+// Retrieve the user name to display//
 $yourname = (isset($_POST['yourname'])) ? $_POST['yourname'] : '';
 $yourname = trim(''.$yourname);
 if ($yourname=='') $yourname = "(no name)";
 
-// A recordset for merging tables
+// A recordset for merging tables//
 
-// Other single data items
+// Other single data items//
 $in_date = $_POST['asset_in'];
 $out_date = $_POST['asset_out'];
 $x_in = date("d-m-Y", strtotime($in_date));
-
 $x_out = date("d-m-Y", strtotime($out_date)); //the date format must be converted later 
 
 $x_desc = $_POST['asset_desc'];
@@ -74,10 +73,6 @@ $x_person = $p_row['p_name'];
 // -----------------
 
 $template = '../FormulariodePrestamosdeEquipo.xlsx';
-if($_POST['asset_in']==NULL){
-    $template = '../FormulariodeUsodeEquiponuevo.xlsx';
-}
-
 $TBS->LoadTemplate($template, OPENTBS_ALREADY_UTF8); // Also merge some [onload] automatic fields (depends of the type of document).
 
 // ----------------------
