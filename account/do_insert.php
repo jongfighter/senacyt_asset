@@ -15,8 +15,9 @@ session_cache_limiter('nocache, must-revalidate');
         <?php
 
         // put your code here
+        $p_lastname = $_POST['p_lastname'];
         $p_name = $_POST['p_name'];
-        $login_identity = $_POST['dept_name'];
+        $login_identity = $_POST['login_identity'];
         $pw = $_POST['pwd'];
 
         $db_host = "localhost";
@@ -26,20 +27,22 @@ session_cache_limiter('nocache, must-revalidate');
         $conn = mssql_connect($db_host, $db_user, $db_pw);
         mssql_select_db($db_name, $conn);
         
-        $sql = "select dept_id from Department where dept_name = '{$d_name}'";
+        $sql = "select p_id from Person where p_lastname = '{$p_lastname}'and p_name = '{$p_name}'";
         $res = mssql_query($sql, $conn);
         $rearray = mssql_fetch_array($res);
-        $d_id = $rearray[0];
+        $p_id = $rearray[0];
+        if($p_id != 0){
+            $sql = "INSERT INTO Login (login_identity, login_password, p_id) VALUES('".$login_identity."',"."pwdencrypt('".$pw."'),".$p_id.");";
+            
+            mssql_query($sql,$conn);
+            echo "<script> alert('success');"
+            . "window.location.href = 'form_list.php';</script>";
+        }
+        else{
+            echo "<script> alert('invalid name');"
+            . "window.location.href = 'form_insert.php';</script>";
+        }
         
-        $sql = "INSERT into person (p_lastname, p_name, dept_id) values('".$p_lastname."',"."'".$p_name."',"."".$d_id.");";
-        mssql_query($sql,$conn);
-        
-        $sql = "select p_id, p_lastname, p_name, dept_id from dbo.Person where p_id = (select max(p_id) from dbo.person)";
-        $res = mssql_query($sql, $conn);
-        
-        $rearray = mssql_fetch_array($res);
-        echo "<script> alert('success');"
-        . "window.location.href = 'form_list.php';</script>";
       
         
        
