@@ -31,12 +31,20 @@ session_cache_limiter('nocache, must-revalidate');
         $res = mssql_query($sql, $conn);
         $rearray = mssql_fetch_array($res);
         $p_id = $rearray[0];
-        if($p_id != 0){
+        $sql = "select login_id from Login where login_identity = '{$login_identity}'";
+        $res = mssql_query($sql, $conn);
+        $rearray = mssql_fetch_array($res);
+        $rep = $rearray[0];
+        if($p_id != NULL && $rep == NULL){
             $sql = "INSERT INTO Login (login_identity, login_password, p_id) VALUES('".$login_identity."',"."pwdencrypt('".$pw."'),".$p_id.");";
             
             mssql_query($sql,$conn);
             echo "<script> alert('success');"
             . "window.location.href = 'form_list.php';</script>";
+        }
+        else if($rep != NULL){
+            echo "<script> alert('That ID is Already used');"
+            . "window.location.href = 'form_insert.php';</script>";
         }
         else{
             echo "<script> alert('invalid name');"

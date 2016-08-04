@@ -26,7 +26,7 @@ and open the template in the editor.
        
         include_once("header2.php");
        
-            ?>
+        ?>
             
         </form>
     </body>

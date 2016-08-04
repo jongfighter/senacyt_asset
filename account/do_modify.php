@@ -21,10 +21,10 @@ session_cache_limiter('nocache, must-revalidate');
         <?php
 
         // put your code here
-        $p_id = $_POST['person_id'];
         $p_lastname = $_POST['person_lastname'];
         $p_name = $_POST['person_name'];
-        $d_name = $_POST['dept_name'];
+        $login_identity = $_POST['login_identity'];
+        $pwd = $_POST['pwd'];
         $db_host = "localhost";
         $db_user = "sa";
         $db_pw = "vamosit";
@@ -33,24 +33,22 @@ session_cache_limiter('nocache, must-revalidate');
         mssql_select_db($db_name, $conn);
 
         
-        $sql = "SELECT dept_id from Department where dept_name = '{$d_name}';";
+        $sql = "SELECT p_id from Person where p_lastname = '{$p_lastname}' and p_name = '{$p_name}';";
         $res = mssql_query($sql, $conn);
         
         $rearray  = mssql_fetch_array($res);
-        $d_id = $rearray[0];
-        if($d_id == NULL){
-            echo '<br><a href="form_modify.php">that department is unknowned</a>';
+        $p_id = $rearray[0];
+        if($p_id == NULL){
+            echo '<br><a href="form_list.php">invalid name</a>';
+        }
+        else if($pwd==NULL){
+            $sql = "UPDATE Login SET  login_identity='{$login_identity}' WHERE p_id = {$p_id};";
+            mssql_query($sql,$conn);
+         
         }
         else{
-            $sql = "UPDATE dbo.Person SET p_lastname ='{$p_lastname}', p_name ='{$p_name}', dept_id = {$d_id} WHERE p_id = {$p_id};";
+            $sql = "UPDATE Login SET  login_identity='{$login_identity}', login_password = pwdencrypt('{$pwd}') WHERE p_id = {$p_id};";
             mssql_query($sql,$conn);
-        
-            $sql = "select p_id, p_lastname, p_name, dept_id from dbo.Person where p_id = ".$p_id.";";
-            $res = mssql_query($sql, $conn);
-  
-            $rearray = mssql_fetch_array($res);
-        
-         
         }
         ?>
         <script>alert("done"); </script>

@@ -21,8 +21,6 @@ session_cache_limiter('nocache, must-revalidate');
             $db_name = "senacyt_asset";
             $conn = mssql_connect($db_host, $db_user, $db_pw);
             mssql_select_db($db_name, $conn);
-            $sql = "select dept_id, dept_name from dbo.Department";
-            $result = mssql_query($sql,$conn);
 
 
 ?>
@@ -38,31 +36,22 @@ session_cache_limiter('nocache, must-revalidate');
         include_once ("../form_search.html");
         
         // put your code here
-        $pid = $_POST['p_id'];
         $plastname = $_POST['p_lastname'];
         $pname = $_POST['p_name'];
-        $deptname = $_POST['dept_name'];
+        $login_identity = $_POST['log_identity'];
         ?>
         <?php
         ?>
         
         <form method ="post" action="do_modify.php" id="myform" onsubmit ="return validateForm('myform');"> 
              <div>
-                 <input type ='hidden' name ='person_id' value = '<?php echo $pid?>'>
-                 lastname : <input type ="text" name ="person_lastname" id = 'p_lastname' value = '<?php echo $plastname ?>'>
-                 name : <input type ="text" name ="person_name" id = 'p_name' value = '<?php echo $pname ?>'>
-             </div>
-             <div>
-                      department : <select name ='dept_name' id = 'dept_name' selected = '<?php echo $deptname; ?>'>
-                 <?php
-                 while($row =  mssql_fetch_array($result)){
-                     ?>
-                 <option value='<?php echo $row['dept_name']?>' <?php if($row['dept_name']==$deptname){ echo "selected";}?>> <?php echo $row['dept_name']?></option>
-                 <?php
-                 }
+                 lastname : <input type ="text" value = '<?php echo $plastname ?>' disabled=true>
+                 <input type ="hidden" name ="person_lastname" id = 'p_lastname' value = '<?php echo $plastname ?>'>
+                 name : <input type ="text" value = '<?php echo $pname ?>' disabled=true>
+                 <input type ="hidden" name ="person_name" id = 'p_name' value = '<?php echo $pname ?>'>
+                 ID : <input type ="text" name ="login_identity" id = 'login_identiity' value = '<?php echo $login_identity ?>'>
+                 PW : <input type ="password" name ="pwd" id = 'pwd'>
                  
-                 ?>
-             </select>
                  
              </div>
              <div>

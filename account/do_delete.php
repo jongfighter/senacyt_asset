@@ -32,8 +32,7 @@ session_cache_limiter('nocache, must-revalidate');
   
         
         $sql = "DELETE from Login where login_identity = '{$login_identity}'";
-        $res = mssql_query($sql, $conn);
-        $resarray = mssql_fetch_array($res);
+        mssql_query($sql, $conn);
         echo "<script> alert('success');window.location.href = 'form_list.php';</script>";
         
         ?>

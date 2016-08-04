@@ -2,7 +2,6 @@
 
 
 
-?>
 <header>
 
 	<nav>
