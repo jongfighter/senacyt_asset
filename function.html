@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+	
+	<!--  Scripts-->
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="js/materialize.js"></script>
+	<script src="js/init.js"></script>
+	
+	<!-- CSS -->
+	<link href="http://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+	<link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+	<link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+
+<header>
+<nav class="function">
+        <div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+				    <li><a href="window.location.href='../main.php'">Pagina inicial</a></li>
+				    <li><a href="window.location.href='../asset/form_list.php'">Activo</a></li>
+					 <?php 
+					if($_SESSION['user_id']=='admin'){
+					?>
+                    <li><a href="window.location.href='../asset_log/form_list.php'">Activo log</a></li>
+                    <li><a href="window.location.href='../person/form_list.php'">Persona</a></li>
+                    <li><a href="window.location.href='../person_log/form_list.php'">Persona log</a></li>
+                    <li><a href="window.location.href='../dept/form_list.php'">Departamento</a></li>
+                    <li><a href="window.location.href='../dept_log/form_list.php'">Departamento log</a></li>
+					<li><a href="window.location.href='../loc/form_list.php'">Lugar</a></li>
+					<li><a href="window.location.href='../loc_log/form_list.php'">Lugar log</a></li>
+					<li><a href="window.location.href='../do_logout.php'">Cerrar la sesion</a></li>
+			    </ul>
+			</div>
+		</div>
+</nav>
+</header>
+
+<!-- table -->
+<!-- 내비 desktp&mobile -->
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+	<figure>
+		<img src="table.png">
+	</figure>
+</body>
+<!-- end -->
+
+<footer class="page-footer teal">
+    <div class="footer-copyright">
+      <div class="container">
+      Made by <a class="brown-text text-lighten-3" href="https://kiv.nia.or.kr/">2016 World Friends ICT Volunteers from KOREA Team Vamos IT </a>
+	  <div class="row right">
+	  <a class="brown-text text-lighten-3" href="https://www.facebook.com/seiheesarakim">Sara</a>
+	  <a class="brown-text text-lighten-3" href="https://www.facebook.com/jungeun.choi.186?fref=ts">Amelia</a>
+	  <a class="brown-text text-lighten-3" href="https://www.facebook.com/profile.php?id=100010221195720&fref=ts">Huan</a>
+	  <a class="brown-text text-lighten-3" href="https://www.facebook.com/you.jaehyun.5?fref=ts">Terry</a>
+	  </div>
+	  </div>
+    </div> 
+</footer>
+
+	<script>
+	$(document)
+	.ready(function(){
+        // Add smooth scrolling to all links in navbar + footer link
+        $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+            // Make sure this.hash has a value before overriding default behavior
+            if (this.hash !== "") {
+                // Prevent default anchor click behavior
+                event.preventDefault();
+
+                // Store hash
+                var hash = this.hash;
+
+                // Using jQuery's animate() method to add smooth page scroll
+                // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+                $('html, body').animate({
+                    scrollTop: $(hash).offset().top
+                }, 900, function(){
+
+                    // Add hash (#) to URL when done scrolling (default click behavior)
+                    window.location.hash = hash;
+                });
+            } // End if
+        });
+
+        $(window).scroll(function() {
+            $(".slideanim").each(function(){
+                var pos = $(this).offset().top;
+
+                var winTop = $(window).scrollTop();
+                if (pos < winTop + 600) {
+                    $(this).addClass("slide");
+                }
+            });
+        });
+    })
+	</script>
+
+</body>
+</html>
