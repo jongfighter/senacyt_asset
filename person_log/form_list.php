@@ -29,7 +29,7 @@ and open the template in the editor.
             include_once("../header.php");
             include_once ("../form_log_search.html");
 ?>
-        <form method ='post' action="../do_export_excel.php">
+        <form method ='post' action="do_export_excel.php">
             <input type ='hidden' name ='searchtext' value ='<?php echo $_POST['keyword'];?>'>
             <input type ='hidden' name ='checkvalue' value =<?php echo $_POST['check'];?>>
             <input type ='submit' name ='print' value = 'excel'>
