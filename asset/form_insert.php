@@ -98,16 +98,16 @@ session_cache_limiter('nocache, must-revalidate');
         <form method ="post" action ="do_insert.php" onsubmit = "return chk()">
              
        
-             barcode : <input type ="text" name ="asset_barcode" id = "barcode">  <br>
-             description : <input type ="text" name ="asset_desc" id = "desc" >  <br>
-             brand : <input type ="text" name ="asset_brand" id = "brand">  <br>
-             model : <input type ="text" name ="asset_model" id = "model">  <br>
-             serial : <input type ="text" name ="asset_serial" id = "serial">  <br>
-             details : <input type ="text" name ="asset_details" id = "details">  <br>
-             purchase date : <input type ="date" name ="asset_bought_date" id = "purchase_date">  <br>
-             gurantee end : <input type ="date" name ="asset_guarantee_expired" id = "guarantee_end">  <br>
-             purchase price : <input type ="number" step="0.01" name ="asset_price" id = "purchase_price">  <br>
-             provider : <input type ="text" name ="asset_provider" id = "asset_provider">  <br>
+             Placa : <input type ="text" name ="asset_barcode" id = "barcode">  <br>
+             Descripción : <input type ="text" name ="asset_desc" id = "desc" >  <br>
+             Marca : <input type ="text" name ="asset_brand" id = "brand">  <br>
+             Modelo : <input type ="text" name ="asset_model" id = "model">  <br>
+             Serie : <input type ="text" name ="asset_serial" id = "serial">  <br>
+             Detalles : <input type ="text" name ="asset_details" id = "details">  <br>
+             Día de compra : <input type ="date" name ="asset_bought_date" id = "purchase_date">  <br>
+             Final de garantía : <input type ="date" name ="asset_guarantee_expired" id = "guarantee_end">  <br>
+             Precio de compra : <input type ="number" step="0.01" name ="asset_price" id = "purchase_price">  <br>
+             Proveedor : <input type ="text" name ="asset_provider" id = "asset_provider">  <br>
 
            
              <div>

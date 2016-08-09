@@ -3,11 +3,21 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/APM_Setup/htdocs/PhpProject1/asset/form_list.php</file>
-            <file>file:/C:/APM_Setup/htdocs/PhpProject1/person/do_insert.php</file>
-            <file>file:/C:/APM_Setup/htdocs/PhpProject1/header2.php</file>
+            <file>file:/C:/APM_Setup/htdocs/PhpProject1/account/form_insert.php</file>
+            <file>file:/C:/APM_Setup/htdocs/PhpProject1/person/form_list.php</file>
+            <file>file:/C:/APM_Setup/htdocs/PhpProject1/loc_log/form_list.php</file>
             <file>file:/C:/APM_Setup/htdocs/PhpProject1/main.php</file>
+            <file>file:/C:/APM_Setup/htdocs/PhpProject1/index.php</file>
             <file>file:/C:/APM_Setup/htdocs/PhpProject1/person_log/form_list.php</file>
+            <file>file:/C:/APM_Setup/htdocs/PhpProject1/account/do_delete.php</file>
+            <file>file:/C:/APM_Setup/htdocs/PhpProject1/account/form_list.php</file>
+            <file>file:/C:/APM_Setup/htdocs/PhpProject1/account/do_modify.php</file>
+            <file>file:/C:/APM_Setup/htdocs/PhpProject1/account/do_insert.php</file>
+            <file>file:/C:/APM_Setup/htdocs/PhpProject1/header2.php</file>
+            <file>file:/C:/APM_Setup/htdocs/PhpProject1/account/form_modify.php</file>
+            <file>file:/C:/APM_Setup/htdocs/PhpProject1/udf_php.php</file>
+            <file>file:/C:/APM_Setup/htdocs/PhpProject1/header.php</file>
+            <file>file:/C:/APM_Setup/htdocs/PhpProject1/person/form_insert.php</file>
         </group>
     </open-files>
 </project-private>
