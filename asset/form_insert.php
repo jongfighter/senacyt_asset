@@ -102,7 +102,7 @@ session_cache_limiter('nocache, must-revalidate');
              Descripción : <input type ="text" name ="asset_desc" id = "desc" >  <br>
              Marca : <input type ="text" name ="asset_brand" id = "brand">  <br>
              Modelo : <input type ="text" name ="asset_model" id = "model">  <br>
-             Serie : <input type ="text" name ="asset_serial" id = "serial">  <br>
+             Serial : <input type ="text" name ="asset_serial" id = "serial">  <br>
              Detalles : <input type ="text" name ="asset_details" id = "details">  <br>
              Día de compra : <input type ="date" name ="asset_bought_date" id = "purchase_date">  <br>
              Final de garantía : <input type ="date" name ="asset_guarantee_expired" id = "guarantee_end">  <br>

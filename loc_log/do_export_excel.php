@@ -19,9 +19,6 @@ and open the template in the editor.
     <body>
         
 <?php
-            include_once("../header.php");
-            include_once ("../form_log_search.html");
-            
             $db_host = "localhost";
             $db_user = "sa";
             $db_pw = "vamosit";

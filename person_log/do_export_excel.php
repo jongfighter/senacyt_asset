@@ -5,12 +5,6 @@ header( "Cache-Control: must-revalidate, post-check=0, pre-check=0" );
 header( "Pragma: public" );
 header( "Content-Disposition: attachment; filename=export.xls" );
 ?>
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
     <head>
         <meta charset="UTF-8">
@@ -19,8 +13,6 @@ and open the template in the editor.
     <body>
         
 <?php
-            include_once("../header.php");
-            include_once ("../form_log_search.html");
             
             $db_host = "localhost";
             $db_user = "sa";
