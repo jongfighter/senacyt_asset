@@ -160,5 +160,6 @@ while($row = mssql_fetch_array($result)) {
             </tr> 
 <?php }?>
             </table>
+                         <?php include_once '../footer.php';?>
     </body>
 </html>

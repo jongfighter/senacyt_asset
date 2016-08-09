@@ -102,6 +102,6 @@ session_cache_limiter('nocache, must-revalidate');
                  <input type="submit" name ="excel" value = "excel" formaction="print_excel.php">
             </div>
         </form>
-        
+        <?php include_once '../footer.php';?>
     </body>
 </html>

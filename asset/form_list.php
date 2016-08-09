@@ -12,14 +12,7 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title></title>
-        <link rel="stylesheet" href="../mystyle.css">
-        
-    </head>
     
-    <body>
         
 <?php
                
@@ -232,5 +225,7 @@ while($row = mssql_fetch_array($result)) {
             </tr> 
 <?php }?>
             </table>
+        
+        <?php include_once '../footer.php';?>
     </body>
 </html>

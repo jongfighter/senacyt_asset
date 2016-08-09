@@ -153,6 +153,6 @@ session_cache_limiter('nocache, must-revalidate');
             </div>
         </form>
         <button type ="button"  onclick="history.back()"> back </button>
-        
+        <?php include_once '../footer.php';?>
     </body>
 </html>

@@ -16,6 +16,7 @@ if($result[0] != NULL){
     session_start();
     $_SESSION['user_id'] = $user_id;
     $_SESSION['user_name'] = $members[$user_id]['name'];
+    
     ?>
     <meta http-equiv='refresh' content='0;url=main.php'>
     <?php
