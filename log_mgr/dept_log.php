@@ -3,7 +3,7 @@
 session_cache_limiter('nocache, must-revalidate');
 
     session_start();
-echo "account : ".$_SESSION['user_id'];
+    echo "account : ".$_SESSION['user_id'];
     if($_SESSION['user_id']!='admin'){    
         ?>
 <script>alert("no access right");</script>
@@ -26,10 +26,10 @@ and open the template in the editor.
     <body>
         
 <?php
-            include_once("../header.php");
-            include_once ("../form_search.html");
+            include_once("log_header.php");
+            include_once ("../form_log_search.html");
 ?>
-        <form method ='post' action="../do_export_excel.php">
+        <form method ='post' action="dept_export_excel.php">
             <input type ='hidden' name ='searchtext' value ='<?php echo $_POST['keyword'];?>'>
             <input type ='hidden' name ='checkvalue' value =<?php echo $_POST['check'];?>>
             <input type ='submit' name ='print' value = 'excel'>
@@ -45,11 +45,12 @@ and open the template in the editor.
             $sql = "";
             if(isset($_POST['keyword'])){
                 $p_name = $_POST['keyword'];
-              
-                $sql = $sql."select dept_id, dept_name, dept_location from Department where dept_name = '%{$p_name}%' or dept_location = '%{$p_name}%'";
+                
+                $sql = $sql."select p_id, log_name, log_date, p_lastname, p_name, dept_name, dept_location, Department.dept_id as dept_id from log_Person inner join Department on Department.dept_id=log_Person.dept_id where 
+log_name like '%{$p_name}%' or log_date like '%{$p_name}%' or p_name like '%{$p_name}%' or dept_name like '%{$p_name}%';";
             }
             else{
-                $sql = $sql."select dept_id, dept_name, dept_location from Department";
+                $sql = $sql."select p_id, log_name, log_date, p_lastname, p_name, dept_name, dept_location from log_Person, Department where log_Person.dept_id = Department.dept_id";
             }
             $result = mssql_query($sql,$conn);
             echo "<table border='1'><tr>";
@@ -62,7 +63,7 @@ and open the template in the editor.
 // Print the data
     while($row = mssql_fetch_row($result)) {
         $num = 0;
-        $arraypass[3];
+        $arraypass[5];
         echo "<tr>";
         foreach($row as $_column) {
             if($num==0){
@@ -71,25 +72,8 @@ and open the template in the editor.
             else{
                 echo '<td ><input type ="text" value = "'.$_column.'" disabled = true ></td>';
             }
-            $arraypass[$num]=$_column;
             $num = $num+1;
         }
-        echo '<td>';
-        echo '<form method="post" action="form_modify.php"> ';
-        echo '<input type ="hidden" name = "dept_id" value = "'.$arraypass[0].'">';
-        echo '<input type ="hidden" name = "dept_name" value = "'.$arraypass[1].'">';
-        echo'<input type ="hidden" name = "dept_location" value = "'.$arraypass[2].'">';
-        echo '<input type="submit" name ="submit" value = "modify" > ';
-        echo '</form> ';
-        ?>
-        <form method="post" action ="do_delete.php">
-            <input type ='hidden' name ='dept_id' value= '<?php echo $arraypass[0]?>'>
-            <input type="submit" name ="delet" value = "delete" >
-        </form>
-        </td>
-        <?php
-        
-        echo "</tr>";
     }
 
 echo "</table>";
