@@ -20,7 +20,8 @@ and open the template in the editor.
        
         include_once("header2.php");
        
-  include_once '../footer.php';?>
+  include_once('footer.php');
+  ?>
       </body>
 </html>
 
