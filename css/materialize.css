@@ -5596,10 +5596,9 @@ label {
   color: #d1d1d1;
 }
 
-/* Text inputs */
+/* Text inputs which have radiobox*/
 input:not([type]),
 input[type=text],
-input[type=password],
 input[type=email],
 input[type=url],
 input[type=time],
@@ -5609,6 +5608,26 @@ input[type=datetime-local],
 input[type=tel],
 input[type=number],
 input[type=search],
+input[type=insert],
+textarea.materialize-textarea {
+  background-color: transparent;
+  border-bottom: 1px solid #9e9e9e;
+  border-radius: 0;
+  outline: none;
+  height: 2rem;
+  width: 300px;
+  font-size: 1rem;
+  margin: 15px 0 20px 0;
+  padding: 0;
+  box-shadow: none;
+  box-sizing: content-box;
+  transition: all 0.3s;
+}
+
+/* Text inputs which not have radiobox */
+input:not([type]),
+input[type=id],
+input[type=password],
 textarea.materialize-textarea {
   background-color: transparent;
   border: none;
@@ -5683,9 +5702,9 @@ textarea.materialize-textarea[readonly="readonly"] + label {
   color: rgba(0, 0, 0, 0.26);
 }
 
+/* not have radio box */ 
 input:not([type]):focus:not([readonly]),
 input[type=text]:focus:not([readonly]),
-input[type=password]:focus:not([readonly]),
 input[type=email]:focus:not([readonly]),
 input[type=url]:focus:not([readonly]),
 input[type=time]:focus:not([readonly]),
@@ -5696,12 +5715,25 @@ input[type=tel]:focus:not([readonly]),
 input[type=number]:focus:not([readonly]),
 input[type=search]:focus:not([readonly]),
 textarea.materialize-textarea:focus:not([readonly]) {
-  border-bottom: 1px solid #26a69a;
-  box-shadow: 0 1px 0 0 #26a69a;
+	border-top: 2px solid #26a69a;
+	border-left: 2px solid #26a69a;
+	border-right: 2px solid #26a69a;
+	border-bottom: 2px solid #26a69a;
+	box-shadow: 1px #26a69a;
+}
+
+/* have radiobox */
+input:not([type]):focus:not([readonly]),
+input[type=id]:focus:not([readonly]),
+input[type=password]:focus:not([readonly]),
+textarea.materialize-textarea:focus:not([readonly]) {
+	border-bottom: 1px solid #26a69a;
+	box-shadow: 0 1px 0 0 #26a69a;
 }
 
 input:not([type]):focus:not([readonly]) + label,
-input[type=text]:focus:not([readonly]) + label,
+input[type=id]:focus:not([readonly]) + label,
+input[type=text]:focus:not([readonly]),
 input[type=password]:focus:not([readonly]) + label,
 input[type=email]:focus:not([readonly]) + label,
 input[type=url]:focus:not([readonly]) + label,

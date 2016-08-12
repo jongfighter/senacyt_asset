@@ -2,6 +2,12 @@ body{
 	font-family: Montserrat;
 }
 
+p {
+	margin-bottom:1px;
+	margin-left:7px;
+	margin-top:1px;
+} 
+
 .function{ 
 	background-color: #48D1CC;
 }

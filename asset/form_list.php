@@ -117,7 +117,7 @@ asset_desc _description,
             $result = mssql_query($sql,$conn);
             ?>
                 
-        <table border ='1'>
+        <table border ='10'>
             <th>barcode</th>
             <th>description</th>
             <th>brand</th>
