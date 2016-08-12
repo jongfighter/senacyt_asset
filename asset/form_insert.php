@@ -112,16 +112,16 @@ $(function() {
         <form method ="post" action ="do_insert.php" onsubmit = "return chk()">
              
        
-             Placa : <input type ="text" name ="asset_barcode" id = "barcode">  <br>
-             Descripción : <input type ="text" name ="asset_desc" id = "desc" >  <br>
-             Marca : <input type ="text" name ="asset_brand" id = "brand">  <br>
-             Modelo : <input type ="text" name ="asset_model" id = "model">  <br>
-             Serie : <input type ="text" name ="asset_serial" id = "serial">  <br>
-             Detalles : <input type ="text" name ="asset_details" id = "details">  <br>
-             Día de compra : <input type ="date" name ="asset_bought_date" id = "purchase_date">  <br>
-             Final de garantía : <input type ="date" name ="asset_guarantee_expired" id = "guarantee_end">  <br>
-             Precio de compra : <input type ="number" step="0.01" name ="asset_price" id = "purchase_price">  <br>
-             Proveedor : <input type ="text" name ="asset_provider" id = "asset_provider">  <br>
+            &nbsp;&nbsp;Placa &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;<input type ="text" name ="asset_barcode" id = "barcode"> <br>
+            &nbsp;&nbsp;Descripción &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;<input type ="text" name ="asset_desc" id = "desc" > <br>
+            &nbsp;&nbsp;Marca &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;<input type ="text" name ="asset_brand" id = "brand"> <br>
+            &nbsp;&nbsp;Modelo &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;<input type ="text" name ="asset_model" id = "model"> <br>
+            &nbsp;&nbsp;Serie &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;<input type ="text" name ="asset_serial" id = "serial">  <br>
+            &nbsp;&nbsp;Detalles &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;<input type ="text" name ="asset_details" id = "details"> <br>
+            &nbsp;&nbsp;Día de compra &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;<input type ="date" name ="asset_bought_date" id = "purchase_date"> <br>
+            &nbsp;&nbsp;Final de garantía &nbsp;&nbsp;:&nbsp;<input type ="date" name ="asset_guarantee_expired" id = "guarantee_end"> <br>
+            &nbsp;&nbsp;Precio de compra :&nbsp;<input type ="number" step="0.01" name ="asset_price" id = "purchase_price"> <br>
+            &nbsp;&nbsp;Proveedor &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;<input type ="text" name ="asset_provider" id = "asset_provider">
 
            
              <div>
