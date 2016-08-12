@@ -19,7 +19,21 @@ session_cache_limiter('nocache, must-revalidate');
         
         <meta charset="UTF-8">
         <title></title>
+        <script src="../js/jquery-3.1.0.min.js"></script>
+        <script src="../js/jquery-ui.min.js"></script>
+        <link rel="stylesheet" type='text/css' href='../js/jquery-ui.min.css'>
         
+                
+        <script>
+            
+$(function() {
+  $( "#guarantee_end" ).datepicker({
+    dateFormat: 'yy-mm-dd',
+
+    
+  });
+});
+</script>
         <script type = "text/javascript">
                function isNull(text){
                       if(text==null||text==""){

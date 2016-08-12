@@ -49,4 +49,5 @@
             });
         });
     })
+    $('selector').fixedHeaderTable({ footer: true, cloneHeadToFoot: true, fixedColumn: false });
 	</script>

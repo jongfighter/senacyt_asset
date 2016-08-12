@@ -20,18 +20,7 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title></title>
-        <script>
-           
-        
-        
-        </script>
-        
-    </head>
-    
-    <body>
+
         
 <?php
         
@@ -169,7 +158,10 @@ while($row = mssql_fetch_array($result)) {
                 ?></td>
                  
             </tr> 
-<?php }?>
+<?php }
+ 
+?>
             </table>
+        <?php include_once '../footer.php';?>
     </body>
 </html>

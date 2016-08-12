@@ -19,7 +19,13 @@ and open the template in the editor.
         }
        
         include_once("header2.php");
-       
+       ?>
+           <body data-spy="scroll" data-target=".navbar" data-offset="50">
+	<figure>
+		<img src="image/table.png">
+	</figure>
+</body>
+           <?php
   include_once('footer.php');
   ?>
       </body>
