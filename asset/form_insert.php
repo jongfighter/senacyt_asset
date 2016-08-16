@@ -126,7 +126,25 @@ $(function() {
         Final de garantía &nbsp;&nbsp;&nbsp;:&nbsp;<input type ="date" name ="asset_guarantee_expired" id = "guarantee_end"> <br>
         Precio de compra &nbsp;:&nbsp;<input type ="number" step="0.01" name ="asset_price" id = "purchase_price"> <br>
         Proveedor &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;<input type ="text" name ="asset_provider" id = "asset_provider">
-      
+        <br>tipo  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<select name='type'>
+            <?php
+            
+            $db_host = "localhost";
+            $db_user = "sa";
+            $db_pw = "vamosit";
+            $db_name = "senacyt_asset";
+            $conn = mssql_connect($db_host, $db_user, $db_pw);
+            mssql_select_db($db_name, $conn);
+            $sql = "select t_id, t_name from dbo.tipo;";
+            $result = mssql_query($sql,$conn);
+             while($row =  mssql_fetch_array($result)){
+                     ?>
+                 <option value='<?php echo $row['t_id']?>'> <?php echo $row['t_name']?></option>
+                   <?php
+                 }
+                 
+                 ?>
+             </select>
        <div> 
             <input type="submit" name ="submit" value = "insert"> &nbsp;&nbsp;
          <button type ="button"  onclick="history.back()"> back </button> 

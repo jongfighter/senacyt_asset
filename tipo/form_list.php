@@ -66,14 +66,13 @@ and open the template in the editor.
             ?>
             <tr>
        
-                <td> <?php echo $row['t_name'];
-                 $a = $row['t_id'];
-                $b = $row['t_name'];?> </td>
-              
+ 
                 <td>
                     <form method ='post' >
-                        <input type="hidden" name ="t_id" value ='<?php echo $a;?>' >
-                        <input type="hidden" name ="t_name" value ='<?php echo $b;?>' >
+                        <input type="hidden" name ="t_id" value ='<?php echo $row['t_id'];?>' >
+                        <?php echo $row['t_name'];?><input type="hidden" name ="t_name" value ='<?php echo $row['t_name'];?>' >
+                        </td>
+                        <td>
                         <input type='submit' name ='submit' value ='modify' formaction = "form_modify.php">
                         <input type='submit' name ='submit' value ='delete' formaction="do_delete.php">
                     </form>
