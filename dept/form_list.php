@@ -33,7 +33,7 @@ and open the template in the editor.
             <input type ='hidden' name ='searchtext' value ='<?php echo $_POST['keyword'];?>'>
             <input type ='hidden' name ='checkvalue' value =<?php echo $_POST['check'];?>>
             <input type ='submit' name ='print' value = 'excel'>
-        </from>
+        </form>
 <?php
             
             $db_host = "localhost";

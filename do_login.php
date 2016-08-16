@@ -23,7 +23,8 @@ if($result[0] != NULL){
 }
 else{
     ?>
-    <meta http-equiv='refresh' content='0;url=index.php'>
+    <script> alert("invalid id or password");</script>
+    <meta http-equiv='refresh' content='0;url=index.html'>
     <?php
 }
 ?>

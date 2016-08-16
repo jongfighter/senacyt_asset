@@ -26,7 +26,7 @@ and open the template in the editor.
 	</figure>
 </body>
            <?php
-  include_once('footer.php');
+
   ?>
       </body>
 </html>
