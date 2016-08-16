@@ -1,3 +1,7 @@
+.image{
+	text-align: center;
+}
+
 .materialize-red {
   background-color: #e51c23 !important;
 }
@@ -2944,12 +2948,31 @@ footer.page-footer {
   background-color: #ee6e73;
 }
 
+footer.page-footer2 {
+  margin-top: 20px;
+  padding-top: 20px;
+  background-color: #ee6e73;
+  width: 100%;
+  position: fixed;
+  bottom: 0px;
+}
+
 footer.page-footer .footer-copyright {
   overflow: hidden;
   height: 50px;
   line-height: 50px;
   color: rgba(255, 255, 255, 0.8);
   background-color: rgba(51, 51, 51, 0.08);
+
+}
+
+footer.page-footer2 .footer-copyright {
+  overflow: hidden;
+  height: 50px;
+  line-height: 50px;
+  color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(51, 51, 51, 0.08);
+
 }
 
 table, th, td {

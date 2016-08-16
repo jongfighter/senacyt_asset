@@ -97,7 +97,7 @@ and open the template in the editor.
 echo "</table>";
  ?>
         
-            
+               <?php include_once '../footer.php';?>   
         </form>
     </body>
 </html>

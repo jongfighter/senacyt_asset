@@ -20,9 +20,9 @@ and open the template in the editor.
        
         include_once("header2.php");
        ?>
-           <body data-spy="scroll" data-target=".navbar" data-offset="50">
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
 	<figure>
-		<img src="image/table.png">
+		<img src="image/table.png" width="1210" height="415"/>
 	</figure>
 </body>
            <?php
