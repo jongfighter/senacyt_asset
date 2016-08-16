@@ -2440,7 +2440,6 @@ samp {
 button,
 input,
 optgroup,
-select,
 textarea {
   color: inherit;
   /* 1 */
@@ -2463,8 +2462,7 @@ button {
  * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
  * Correct `select` style inheritance in Firefox.
  */
-button,
-select {
+button {
   text-transform: none;
 }
 
@@ -6501,22 +6499,16 @@ input[type=checkbox]:not(:disabled).tabbed:focus ~ .lever::after {
 }
 
 /* Select Field
-   ========================================================================== */
-select {
-  display: none;
-}
-
-select.browser-default {
-  display: block;
-}
+ ========================================================================== */
 
 select {
-  background-color: rgba(255, 255, 255, 0.9);
-  width: 100%;
-  padding: 5px;
-  border: 1px solid #f2f2f2;
+  background-color: #E7E7E7;
+  width: 8%;
+  padding: 4px;
+  border: 1px solid #878787;
   border-radius: 2px;
-  height: 3rem;
+  height: 2.2rem;
+  font-family: Montserrat;
 }
 
 .select-label {
@@ -6620,6 +6612,7 @@ select:disabled {
 .select-dropdown li.optgroup ~ li.optgroup-option {
   padding-left: 1rem;
 }
+
 
 /* File Input
    ========================================================================== */

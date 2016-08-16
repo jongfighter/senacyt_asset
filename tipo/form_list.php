@@ -54,6 +54,7 @@ and open the template in the editor.
             }
             $result = mssql_query($sql,$conn);
             ?>
+        
         <table border ="1">
             <tr> 
             

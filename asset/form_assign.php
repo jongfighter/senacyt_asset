@@ -46,7 +46,7 @@ session_start();
     <body>
         <?php        include_once '../header.php';?>
        <form method ="post" action="do_rent.php" id="myform" onsubmit=" return validateForm('myform')"> 
-
+           
              
             <input type = 'hidden' name ='asset_id' value ='<?php echo $row1['asset_id']?>'> 
             
@@ -71,6 +71,7 @@ session_start();
                  }
                  ?>
              </select>
+             <br>
             location : 
             <select name='loc_id'>
             <?php
@@ -83,6 +84,7 @@ session_start();
                  ?>
             
              </select>
+            <br>
             <div>lease date <input type='date' name ='asset_out' value = '<?php echo date("Y-m-d");?>'></div>
             
             

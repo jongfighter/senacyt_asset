@@ -34,7 +34,7 @@ and open the template in the editor.
             <input type ='hidden' name ='searchtext' value ='<?php echo $_POST['keyword'];?>'>
             <input type ='hidden' name ='checkvalue' value =<?php echo $_POST['check'];?>>
             <input type ='submit' name ='print' value = 'excel'>
-        </from>
+        </form>
 
         <?php  
             $delay_day = 3;
@@ -115,7 +115,27 @@ asset_desc _description,
 		 from Asset A inner join Person P on A.p_id = P.p_id inner join Loc L on L.loc_id= A.loc_id inner join Department D on D.dept_id = P.dept_id ;";
             }
             $result = mssql_query($sql,$conn);
+            $sql_tipo = "select * from dbo.tipo;";
+            $result_tipo = mssql_query($sql_tipo, $conn);
             ?>
+        <br>
+        
+        <form method='post' action='form_list.php'>
+            <select name='tipo'>
+            <?php
+            while($row_tipo = mssql_fetch_array($result_tipo)){
+                echo $row_tipo['t_id'];
+                ?>
+                <option value="<?php echo $row_tipo['t_id'];?>"> <?php echo $row_tipo['t_name']; ?> </option>
+                
+                <?php
+            }
+            ?>
+            </select>    
+            <input type='submit' name='sub' value='type search'>
+            
+        </form>
+
                 
         <table border ='10'>
             <th>barcode</th>
