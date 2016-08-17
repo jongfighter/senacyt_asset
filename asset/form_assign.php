@@ -41,32 +41,46 @@ session_start();
     <head>
         <meta charset="UTF-8">
         <title></title>
+          <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+
+  <!--  Scripts-->
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/materialize.js"></script>
+  <script src="../js/init.js"></script>
+
+  
+  <!-- CSS  -->
+  <link href="../fonts/material_icons.woff" rel="stylesheet">
+  <link href="../fonts/montserrat.woff" rel="stylesheet" type="text/css">
+  <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
         <script type="text/javascript" src="../chk.js"></script>
     </head>
     <body>
         <?php        include_once '../header.php';?>
-       <form method ="post" action="do_rent.php" id="myform" onsubmit=" return validateForm('myform')"> 
+       <form method ="post" id="myform" onsubmit=" return validateForm('myform')"> 
            
              
             <input type = 'hidden' name ='asset_id' value ='<?php echo $row1['asset_id']?>'> 
             
-             barcode : <input type ="text" name ="asset_barcode" value = "<?php echo $row1['asset_barcode']?>" disabled>   <br>
-             description : <input type ="text" name ="asset_desc" value = "<?php echo $row1['asset_desc']?>" disabled>  <br>
-             brand : <input type ="text" name ="asset_brand" value = "<?php echo $row1['asset_brand']?>" disabled >  <br>
-             model : <input type ="text" name ="asset_model" value = "<?php echo $row1['asset_model']?>"  disabled >  <br>
-             serial : <input type ="text" name ="asset_serial" value = "<?php echo $row1['asset_serial']?>" disabled>  <br>
-             details : <input type ="text" name ="asset_details" value = "<?php echo $row1['asset_details']?>" disabled>  <br>
-             bought date : <input type ="date" name ="asset_bought_date" value = "<?php echo $row1['asset_bought_date']?>" disabled>  <br>
-             gurantee end : <input type ="date" name ="asset_guarantee_expired" value = "<?php echo $row1['asset_guarantee_expired']?>" disabled>  <br>
-             purchase price : <input type ="number" step="0.01" name ="asset_price" value = "<?php echo $row1['asset_price']?>" disabled>  <br>
-             provider : <input type ="text" name ="asset_provider" value = "<?php echo $row1['asset_provider']?>" disabled >  <br>
+             barcode : <?php echo $row1['asset_barcode']?> <input type ="hidden" name ="asset_barcode" value = "<?php echo $row1['asset_barcode']?>" >   <br>
+             description : <?php echo $row1['asset_desc']?>"> <input type ="hidden" name ="asset_desc" value = "<?php echo $row1['asset_desc']?>" >  <br>
+             brand : <?php echo $row1['asset_brand']?> <input type ="hidden"  name ="asset_brand" value = "<?php echo $row1['asset_brand']?>"  >  <br>
+             model :<?php echo $row1['asset_model']?> <input type ="hidden"  name ="asset_model" value = "<?php echo $row1['asset_model']?>"   >  <br>
+             serial : <?php echo $row1['asset_serial']?><input type ="hidden"  name ="asset_serial" value = "<?php echo $row1['asset_serial']?>" >  <br>
+             details :<?php echo $row1['asset_details']?> <input type ="hidden"  name ="asset_details" value = "<?php echo $row1['asset_details']?>" >  <br>
+             bought date : <?php echo $row1['asset_bought_date']?><input type ="hidden" name ="asset_bought_date" value = "<?php echo $row1['asset_bought_date']?>" >  <br>
+             gurantee end : <?php echo $row1['asset_guarantee_expired']?> <input type ="hidden" name ="asset_guarantee_expired" value = "<?php echo $row1['asset_guarantee_expired']?>">  <br>
+             purchase price : <?php echo $row1['asset_price']?><input type ="hidden"  step="0.01" name ="asset_price" value = "<?php echo $row1['asset_price']?>">  <br>
+             provider : <?php echo $row1['asset_provider']?><input type ="hidden"  name ="asset_provider" value = "<?php echo $row1['asset_provider']?>" >  <br>
              person who is assigned to :
              <select name ='p_id'>
                  <?php
                     mssql_fetch_array($result_person);
                  while($row2 =  mssql_fetch_array($result_person)){
                      ?>
-                 <option value='<?php echo $row2['p_id']?>'> <?php echo $row2['p_name']?></option>
+                 <option value='<?php echo $row2['p_id']?>'> <?php echo $row2['p_name']." ".$row2['p_lastname']?></option>
                  <?php
                  }
                  ?>
@@ -85,12 +99,13 @@ session_start();
             
              </select>
             <br>
-            <div>lease date <input type='date' name ='asset_out' value = '<?php echo date("Y-m-d");?>'></div>
+            <div>lease date <input type='date' name ='asset_out' class="datepicker" value = '<?php echo date("Y-m-d"); ?>'></div>
             
             
              <div>
                  
-                 <input type="submit" name ="optype" value = "assign" >
+                 <input type="submit" name ="optype" value = "assign"  formaction="do_rent.php" >
+                 <input type="submit" name ="excel" value = "excel" formaction="print_excel2.php">
             </div>
         </form>
         
@@ -98,3 +113,46 @@ session_start();
         <?php include_once '../footer.php';?>
     </body>
 </html>
+<script>
+  
+    $('.datepicker').pickadate({
+		selectMonths: true, // Creates a dropdown to control month
+		selectYears: 15 // Creates a dropdown of 15 years to control year
+	});
+  
+	$(document)
+	.ready(function(){
+        // Add smooth scrolling to all links in navbar + footer link
+        $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+            // Make sure this.hash has a value before overriding default behavior
+            if (this.hash !== "") {
+                // Prevent default anchor click behavior
+                event.preventDefault();
+
+                // Store hash
+                var hash = this.hash;
+
+                // Using jQuery's animate() method to add smooth page scroll
+                // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+                $('html, body').animate({
+                    scrollTop: $(hash).offset().top
+                }, 900, function(){
+
+                    // Add hash (#) to URL when done scrolling (default click behavior)
+                    window.location.hash = hash;
+                });
+            } // End if
+        });
+
+        $(window).scroll(function() {
+            $(".slideanim").each(function(){
+                var pos = $(this).offset().top;
+
+                var winTop = $(window).scrollTop();
+                if (pos < winTop + 600) {
+                    $(this).addClass("slide");
+                }
+            });
+        });
+    })
+	</script>

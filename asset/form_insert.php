@@ -9,107 +9,40 @@ session_cache_limiter('nocache, must-revalidate');
 <script>alert("no access right");</script>
 <meta http-equiv="refresh" content="0;url=../main.php">
 <?php
-    }
+
+
+}
         
 ?>
 
 <html>
-    <head>
-        
-        
-        <meta charset="UTF-8">
-        <title></title>
-        <script src="../js/jquery-3.1.0.min.js"></script>
-        <script src="../js/jquery-ui.min.js"></script>
-        <link rel="stylesheet" type='text/css' href='../js/jquery-ui.min.css'>
-        
-                
-        <script>
-            
-$(function() {
-  $( "#guarantee_end" ).datepicker({
-    dateFormat: 'yy-mm-dd',
+   <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
 
-    
-  });
-});
-</script>
-        <script type = "text/javascript">
-               function isNull(text){
-                      if(text==null||text==""){
-                          return true;
-                      }
-                      else{
-                          return false;
-                      }
-                  }
-              function chk(){
+  <!--  Scripts-->
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/materialize.js"></script>
+  <script src="../js/init.js"></script>
 
-                  var barcode = document.getElementById("barcode").value;     
-                  var desc = document.getElementById("desc").value;
-                  var brand = document.getElementById("brand").value;
-                  var model = document.getElementById("model").value;
-                  var serial = document.getElementById("serial").value;
-                  var purchase = document.getElementById("purchase_date").value;
-                  var guarantee = document.getElementById("guarantee_end").value;
-                  var price = document.getElementById("purchase_price").value;
-                  var provider = document.getElementById("asset_provider").value;
-                  
-                  if(isNull(barcode)){
-                      alert("invalid barcode");
-                      
-                      
-                      return false;
-                  }
-                  if(isNull(desc)){
-                      alert("invalid description");
-                      return false;
-                  }
-                  if(isNull(brand)){
-                      alert("invalid brand");                      
-                      return false;
-                  }
-                  if(isNull(model)){
-                      alert("invalid model");   
-                      return false;
-                  }
-                  if(isNull(serial)){
-                      
-                      alert("invalid serial");   
-                      return false;
-                  }
-                  if(isNull(purchase)){
-                      alert("invalid purchase date");  
-                      return false;
-                  }
-                  if(isNull(guarantee)){
-                      alert("invalid guarantee date");  
-                      return false;
-                  }
-                  if(isNull(price)){
-                      alert("invalid price");  
-                      return false;
-                  }
-                  if(isNull(provider)){
-                      alert("invalid provider name");  
-                      return false;
-                  }
-                  return true;
-                  
-                  
-                  
-              }
+  
+  <!-- CSS  -->
+  <link href="../fonts/material_icons.woff" rel="stylesheet">
+  <link href="../fonts/montserrat.woff" rel="stylesheet" type="text/css">
+  <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+   <script type="text/javascript" src="../chk.js"></script>
+
                 
             
             
        
-        </script>
-            
+                  
     </head>
     
     <body>
         <?php include_once("../header.php");?>
-        <form method ="post" action ="do_insert.php" onsubmit = "return chk()">
+        <form method ="post" action ="do_insert.php" onsubmit="return validateForm('myform')">
              
        
 <!-- table -->
@@ -122,10 +55,11 @@ $(function() {
         Modelo &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;<input type ="text" name ="asset_model" id = "model"> <br>
         Serie &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;<input type ="text" name ="asset_serial" id = "serial">  <br>
         Detalles &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;<input type ="text" name ="asset_details" id = "details"> <br>
-        Día de compra &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;<input type ="date" name ="asset_bought_date" id = "purchase_date"> <br>
-        Final de garantía &nbsp;&nbsp;&nbsp;:&nbsp;<input type ="date" name ="asset_guarantee_expired" id = "guarantee_end"> <br>
+        Día de compra &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;<input type ="date" class="datepicker" name ="asset_bought_date" id = "purchase_date"> <br>
+        Final de garantía &nbsp;&nbsp;&nbsp;:&nbsp;<input type ="date" class="datepicker" name ="asset_guarantee_expired" id = "guarantee_end"> <br>
         Precio de compra &nbsp;:&nbsp;<input type ="number" step="0.01" name ="asset_price" id = "purchase_price"> <br>
         Proveedor &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;<input type ="text" name ="asset_provider" id = "asset_provider">
+	
         <br>tipo  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<select name='type'>
             <?php
             
@@ -154,5 +88,48 @@ $(function() {
 </body>
 <!-- end -->
         <?php include_once '../footer.php';?>
+ <script>
+  
+    $('.datepicker').pickadate({
+		selectMonths: true, // Creates a dropdown to control month
+		selectYears: 15 // Creates a dropdown of 15 years to control year
+	});
+  
+	$(document)
+	.ready(function(){
+        // Add smooth scrolling to all links in navbar + footer link
+        $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+            // Make sure this.hash has a value before overriding default behavior
+            if (this.hash !== "") {
+                // Prevent default anchor click behavior
+                event.preventDefault();
+
+                // Store hash
+                var hash = this.hash;
+
+                // Using jQuery's animate() method to add smooth page scroll
+                // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+                $('html, body').animate({
+                    scrollTop: $(hash).offset().top
+                }, 900, function(){
+
+                    // Add hash (#) to URL when done scrolling (default click behavior)
+                    window.location.hash = hash;
+                });
+            } // End if
+        });
+
+        $(window).scroll(function() {
+            $(".slideanim").each(function(){
+                var pos = $(this).offset().top;
+
+                var winTop = $(window).scrollTop();
+                if (pos < winTop + 600) {
+                    $(this).addClass("slide");
+                }
+            });
+        });
+    })
+	</script>
     </body>
 </html>

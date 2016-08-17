@@ -42,8 +42,23 @@ session_cache_limiter('nocache, must-revalidate');
 <html>
     <head>
 
-        <meta charset="UTF-8">
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+
+  <!--  Scripts-->
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/materialize.js"></script>
+  <script src="../js/init.js"></script>
+
+  
+  <!-- CSS  -->
+  <link href="../fonts/material_icons.woff" rel="stylesheet">
+  <link href="../fonts/montserrat.woff" rel="stylesheet" type="text/css">
+  <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
         <title></title>
+        
         <script type="text/javascript" src="../chk.js"></script>
     </head>
     <body>
@@ -74,7 +89,7 @@ session_cache_limiter('nocache, must-revalidate');
               
                  while($row2 =  mssql_fetch_array($result_person)){
                      ?>
-                 <option value='<?php echo $row2['p_id']?>'> <?php echo $row2['p_name']?></option>
+                 <option value='<?php echo $row2['p_id']?>'> <?php echo $row2['p_name']." ".$row2['p_lastname'];?></option>
                  <?php
                  }
                  ?>
@@ -93,8 +108,8 @@ session_cache_limiter('nocache, must-revalidate');
                  ?>
             
             </select>
-            <div>lease date <input type='date' name ='asset_out' value = '<?php echo date("Y-m-d");?>'required > </div>
-            <div> return date <input type ='date' name ='asset_in' value = '<?php echo date("Y-m-d");?>'required>  </div>
+            <div>lease date <input type='date' name ='asset_out' class="datepicker" value = '<?php echo date("Y-m-d");?>'required > </div>
+            <div> return date <input type ='date' name ='asset_in' class="datepicker" value = '<?php echo date("Y-m-d");?>'required>  </div>
             
              <div>
                  
@@ -105,3 +120,47 @@ session_cache_limiter('nocache, must-revalidate');
         <?php include_once '../footer.php';?>
     </body>
 </html>
+
+<script>
+  
+    $('.datepicker').pickadate({
+		selectMonths: true, // Creates a dropdown to control month
+		selectYears: 15 // Creates a dropdown of 15 years to control year
+	});
+  
+	$(document)
+	.ready(function(){
+        // Add smooth scrolling to all links in navbar + footer link
+        $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+            // Make sure this.hash has a value before overriding default behavior
+            if (this.hash !== "") {
+                // Prevent default anchor click behavior
+                event.preventDefault();
+
+                // Store hash
+                var hash = this.hash;
+
+                // Using jQuery's animate() method to add smooth page scroll
+                // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+                $('html, body').animate({
+                    scrollTop: $(hash).offset().top
+                }, 900, function(){
+
+                    // Add hash (#) to URL when done scrolling (default click behavior)
+                    window.location.hash = hash;
+                });
+            } // End if
+        });
+
+        $(window).scroll(function() {
+            $(".slideanim").each(function(){
+                var pos = $(this).offset().top;
+
+                var winTop = $(window).scrollTop();
+                if (pos < winTop + 600) {
+                    $(this).addClass("slide");
+                }
+            });
+        });
+    })
+	</script>

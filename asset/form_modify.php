@@ -40,73 +40,8 @@ session_cache_limiter('nocache, must-revalidate');
     <head>
         <meta charset="UTF-8">
         <title></title>
-       <script type = "text/javascript">
-               function isNull(text){
-                      if(text==null||text==""){
-                          return true;
-                      }
-                      else{
-                          return false;
-                      }
-                  }
-              function chk(){
-
-                  var barcode = document.getElementById("barcode").value;     
-                  var desc = document.getElementById("desc").value;
-                  var brand = document.getElementById("brand").value;
-                  var model = document.getElementById("model").value;
-                  var serial = document.getElementById("serial").value;
-                  var purchase = document.getElementById("purchase_date").value;
-                  var guarantee = document.getElementById("guarantee_end").value;
-                  var price = document.getElementById("purchase_price").value;
-                  var provider = document.getElementById("asset_provider").value;
-                  
-                  if(isNull(barcode)){
-                      alert("invalid barcode");
-                      return false;
-                  }
-                  if(isNull(desc)){
-                      alert("invalid description");
-                      return false;
-                  }
-                  if(isNull(brand)){
-                      alert("invalid brand");                      
-                      return false;
-                  }
-                  if(isNull(model)){
-                      alert("invalid model");   
-                      return false;
-                  }
-                  if(isNull(serial)){
-                      alert("invalid serial");   
-                      return false;
-                  }
-                  if(isNull(purchase)){
-                      alert("invalid purchase date");  
-                      return false;
-                  }
-                  if(isNull(guarantee)){
-                      alert("invalid guarantee date");  
-                      return false;
-                  }
-                  if(isNull(price)){
-                      alert("invalid price");  
-                      return false;
-                  }
-                  if(isNull(provider)){
-                      alert("invalid provider name");  
-                      return false;
-                  }
-                  return true;
-                  
-                  
-                  
-              }
-                
-            
-            
        
-        </script>  
+       <script type="text/javascript" src="../chk.js"></script>
         
     </head>
     

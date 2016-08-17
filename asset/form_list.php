@@ -19,6 +19,7 @@ and open the template in the editor.
             include_once("../header.php");
             include_once ("../form_search.html");
 ?>
+   
         <?php 
         
         if($_SESSION['user_id']=='admin'){
@@ -30,6 +31,7 @@ and open the template in the editor.
 <?php
         }   
         ?>
+    
         <form method ='post' action="../do_export_excel.php">
             <input type ='hidden' name ='searchtext' value ='<?php echo $_POST['keyword'];?>'>
             <input type ='hidden' name ='checkvalue' value =<?php echo $_POST['check'];?>>
@@ -73,10 +75,10 @@ and open the template in the editor.
 		from Asset A inner join tipo T on T.t_id = A.t_id inner join Person P on A.p_id = P.p_id inner join Loc L on L.loc_id= A.loc_id inner join Department D on D.dept_id = P.dept_id where L.loc_building like '%".$p_name."%' or  asset_brand  like '%".$p_name."%' or asset_desc like '%".$p_name."%'"
                         . " or asset_barcode like '%".$p_name."%'";
             }
-            else if(isset($_POST['tipo'])){
+            else if(isset($_POST['tipo'])&&$_POST['tipo']!='basicoption'){
                 
                 $p_name = $_POST['tipo'];
-                
+
                 $sql = $sql."select asset_id, 
                 t_name tipo,
                 asset_barcode barcode, 
@@ -154,6 +156,7 @@ asset_desc _description,
         
         type search : <form method='post' action='form_list.php'>
             <select name='tipo'>
+                <option value='basicoption'> all </option>
             <?php
             while($row_tipo = mssql_fetch_array($result_tipo)){
                 
@@ -164,13 +167,13 @@ asset_desc _description,
             }
             ?>
             </select>    
-            <input type ='hidden' name ='check' value =2>
+          
             <input type='submit' name='sub' value='type search'>
             
         </form>
 
                 
-        <table border ='10'>
+        <table>
             <th>barcode</th>
             <th>tipo </th>
             <th>description</th>

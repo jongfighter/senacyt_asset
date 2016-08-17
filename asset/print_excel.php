@@ -53,26 +53,27 @@ $db_host = "localhost";
             $db_name = "senacyt_asset";
             $conn = mssql_connect($db_host, $db_user, $db_pw);
             mssql_select_db($db_name, $conn);
-            $p_sql ="select p_name from dbo.person where p_id = {$p_id}";
+            $p_sql ="select p_name, p_lastname from dbo.person where p_id = {$p_id}";
             $p_res = mssql_query($p_sql,$conn);
             $loc_bf_sql = "select * from dbo.loc where loc_id={$loc_bf}";
             $loc_bf_res = mssql_query($loc_bf_sql, $conn);
             $loc_ft_sql ="select * from dbo.loc where loc_id={$loc_ft}";
             $loc_ft_res = mssql_query($loc_ft_sql, $conn);
-$p_row = mssql_fetch_array($p_res);
-$loc_bf_row = mssql_fetch_array($loc_bf_res);
-$loc_ft_row = mssql_fetch_array($loc_ft_res);
+            $p_row = mssql_fetch_array($p_res);
+            $loc_bf_row = mssql_fetch_array($loc_bf_res);
+            $loc_ft_row = mssql_fetch_array($loc_ft_res);
             
 
 $x_curr= $loc_bf_row['loc_building']." ".$loc_bf_row['loc_floor']." ".$loc_bf_row['loc_desc'];
 
 $x_future = $loc_ft_row['loc_building']." ".$loc_ft_row['loc_floor']." ".$loc_ft_row['loc_desc'];
-$x_person = $p_row['p_name'];
+$x_person = $p_row['p_name']." ".$p_row['p_lastname'];
 // -----------------
 // Load the template
 // -----------------
 
 $template = '../FormulariodePrestamosdeEquipo.xlsx';
+
 $TBS->LoadTemplate($template, OPENTBS_ALREADY_UTF8); // Also merge some [onload] automatic fields (depends of the type of document).
 
 // ----------------------
