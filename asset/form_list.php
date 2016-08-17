@@ -174,6 +174,7 @@ asset_desc _description,
 
                 
         <table>
+           <tr class="tablecolor">
             <th>barcode</th>
             <th>tipo </th>
             <th>description</th>
@@ -211,6 +212,7 @@ asset_desc _description,
 $unhandled = 3; //define checking period;
 while($row = mssql_fetch_array($result)) {
 ?>
+	</tr>
             <tr>
                 <td id="centro"><?php echo $row['barcode'];?></td>
                 <td id="centro"><?php echo $row['tipo'];?></td>
