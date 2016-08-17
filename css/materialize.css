@@ -2596,16 +2596,12 @@ optgroup {
  */
 table {
   border-collapse: collapse;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #FF0000;
   border-spacing: 0;
 }
 
 td,
 th {
   padding: 0;
-border:1px solid red;
 }
 
 html {
@@ -2959,8 +2955,15 @@ footer.page-footer .footer-copyright {
 
 }
 
+.tablecolor{
+	background-color: #CEEAF9;
+}
+
 table, th, td {
-  border: none;
+  border-top: 1px solid #000;
+  border-right: 1px solid #000;
+  border-bottom: 1px solid #000;
+  border-left: 1px solid #000;
 }
 
 table {
