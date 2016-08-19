@@ -6718,7 +6718,7 @@ DatePicker.defaults = (function( prefix ) {
 
         // Today and clear
         today: 'Hoy',
-        clear: 'limpiar',
+        clear: 'Claro',
         close: 'X',
 
         // The format to show on the `input` element
