@@ -2962,15 +2962,15 @@ footer.page-footer .footer-copyright {
 }
 
 table, th, td {
+  margin-left: 35px;
   border-top: 1px solid #000;
   border-right: 1px solid #000;
   border-bottom: 1px solid #000;
   border-left: 1px solid #000;
-   text-align: center;
+  text-align: center;
 }
 
 table {
-  width: 100%;
   display: table;
   text-align: center;
 }
@@ -3011,6 +3011,10 @@ td, th {
   vertical-align: middle;
   border-radius: 2px;
   text-align: center;
+}
+
+td.tablecolor{
+	padding: 5px 5px;
 }
 
 @media only screen and (max-width: 992px) {
@@ -3421,8 +3425,8 @@ input[type=range] + .thumb {
 }
 
 .container2{
-	margin-top: 3px;
 	margin-left: 35px;
+	margin-top: 3px;
 	max-width: 1280px;
 	min-width: 900px;
 	width: 90%;
