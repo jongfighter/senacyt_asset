@@ -173,7 +173,7 @@ asset_desc _description,
         </form>
 
                 
-        <table>
+        <table class="marginleft">
            <tr class="tablecolor">
             <th>Placa</th>
             <th>Tipo </th>
