@@ -54,10 +54,10 @@ and open the template in the editor.
             $result = mssql_query($sql,$conn);
 ?>
         <table border='1'>
-            <tr>
-                <th>departamento</th>
-                <th>ubicación</th>
-                    
+            <tr class="tablecolor">
+                <th>Departamento</th>
+                <th>Ubicación</th>
+                <th>Admin</th>   
             </tr>
     <?php
 
@@ -81,7 +81,7 @@ and open the template in the editor.
         echo '<input type ="hidden" name = "dept_id" value = "'.$arraypass[0].'">';
         echo '<input type ="hidden" name = "dept_name" value = "'.$arraypass[1].'">';
         echo'<input type ="hidden" name = "dept_location" value = "'.$arraypass[2].'">';
-        echo '<input type="submit" name ="submit" value = "modify" > ';
+        echo '<input type="submit" name ="submit" value = "modificar" > ';
         echo '</form> ';
         ?>
         <form method="post" action ="do_delete.php">

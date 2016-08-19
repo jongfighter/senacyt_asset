@@ -154,9 +154,9 @@ asset_desc _description,
             ?>
         <br>
         
-        busca tipos : <form method='post' action='form_list.php'>
+       Buscar tipos : <form method='post' action='form_list.php'>
             <select name='tipo'>
-                <option value='basicoption'> todo </option>
+                <option value='basicoption'> Todo </option>
             <?php
             while($row_tipo = mssql_fetch_array($result_tipo)){
                 
@@ -168,37 +168,37 @@ asset_desc _description,
             ?>
             </select>    
           
-            <input type='submit' name='sub' value='busca'>
+            <input type='submit' name='sub' value='buscar'>
             
         </form>
 
                 
         <table>
            <tr class="tablecolor">
-            <th>placa</th>
-            <th>tipo </th>
-            <th>descripción</th>
-            <th>marca</th>
-            <th>modelo</th>
-            <th>serial</th>
-            <th>detalles</th>
-            <th>día de compra</th>
-            <th>final de garantía </th>
-            <th>salir activo</th>
-            <th>entrar activo</th>
-            <th>precio de compra</th>
-            <th>proveedor</th>
-            <th>funcionario</th>
-            <th>departamento</th>
-            <th>ubicación</th>
-            <th> posible </th>
+            <th>Placa</th>
+            <th>Tipo </th>
+            <th>Descripción</th>
+            <th>Marca</th>
+            <th>Modelo</th>
+            <th>Serial</th>
+            <th>Detalles</th>
+            <th>Día de compra</th>
+            <th>Final de garantía </th>
+            <th>Salir activo</th>
+            <th>Entrar activo</th>
+            <th>Precio de compra</th>
+            <th>Proveedor</th>
+            <th>Funcionario</th>
+            <th>Departamento</th>
+            <th>Ubicación</th>
+            <th>Posible </th>
             
            
             <?php
             if($_SESSION['user_id']=='admin'){
             ?>
-            <th>última modificación</th>
-            <th> admin </th>
+            <th>Última modificación</th>
+            <th> Admin </th>
             <?php }?>
             
             

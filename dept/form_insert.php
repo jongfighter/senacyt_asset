@@ -59,18 +59,18 @@ session_cache_limiter('nocache, must-revalidate');
         
          <form method ="post"  action ='do_insert.php' onsubmit ="return chk()" >
              <div>
-                 departamento : <input type ="text" name ="dept_name" id = 'name'>
+                 Departamento : <input type ="text" name ="dept_name" id = 'name'>
              </div>
              <div>
-                 ubicación  : <input type ="text" name ="dept_loc" id = 'loc'>
+                 Ubicación  : <input type ="text" name ="dept_loc" id = 'loc'>
              </div>
              <div>
-                 <input type="submit" name ="submit" value = "insert" >
+                 <input type="submit" name ="submit" value = "insertar" >
                  
             </div>
              
         </form>
-             <button type ="button"  onclick="history.back()"> back </button>
+             <button type ="button"  onclick="history.back()"> volver </button>
              <?php include_once '../footer.php';?>
     </body>
     

@@ -25,7 +25,7 @@ session_cache_limiter('nocache, must-revalidate');
         <?php
         
         include_once("../header.php");
-        include_once ("../form_search.html");
+        
         
         // put your code here
         
@@ -42,13 +42,13 @@ session_cache_limiter('nocache, must-revalidate');
         
         <input type='hidden' name = 'loc_id' value = '<?php echo $locid;?>' >
         
-       <br> building : <input type='text' name='loc_building' value = '<?php echo $locbuild; ?>'>
-      <br>floor  : <input type='text' name='loc_floor' value = '<?php echo $locfloor; ?>'>
-        <br> description : <input type='text' name='loc_desc' value = '<?php echo $locdesc;?>'>
-        <br><input type='submit' name='submit' value = 'submit'>
+       <br> Edificio : <input type='text' name='loc_building' value = '<?php echo $locbuild; ?>'>
+      <br> Piso  : <input type='text' name='loc_floor' value = '<?php echo $locfloor; ?>'>
+        <br> Descripción : <input type='text' name='loc_desc' value = '<?php echo $locdesc;?>'>
+        <br><input type='submit' name='submit' value = 'confirmar'>
        
         </form>
-        <button type ="button"  onclick="history.back()"> back </button>
+        <button type ="button"  onclick="history.back()"> volver </button>
         
     </body>
 </html>

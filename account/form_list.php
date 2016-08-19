@@ -49,11 +49,11 @@ and open the template in the editor.
             echo "<table border='1'><tr>";
             
         ?>
-                <table border='1'><tr>
-                        <th>apellido</th>
-                        <th>nombre</th>
-                        <th>id</th>
-                        <th>admin</th>
+                <table border='1'> <tr class="tablecolor">
+                        <th>Apellido</th>
+                        <th>Nombre</th>
+                        <th>ID</th>
+                        <th>Admin</th>
             
                         
             

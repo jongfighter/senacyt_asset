@@ -64,17 +64,17 @@ session_start();
              
             <input type = 'hidden' name ='asset_id' value ='<?php echo $row1['asset_id']?>'> 
             
-             placa : <?php echo $row1['asset_barcode']?> <input type ="hidden" name ="asset_barcode" value = "<?php echo $row1['asset_barcode']?>" >   <br>
-             descripción : <?php echo $row1['asset_desc']?>"> <input type ="hidden" name ="asset_desc" value = "<?php echo $row1['asset_desc']?>" >  <br>
-             marca : <?php echo $row1['asset_brand']?> <input type ="hidden"  name ="asset_brand" value = "<?php echo $row1['asset_brand']?>"  >  <br>
-             modelo :<?php echo $row1['asset_model']?> <input type ="hidden"  name ="asset_model" value = "<?php echo $row1['asset_model']?>"   >  <br>
-             serial : <?php echo $row1['asset_serial']?><input type ="hidden"  name ="asset_serial" value = "<?php echo $row1['asset_serial']?>" >  <br>
-             detalles :<?php echo $row1['asset_details']?> <input type ="hidden"  name ="asset_details" value = "<?php echo $row1['asset_details']?>" >  <br>
-             día de compras : <?php echo $row1['asset_bought_date']?><input type ="hidden" name ="asset_bought_date" value = "<?php echo $row1['asset_bought_date']?>" >  <br>
-             final de garantía : <?php echo $row1['asset_guarantee_expired']?> <input type ="hidden" name ="asset_guarantee_expired" value = "<?php echo $row1['asset_guarantee_expired']?>">  <br>
-             precio de compras : <?php echo $row1['asset_price']?><input type ="hidden"  step="0.01" name ="asset_price" value = "<?php echo $row1['asset_price']?>">  <br>
-             proveedor : <?php echo $row1['asset_provider']?><input type ="hidden"  name ="asset_provider" value = "<?php echo $row1['asset_provider']?>" >  <br>
-             funcionario quien se asigna :
+             Placa : <?php echo $row1['asset_barcode']?> <input type ="hidden" name ="asset_barcode" value = "<?php echo $row1['asset_barcode']?>" >   <br>
+             Descripción : <?php echo $row1['asset_desc']?> <input type ="hidden" name ="asset_desc" value = "<?php echo $row1['asset_desc']?>" >  <br>
+             Marca : <?php echo $row1['asset_brand']?> <input type ="hidden"  name ="asset_brand" value = "<?php echo $row1['asset_brand']?>"  >  <br>
+             Modelo :<?php echo $row1['asset_model']?> <input type ="hidden"  name ="asset_model" value = "<?php echo $row1['asset_model']?>"   >  <br>
+             Serial : <?php echo $row1['asset_serial']?><input type ="hidden"  name ="asset_serial" value = "<?php echo $row1['asset_serial']?>" >  <br>
+             Detalles :<?php echo $row1['asset_details']?> <input type ="hidden"  name ="asset_details" value = "<?php echo $row1['asset_details']?>" >  <br>
+             Día de compras : <?php echo $row1['asset_bought_date']?><input type ="hidden" name ="asset_bought_date" value = "<?php echo $row1['asset_bought_date']?>" >  <br>
+             Final de garantía : <?php echo $row1['asset_guarantee_expired']?> <input type ="hidden" name ="asset_guarantee_expired" value = "<?php echo $row1['asset_guarantee_expired']?>">  <br>
+             Precio de compras : <?php echo $row1['asset_price']?><input type ="hidden"  step="0.01" name ="asset_price" value = "<?php echo $row1['asset_price']?>">  <br>
+             Proveedor : <?php echo $row1['asset_provider']?><input type ="hidden"  name ="asset_provider" value = "<?php echo $row1['asset_provider']?>" >  <br>
+             Funcionario quien se asigna :
              <select name ='p_id'>
                  <?php
                     mssql_fetch_array($result_person);
@@ -86,7 +86,7 @@ session_start();
                  ?>
              </select>
              <br>
-            ubicación : 
+            Ubicación : 
             <select name='loc_id'>
             <?php
                  
@@ -104,12 +104,12 @@ session_start();
             
              <div>
                  
-                 <input type="submit" name ="optype" value = "assign"  formaction="do_rent.php" >
+                 <input type="submit" name ="optype" value = "asignar"  formaction="do_rent.php" >
                  <input type="submit" name ="excel" value = "excel" formaction="print_excel2.php">
             </div>
         </form>
         
-<button type ="button"  onclick="history.back()"> back </button>
+<button type ="button"  onclick="history.back()"> volver </button>
         <?php include_once '../footer.php';?>
     </body>
 </html>

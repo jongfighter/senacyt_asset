@@ -25,8 +25,7 @@ session_cache_limiter('nocache, must-revalidate');
         <?php
         
         include_once("../header.php");
-        include_once ("../form_search.html");
-        
+     
         // put your code here
         
         $t_id = $_POST['t_id'];
@@ -37,11 +36,11 @@ session_cache_limiter('nocache, must-revalidate');
       ?>
         <form method ="post" action="do_modify.php" id="myform" name='myform' onsubmit ="return validateForm('myform');"> 
         <input type='hidden' name = 't_id' value = '<?php echo $t_id;?>' >
-        <br> type name : <input type='text' name='t_name' value = '<?php echo $t_name; ?>'>
-        <br><input type='submit' name='submit' value = 'submit'>
+        <br> Tipo: <input type='text' name='t_name' value = '<?php echo $t_name; ?>'>
+        <br><input type='submit' name='submit' value = 'confirmar'>
        
         </form>
-        <button type ="button"  onclick="history.back()"> back </button>
+        <button type ="button"  onclick="history.back()"> volver </button>
         
     </body>
 </html>

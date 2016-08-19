@@ -35,7 +35,7 @@ session_cache_limiter('nocache, must-revalidate');
     <body>
         <?php
         include_once("../header.php");
-        include_once ("../form_search.html");
+
         
         // put your code here
         $pid = $_POST['p_id'];
@@ -49,11 +49,13 @@ session_cache_limiter('nocache, must-revalidate');
         <form method ="post" action="do_modify.php" id="myform" onsubmit ="return validateForm('myform');"> 
              <div>
                  <input type ='hidden' name ='person_id' value = '<?php echo $pid?>'>
-                 apellido: <input type ="text" name ="person_lastname" id = 'p_lastname' value = '<?php echo $plastname ?>'>
-                 nombre : <input type ="text" name ="person_name" id = 'p_name' value = '<?php echo $pname ?>'>
-             </div>
+                 Apellido: <input type ="text" name ="person_lastname" id = 'p_lastname' value = '<?php echo $plastname ?>'>
+                 </div>
+            <div>
+                 Nombre : <input type ="text" name ="person_name" id = 'p_name' value = '<?php echo $pname ?>'>
+            </div>
              <div>
-                      departamento : <select name ='dept_name' id = 'dept_name' selected = '<?php echo $deptname; ?>'>
+                      Departamento : <select name ='dept_name' id = 'dept_name' selected = '<?php echo $deptname; ?>'>
                  <?php
                  while($row =  mssql_fetch_array($result)){
                      ?>
@@ -66,12 +68,12 @@ session_cache_limiter('nocache, must-revalidate');
                  
              </div>
              <div>
-                 <input type="submit" name ="submit" value = "modify" onclick="return chk()">
+                 <input type="submit" name ="submit" value = "modificar" onclick="return chk()">
                  
             </div>
             
         </form>
-        <button type ="button"  onclick="history.back()"> back </button>
+        <button type ="button"  onclick="history.back()"> volver </button>
         <?php include_once '../footer.php';?>
     </body>
 </html>

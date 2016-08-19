@@ -23,10 +23,10 @@
                                             <li><a href="../main.php">Página Inicial</a></li>
 						
 					
-						<li><a href="asset_log.php">asset log</a></li>
-						<li><a href="dept_log.php">department log</a></li>
-						<li><a href="loc_log.php">location log</a></li>
-						<<li><a href="person_log.php">person log</a></li>
+						<li><a href="asset_log.php">Reportes de activo</a></li>
+						<li><a href="dept_log.php">Reportes de departamento</a></li>
+						<li><a href="loc_log.php">Reportes de ubicación</a></li>
+						<<li><a href="person_log.php">Reportes de funcionario</a></li>
 			
 						<li><a href="../do_logout.php">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cerrar la Sesión</a></li>
 					</ul>
@@ -34,7 +34,8 @@
 			</div>
 </nav>
 </header>
-
+    <br>
+    <br>
 
 
 

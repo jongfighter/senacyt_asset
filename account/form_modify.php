@@ -33,7 +33,7 @@ session_cache_limiter('nocache, must-revalidate');
     <body>
         <?php
         include_once("../header.php");
-        include_once ("../form_search.html");
+        
         
         // put your code here
         $plastname = $_POST['p_lastname'];
@@ -45,12 +45,12 @@ session_cache_limiter('nocache, must-revalidate');
         
         <form method ="post" action="do_modify.php" id="myform" onsubmit ="return validateForm('myform');"> 
              <div>
-                 apellido : <?php echo $plastname ?> <br>
+                 Apellido : <?php echo $plastname ?> <br>
                  <input type ="hidden" name ="person_lastname" id = 'p_lastname' value = '<?php echo $plastname ?>'><br>
-                 nombre: <?php echo $pname ?><br>
+                 Nombre: <?php echo $pname ?><br>
                  <input type ="hidden" name ="person_name" id = 'p_name' value = '<?php echo $pname ?>'>
                  ID : <input type ="text" name ="login_identity" id = 'login_identiity' value = '<?php echo $login_identity ?>'><br>
-                 PW : <input type ="password" name ="pwd" id = 'pwd'>
+                 Contraseña : <input type ="password" name ="pwd" id = 'pwd'>
                  
                  
              </div>

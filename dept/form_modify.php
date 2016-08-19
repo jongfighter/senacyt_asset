@@ -22,7 +22,7 @@ session_cache_limiter('nocache, must-revalidate');
     <body>
         <?php
         include_once("../header.php");
-        include_once ("../form_search.html");
+   
         
         // put your code here
         $dept_id = $_POST['dept_id'];
@@ -34,12 +34,12 @@ session_cache_limiter('nocache, must-revalidate');
         <br><form method = "post" name ='myform' id='myform' action='do_modify.php' onsubmit ="return validateForm('myform');">
        
         <input type='hidden' name='dept_id' value = '<?php echo $dept_id; ?>'>
-        <br>departmento <input type='text' name='dept_name' value = '<?php echo $dept_name?>'>
-        <br>ubicación <input type='text' name='dept_location' value = '<?php echo $dept_location;?>'>
-        <br><input type='submit' name='submit' value = 'submit'  formaction = 'do_modify.php'>
+        <br>Departmento <input type='text' name='dept_name' value = '<?php echo $dept_name?>'>
+        <br>Ubicación <input type='text' name='dept_location' value = '<?php echo $dept_location;?>'>
+        <br><input type='submit' name='submit' value = 'confirmar'  formaction = 'do_modify.php'>
     
         </form></tr>
-          <button type ="button"  onclick="history.back()"> back </button>
+          <button type ="button"  onclick="history.back()"> volver </button>
           <?php include_once '../footer.php';?>
     </body>
     

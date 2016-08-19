@@ -27,7 +27,7 @@ and open the template in the editor.
         
 <?php
             include_once("log_header.php");
-            include_once ("../form_log_search.html");
+
 ?>
         <form method ='post' action="loc_export_excel.php">
             <input type ='hidden' name ='searchtext' value ='<?php echo $_POST['keyword'];?>'>
@@ -51,14 +51,18 @@ and open the template in the editor.
             else{
                 $sql = $sql."select loc_id, log_name, log_date, loc_building, loc_floor, loc_desc from log_Loc";
             }
-            $result = mssql_query($sql,$conn);
-            echo "<table border='1'><tr>";
-            for($i = 1; $i < mssql_num_fields($result); $i++) {
-            $field_info = mssql_fetch_field($result, $i);
-            echo "<th>{$field_info->name}</th>";
-        }
-        echo "</tr>";
-
+            $result = mssql_query($sql,$conn);?>
+        <table border='1'>
+            <tr class='tablecolor'>
+                <th>Tipo de reportes</th>
+                <th>Día de reportes</th>
+                <th>Edificio</th>
+                <th>Piso</th>
+                <th>Descripción</th>
+                
+            </tr>
+                
+<?php
 // Print the data
     while($row = mssql_fetch_row($result)) {
         $num = 0;

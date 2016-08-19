@@ -71,18 +71,18 @@ session_cache_limiter('nocache, must-revalidate');
             
              <input type ="hidden" name ="asset_id" value = "<?php echo $row1['asset_id']?>">   <br>
              
-             barcode : <input type ="hidden" name ="asset_barcode" value = "<?php echo $row1['asset_barcode']?>" > <?php echo $row1['asset_barcode']?> <br>
-             description : <input type ="hidden" name ="asset_desc" value = "<?php echo $row1['asset_desc']?>" > <?php echo $row1['asset_desc']?> <br>
-             brand : <input type ="hidden" name ="asset_brand" value = "<?php echo $row1['asset_brand']?>" > <?php echo $row1['asset_brand']?> <br>
-             model : <input type ="hidden" name ="asset_model" value = "<?php echo $row1['asset_model']?>"   > <?php echo $row1['asset_model']?> <br>
-             serial : <input type ="hidden" name ="asset_serial" value = "<?php echo $row1['asset_serial']?>" > <?php echo $row1['asset_serial']?> <br>
-             details : <input type ="hidden" name ="asset_details" value = "<?php echo $row1['asset_details']?>" > <?php echo $row1['asset_details']?> <br>
-             bought date : <input type ="hidden" name ="asset_bought_date" value = "<?php echo $row1['asset_bought_date']?>" > <?php echo $row1['asset_bought_date']?> <br>
-             gurantee end : <input type ="hidden" name ="asset_guarantee_expired" value = "<?php echo $row1['asset_guarantee_expired']?>" > <?php echo $row1['asset_guarantee_expired']?> <br>
-             purchase price : <input type ="hidden" step="0.01" name ="asset_price" value = "<?php echo $row1['asset_price']?>"><?php echo $row1['asset_price']?> <br>
-             provider : <input type ="hidden" name ="asset_provider" value = "<?php echo $row1['asset_provider']?>"  > <?php echo $row1['asset_provider']?> <br>
-             details : <input type ='hidden' name ='asset_details' value ='<?php echo $row1['asset_details'];?>' > <?php echo $row1['asset_details'];?> <br>
-             person who rent :
+             Placa: <input type ="hidden" name ="asset_barcode" value = "<?php echo $row1['asset_barcode']?>" > <?php echo $row1['asset_barcode']?> <br>
+             Descripción : <input type ="hidden" name ="asset_desc" value = "<?php echo $row1['asset_desc']?>" > <?php echo $row1['asset_desc']?> <br>
+             Marca : <input type ="hidden" name ="asset_brand" value = "<?php echo $row1['asset_brand']?>" > <?php echo $row1['asset_brand']?> <br>
+             Modelo : <input type ="hidden" name ="asset_model" value = "<?php echo $row1['asset_model']?>"   > <?php echo $row1['asset_model']?> <br>
+             Serial : <input type ="hidden" name ="asset_serial" value = "<?php echo $row1['asset_serial']?>" > <?php echo $row1['asset_serial']?> <br>
+             Detalles : <input type ="hidden" name ="asset_details" value = "<?php echo $row1['asset_details']?>" > <?php echo $row1['asset_details']?> <br>
+             Día de compras : <input type ="hidden" name ="asset_bought_date" value = "<?php echo $row1['asset_bought_date']?>" > <?php echo $row1['asset_bought_date']?> <br>
+             Final de garantía : <input type ="hidden" name ="asset_guarantee_expired" value = "<?php echo $row1['asset_guarantee_expired']?>" > <?php echo $row1['asset_guarantee_expired']?> <br>
+             Precio de compras : <input type ="hidden" step="0.01" name ="asset_price" value = "<?php echo $row1['asset_price']?>"><?php echo $row1['asset_price']?> <br>
+             Proveedor : <input type ="hidden" name ="asset_provider" value = "<?php echo $row1['asset_provider']?>"  > <?php echo $row1['asset_provider']?> <br>
+            
+             Funcionario quien alquila :
              
              <select name ='p_id'>
                  <?php
@@ -95,7 +95,7 @@ session_cache_limiter('nocache, must-revalidate');
                  ?>
              </select>
              <br>
-            ubicación : 
+            Ubicación : 
             <select name='loc_id'>
             <?php
                  
@@ -113,7 +113,7 @@ session_cache_limiter('nocache, must-revalidate');
             
              <div>
                  
-                 <input type="submit" name ="optype" value = "confirm" formaction="do_rent.php">
+                 <input type="submit" name ="optype" value = "confirmar" formaction="do_rent.php">
                  <input type="submit" name ="excel" value = "excel" formaction="print_excel.php">
             </div>
         </form>

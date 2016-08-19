@@ -54,12 +54,12 @@ p_name like '%{$p_name}%' or dept_name like '%{$p_name}%';";
             }
             $result = mssql_query($sql,$conn);
      ?><table border='1'>
-         <tr>
-              <th>apellido</th>
-              <th>nombre</th>
-              <th>departamento</th>
-              <th>ubicación</th>
-              <th>admin</th>
+          <tr class="tablecolor">
+              <th>Apellido</th>
+              <th>Nombre</th>
+              <th>Departamento</th>
+              <th>Ubicación</th>
+              <th>Admin</th>
          </tr>
 <?php
 // Print the data
@@ -86,7 +86,7 @@ p_name like '%{$p_name}%' or dept_name like '%{$p_name}%';";
         echo'<input type ="hidden" name = "dept_location" value = "'.$arraypass[5].'">';
         echo '<input type="submit" name ="submit" value = "modificar" formaction="form_modify.php" > ';
         echo '<input type="submit" name ="submit" value = "borrar" formaction="do_delete.php"> ';
-        ?><input type="submit" name ="submit" value = "ver info" formaction="form_person_view.php">
+        ?><input type="submit" name ="submit" value = "ver información" formaction="form_person_view.php">
         
        <?php
         echo '</form> </td>';

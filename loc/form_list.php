@@ -54,15 +54,17 @@ and open the template in the editor.
             }
             $result = mssql_query($sql,$conn);
             
-            echo "<table border='1'><tr>";
-            for($i = 1; $i < mssql_num_fields($result); $i++) {
-            $field_info = mssql_fetch_field($result, $i);
-            echo "<th>{$field_info->name}</th>";
-        }
-                ?>
-    <th> admin </th>
+            ?>
+        <table border='1'>
+            <tr class="tablecolor">
+            <th>Edificio</th>
+            <th>Piso</th>
+            <th>Descripción</th>
+            
+    <th> Admin </th>
+            </tr>
         <?php
-        echo "</tr>";
+        
 
 // Print the data
     while($row = mssql_fetch_row($result)) {
@@ -85,7 +87,7 @@ and open the template in the editor.
         echo '<input type ="hidden" name = "loc_building" value = "'.$arraypass[1].'">';
         echo'<input type ="hidden" name = "loc_floor" value = "'.$arraypass[2].'">';
         echo'<input type ="hidden" name = "loc_desc" value = "'.$arraypass[3].'">';
-        echo '<input type="submit" name ="submit" value = "modify" > ';
+        echo '<input type="submit" name ="submit" value = "modificar" > ';
         echo '</form>';
         echo '<form method="post" action="do_delete.php"> ';
         echo '<input type ="hidden" name = "loc_id" value = "'.$arraypass[0].'">';

@@ -29,7 +29,7 @@
 						<li><a href="dept/form_list.php">Departamento</a></li>
 						<li><a href="loc/form_list.php">Ubicación</a></li>
 						<li><a href="tipo/form_list.php">Tipo</a></li>
-                                                <li><a href="account/form_list.php">Account</a></li>
+                                                <li><a href="account/form_list.php">Cuenta</a></li>
                                                 <li><a href="log_mgr/asset_log.php">Reportes</a></li>
                                                                 
                 <?php 

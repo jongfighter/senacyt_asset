@@ -25,12 +25,14 @@ and open the template in the editor.
 <?php
         
             include_once("log_header.php");
-            include_once ("../form_log_search.html");
+           
 ?>
+    
         <form method ='post' action="asset_export_excel.php">
             <input type ='hidden' name ='searchtext' value ='<?php echo $_POST['keyword'];?>'>
             <input type ='hidden' name ='checkvalue' value =<?php echo $_POST['check'];?>>
             <input type ='submit' name ='print' value = 'excel'>
+            
         </from>
 <?php
             
@@ -96,28 +98,27 @@ and open the template in the editor.
             }
             $result = mssql_query($sql,$conn);
             ?>
-                
+        <br>
         <table border ='1'>
-            <th>log_name</th>
-            <th>log_date</th>
-            <th>barcode</th>
-            <th>description</th>
-            <th>brand</th>
-            <th>model</th>
-            <th>ssn</th>
-            <th>purchase date</th>
-            <th>expired date </th>
-            <th>asset out</th>
-            <th>asset in</th>
-            <th>price</th>
-            <th>service provider</th>
-            <th>person</th>
-            <th>department</th>
-            <th>building</th>
-            <th>floor</th>
-            <th>location description</th>
-            <th> possible </th>
-            
+            <tr class="tablecolor">
+            <th>Tipo de reportes</th>
+            <th>Día de reportes</th>
+            <th>Placa</th>
+            <th>Descripción</th>
+            <th>Marca</th>
+            <th>Modelo</th>
+            <th>Serial</th>
+            <th>Día de compras</th>
+            <th>Final de garantía</th>
+            <th>Salir de activos</th>
+            <th>Entrar de activos</th>
+            <th>Precio</th>
+            <th>Proveedor</th>
+            <th>Funcionario</th>
+            <th>Departamento</th>
+            <th>Ubicación</th>
+            <th>Posible</th>
+            </tr>
             
             <!--th 는 19개-->
             
@@ -145,9 +146,7 @@ while($row = mssql_fetch_array($result)) {
                 <td><?php echo $row['_provider'];?></td>
                 <td><?php echo $row['person'];?></td>
                 <td><?php echo $row['department'];?></td>
-                <td><?php echo $row['building'];?></td>
-                <td><?php echo $row['_floor'];?></td>
-                <td><?php echo $row['location_description'];?></td>
+                <td><?php echo $row['building']." ".$row['_floor']." ".$row['location_description'];?></td>
                 <td><?php 
                 if($row['available']==1){
                     echo "O";

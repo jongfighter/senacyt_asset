@@ -56,10 +56,10 @@ and open the template in the editor.
             ?>
         
         <table border ="1">
-            <tr> 
+            <tr class="tablecolor"> 
             
-                <th>tipo</th>
-                <th>admin</th>
+                <th>Tipo</th>
+                <th>Admin</th>
             </tr> 
         <?php
             while($row=  mssql_fetch_array($result)){

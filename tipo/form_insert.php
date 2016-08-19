@@ -44,14 +44,14 @@ session_cache_limiter('nocache, must-revalidate');
         <?php include_once("../header.php");?>
         <form method ="post" onsubmit='return chk()' action ='do_insert.php' >
              <div>
-                 tipo de activo : <input type ="text" name ="t_name" id = 't_name'>
+                 Tipo de activo : <input type ="text" name ="t_name" id = 't_name'>
              </div>
 
              <div>
-                 <input type="submit" name ="submit" value = "insert">
+                 <input type="submit" name ="submit" value = "insertar">
                  
             </div>
         </form>
-        <button type ="button"  onclick="history.back()"> back </button>
+        <button type ="button"  onclick="history.back()"> volver </button>
     </body>
 </html>

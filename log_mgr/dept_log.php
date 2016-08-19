@@ -27,7 +27,7 @@ and open the template in the editor.
         
 <?php
             include_once("log_header.php");
-            include_once ("../form_log_search.html");
+        
 ?>
         <form method ='post' action="dept_export_excel.php">
             <input type ='hidden' name ='searchtext' value ='<?php echo $_POST['keyword'];?>'>
@@ -52,14 +52,20 @@ log_name like '%{$p_name}%' or log_date like '%{$p_name}%' or p_name like '%{$p_
             else{
                 $sql = $sql."select p_id, log_name, log_date, p_lastname, p_name, dept_name, dept_location from log_Person, Department where log_Person.dept_id = Department.dept_id";
             }
-            $result = mssql_query($sql,$conn);
-            echo "<table border='1'><tr>";
-            for($i = 1; $i < mssql_num_fields($result); $i++) {
-            $field_info = mssql_fetch_field($result, $i);
-            echo "<th>{$field_info->name}</th>";
-        }
-        echo "</tr>";
+            $result = mssql_query($sql,$conn);?>
 
+        <table border='1'>
+            <tr class="tablecolor">
+                <th>Tipo de reportes</th>
+                <th>Día de reportes</th>
+                <th>Apellido</th>
+                <th>Nombre</th>
+                <th>Departamento</th>
+                <th>Ubicación</th>
+                
+                    
+            </tr>
+<?php
 // Print the data
     while($row = mssql_fetch_row($result)) {
         $num = 0;
