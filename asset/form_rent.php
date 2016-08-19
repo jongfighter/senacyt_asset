@@ -92,12 +92,7 @@ session_cache_limiter('nocache, must-revalidate');
          </tr><tr>    
 			<td class="tablecolor">Proveedor : </td> <td class="tableinput">  <input type ="hidden" name ="asset_provider" value = "<?php echo $row1['asset_provider']?>"  > <?php echo $row1['asset_provider']?>  </td> 
          </tr><tr>  
-			<td class="tablecolor">Funcionario quien alquila : </td> <td class="tableinput"> <select name ='p_id'> </td>
-		</tr>
-		</table>
-	<br>
-	<br>
-                 <?php
+			<td class="tablecolor">Funcionario quien alquila : </td> <td class="tableinput"> <select name ='p_id'> <?php
               
                  while($row2 =  mssql_fetch_array($result_person)){
                      ?>
@@ -105,7 +100,12 @@ session_cache_limiter('nocache, must-revalidate');
                  <?php
                  }
                  ?>
-             </select>
+             </select></td>
+		</tr>
+		</table>
+	<br>
+	<br>
+                 
              <br>
             Ubicación : 
             <select name='loc_id'>
