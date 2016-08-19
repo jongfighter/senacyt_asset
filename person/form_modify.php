@@ -49,11 +49,11 @@ session_cache_limiter('nocache, must-revalidate');
         <form method ="post" action="do_modify.php" id="myform" onsubmit ="return validateForm('myform');"> 
              <div>
                  <input type ='hidden' name ='person_id' value = '<?php echo $pid?>'>
-                 lastname : <input type ="text" name ="person_lastname" id = 'p_lastname' value = '<?php echo $plastname ?>'>
-                 name : <input type ="text" name ="person_name" id = 'p_name' value = '<?php echo $pname ?>'>
+                 apellido: <input type ="text" name ="person_lastname" id = 'p_lastname' value = '<?php echo $plastname ?>'>
+                 nombre : <input type ="text" name ="person_name" id = 'p_name' value = '<?php echo $pname ?>'>
              </div>
              <div>
-                      department : <select name ='dept_name' id = 'dept_name' selected = '<?php echo $deptname; ?>'>
+                      departamento : <select name ='dept_name' id = 'dept_name' selected = '<?php echo $deptname; ?>'>
                  <?php
                  while($row =  mssql_fetch_array($result)){
                      ?>

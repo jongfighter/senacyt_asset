@@ -154,9 +154,9 @@ asset_desc _description,
             ?>
         <br>
         
-        type search : <form method='post' action='form_list.php'>
+        busca tipos : <form method='post' action='form_list.php'>
             <select name='tipo'>
-                <option value='basicoption'> all </option>
+                <option value='basicoption'> todo </option>
             <?php
             while($row_tipo = mssql_fetch_array($result_tipo)){
                 
@@ -168,41 +168,39 @@ asset_desc _description,
             ?>
             </select>    
           
-            <input type='submit' name='sub' value='type search'>
+            <input type='submit' name='sub' value='busca'>
             
         </form>
 
                 
         <table>
            <tr class="tablecolor">
-            <th>barcode</th>
+            <th>placa</th>
             <th>tipo </th>
-            <th>description</th>
-            <th>brand</th>
-            <th>model</th>
-            <th>ssn</th>
-            <th>details</th>
-            <th>purchase date</th>
-            <th>expired date </th>
-            <th>asset out</th>
-            <th>asset in</th>
-            <th>price</th>
-            <th>service provider</th>
-            <th>person</th>
-            <th>department</th>
-            <th>building</th>
-            <th>floor</th>
-            <th>location description</th>
-            <th> possible </th>
+            <th>descripción</th>
+            <th>marca</th>
+            <th>modelo</th>
+            <th>serial</th>
+            <th>detalles</th>
+            <th>día de compra</th>
+            <th>final de garantía </th>
+            <th>salir activo</th>
+            <th>entrar activo</th>
+            <th>precio de compra</th>
+            <th>proveedor</th>
+            <th>funcionario</th>
+            <th>departamento</th>
+            <th>ubicación</th>
+            <th> posible </th>
             
            
             <?php
             if($_SESSION['user_id']=='admin'){
             ?>
-            <th>last handled</th>
+            <th>última modificación</th>
             <th> admin </th>
             <?php }?>
-            <!--th 는 19개-->
+            
             
             
         
@@ -229,9 +227,7 @@ while($row = mssql_fetch_array($result)) {
                 <td id="centro"><?php echo $row['_provider'];?></td>
                 <td id="centro"><?php echo $row['person'];?></td>
                 <td id="centro"><?php echo $row['department'];?></td>
-                <td id="centro"><?php echo $row['building'];?></td>
-                <td id="centro"><?php echo $row['_floor'];?></td>
-                <td id="centro"><?php echo $row['location_description'];?></td>
+                <td id="centro"><?php echo $row['building']." ".$row['_floor']." ".$row['location_description'];?></td>
                 <td id="centro"><?php 
                 if($row['available']==1){
                     echo "O";
@@ -260,19 +256,19 @@ while($row = mssql_fetch_array($result)) {
                     <form method = 'post'>
                         <input type ='hidden' name ='asset_id' value ='<?php echo $row['asset_id'];?>'>
                         <?php if($row['available']==1){?>
-                        <input type ='submit' value ='rent' formaction="form_rent.php">
-                        <input type ='submit' value ='assign' formaction="form_assign.php">
+                        <input type ='submit' value ='alquilar' formaction="form_rent.php">
+                        <input type ='submit' value ='asignar' formaction="form_assign.php">
                         <?php }?>
-                        <input type ='submit' value ='modify' formaction="form_modify.php">
+                        <input type ='submit' value ='modificar' formaction="form_modify.php">
                         <?php
                         if($row['available']==0){
                             ?>  
-                                <input type ='submit' value ='move' formaction="form_rent.php">
-                                <input type ='submit' value ='return' formaction="do_return.php">
+                                <input type ='submit' value ='transferir' formaction="form_rent.php">
+                                <input type ='submit' value ='devolver' formaction="do_return.php">
                             <?php
                         }
                         ?>
-                       <input type ="submit" value ='delete' formaction='do_delete.php'>
+                       <input type ="submit" value ='borrar' formaction='do_delete.php'>
                         
                         
                     </form>

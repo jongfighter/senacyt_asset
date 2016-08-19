@@ -36,10 +36,10 @@ session_cache_limiter('nocache, must-revalidate');
     <body>
         <form method ="post"  action ='do_insert.php' onsubmit='return chk()'>
             <div>
-                 lastname : <input type ="text" name ="p_lastname" id = 'p_lastname'>
+                 apellido : <input type ="text" name ="p_lastname" id = 'p_lastname'>
             </div>
             <div>
-                 name : <input type ="text" name ="p_name" id = 'p_name'>
+                 nombre : <input type ="text" name ="p_name" id = 'p_name'>
             </div>
             <div>
                  ID : <input type ="text" name ="login_identity" id = 'login_identity'>
@@ -48,7 +48,7 @@ session_cache_limiter('nocache, must-revalidate');
                 PW : <input type ="password" name ="pwd" id = 'pwd'>
             </div>
             <div>
-                 <input type="submit" name ="submit" value = "insert">
+                 <input type="submit" name ="submit" value = "inserta">
                  
             </div>
             

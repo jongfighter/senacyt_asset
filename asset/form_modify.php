@@ -50,17 +50,17 @@ session_cache_limiter('nocache, must-revalidate');
         <form method ="post" > 
               
             <input type ="hidden" name ="asset_id"  value = "<?php echo $row1['asset_id']?>">  <br>
-             barcode : <input type ="text" name ="asset_barcode" id = 'barcode' value = "<?php echo $row1['asset_barcode']?>"  <br>
-             description : <input type ="text" name ="asset_desc" id = 'desc' value = "<?php echo $row1['asset_desc']?>">  <br>
-             brand : <input type ="text" name ="asset_brand" id = 'brand' value = "<?php echo $row1['asset_brand']?>">  <br>
-             model : <input type ="text" name ="asset_model" id = 'model' value = "<?php echo $row1['asset_model']?>">  <br>
+             placa : <input type ="text" name ="asset_barcode" id = 'barcode' value = "<?php echo $row1['asset_barcode']?>"  <br>
+             descriptción : <input type ="text" name ="asset_desc" id = 'desc' value = "<?php echo $row1['asset_desc']?>">  <br>
+             marca : <input type ="text" name ="asset_brand" id = 'brand' value = "<?php echo $row1['asset_brand']?>">  <br>
+             modelo : <input type ="text" name ="asset_model" id = 'model' value = "<?php echo $row1['asset_model']?>">  <br>
              serial : <input type ="text" name ="asset_serial" id = 'serial' value = "<?php echo $row1['asset_serial']?>">  <br>
-             details : <input type ="text" name ="asset_details" id = 'serial' value = "<?php echo $row1['asset_details']?>">  <br>
-             purchase date : <input type ="date" name ="asset_bought_date" id = 'purchase_date' value = "<?php echo $row1['asset_bought_date']?>">  <br>
-             guarantee end : <input type ="date" name ="asset_guarantee_expired" id = 'guarantee' value = "<?php echo $row1['asset_guarantee_expired']?>">  <br>
-             purchase price : <input type ="number" step="0.01" name ="asset_price" id ='price' value = "<?php echo $row1['asset_price']?>">  <br>
-             provider : <input type ="text" name ="asset_provider" id = 'provider' value = "<?php echo $row1['asset_provider']?>">  <br>
-             person who rent :
+             detailes : <input type ="text" name ="asset_details" id = 'serial' value = "<?php echo $row1['asset_details']?>">  <br>
+             día de compras : <input type ="date" name ="asset_bought_date" id = 'purchase_date' value = "<?php echo $row1['asset_bought_date']?>">  <br>
+             final de garantía : <input type ="date" name ="asset_guarantee_expired" id = 'guarantee' value = "<?php echo $row1['asset_guarantee_expired']?>">  <br>
+             precio de compras : <input type ="number" step="0.01" name ="asset_price" id ='price' value = "<?php echo $row1['asset_price']?>">  <br>
+             proveedor : <input type ="text" name ="asset_provider" id = 'provider' value = "<?php echo $row1['asset_provider']?>">  <br>
+             funcionario quien alquila :
              <select name ='p_id'>
                  <?php
                  while($row2 =  mssql_fetch_array($result_person)){

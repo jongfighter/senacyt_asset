@@ -36,11 +36,12 @@ session_cache_limiter('nocache, must-revalidate');
         if($rearray[0] == NULL){
             $sql = "insert into department (dept_name, dept_location) values ('".$dename."'".", '".$deloc."');";
             mssql_query($sql, $conn);
-            echo '<a href="form_insert.php">complete</a>';
+             ?><script>alert("success");</script>';<?php
         }
         else{
-            echo '<a href="form_insert.php">there is already registered</a>';
+            ?><script>alert("there is already registered");</script>';<?php
         }
         ?>
+        <meta http-equiv="refresh" content="0;url=form_list.php">
     </body>
 </html>

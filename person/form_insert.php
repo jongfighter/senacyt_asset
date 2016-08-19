@@ -41,13 +41,13 @@ session_cache_limiter('nocache, must-revalidate');
     <body>
         <form method ="post"  action ='do_insert.php' onsubmit='return chk()'>
              <div>
-                 lastname : <input type ="text" name ="p_lastname" id = 'p_lastname'>
+                 apellido : <input type ="text" name ="p_lastname" id = 'p_lastname'>
              </div>
              <div>
-                 name : <input type ="text" name ="p_name" id = 'p_name'>
+                 nombre : <input type ="text" name ="p_name" id = 'p_name'>
              </div>
              <div>
-                      department :       <select name ='dept_name' id = 'dept_name'>
+                      departamento :       <select name ='dept_name' id = 'dept_name'>
                  <?php
                  while($row =  mssql_fetch_array($result)){
                      ?>

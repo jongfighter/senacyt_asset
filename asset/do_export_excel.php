@@ -1,5 +1,5 @@
 <?php
-header( "Content-type: application/vnd.ms-excel; charset=euc-kr" );
+header( "Content-type: application/vnd.ms-excel; charset=utf-8" );
 header( "Expires: 0" );
 header( "Cache-Control: must-revalidate, post-check=0, pre-check=0" );
 header( "Pragma: public" );

@@ -69,7 +69,7 @@ and open the template in the editor.
                
             }
             else{
-                echo '<td ><input type ="text" value = "'.$_column.'" disabled = true ></td>';
+                echo '<td >'.$_column.'</td>';
             }
             $num = $num+1;
         }

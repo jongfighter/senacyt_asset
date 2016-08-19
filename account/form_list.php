@@ -25,7 +25,7 @@ and open the template in the editor.
         <form method ='post' action="../do_export_excel.php">
             <input type ='hidden' name ='searchtext' value ='<?php echo $_POST['keyword'];?>'>
             <input type ='hidden' name ='checkvalue' value =<?php echo $_POST['check'];?>>
-            <input type ='submit' name ='print' value = 'excel'>
+            <input type ='submit' name ='imprimir' value = 'excel'>
         </from>
 <?php
             
@@ -47,12 +47,19 @@ and open the template in the editor.
             }
             $result = mssql_query($sql,$conn);
             echo "<table border='1'><tr>";
-            for($i = 0; $i < mssql_num_fields($result); $i++) {
-            $field_info = mssql_fetch_field($result, $i);
-            echo "<th>{$field_info->name}</th>";
-        }
-        echo "<th> admin </th>";
-        echo "</tr>";
+            
+        ?>
+                <table border='1'><tr>
+                        <th>apellido</th>
+                        <th>nombre</th>
+                        <th>id</th>
+                        <th>admin</th>
+            
+                        
+            
+                    </tr>
+            <?php
+        
 
 // Print the data
     while($row = mssql_fetch_row($result)) {
@@ -60,7 +67,7 @@ and open the template in the editor.
         $arraypass[3];
         echo "<tr>";
         foreach($row as $_column) {
-            echo '<td ><input type ="text" value = "'.$_column.'" disabled = true ></td>';
+            echo '<td>'.$_column.'</td>';
             $arraypass[$num]=$_column;
             $num = $num+1;
         }
@@ -69,8 +76,8 @@ and open the template in the editor.
         echo '<input type ="hidden" name = "p_lastname" value = "'.$arraypass[0].'">';
         echo '<input type ="hidden" name = "p_name" value = "'.$arraypass[1].'">';
         echo'<input type ="hidden" name = "login_identity" value = "'.$arraypass[2].'">';
-        echo '<input type="submit" name ="submit" value = "modify" formaction="form_modify.php" > ';
-        echo '<input type="submit" name ="submit" value = "delete" formaction="do_delete.php"> ';
+        echo '<input type="submit" name ="submit" value = "modificar" formaction="form_modify.php" > ';
+        echo '<input type="submit" name ="submit" value = "borrar" formaction="do_delete.php"> ';
         ?>
         
        <?php

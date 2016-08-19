@@ -58,7 +58,7 @@ and open the template in the editor.
         <table border ="1">
             <tr> 
             
-                <th>type name</th>
+                <th>tipo</th>
                 <th>admin</th>
             </tr> 
         <?php
@@ -73,8 +73,8 @@ and open the template in the editor.
                         <?php echo $row['t_name'];?><input type="hidden" name ="t_name" value ='<?php echo $row['t_name'];?>' >
                         </td>
                         <td>
-                        <input type='submit' name ='submit' value ='modify' formaction = "form_modify.php">
-                        <input type='submit' name ='submit' value ='delete' formaction="do_delete.php">
+                        <input type='submit' name ='submit' value ='modificar' formaction = "form_modify.php">
+                        <input type='submit' name ='submit' value ='borrar' formaction="do_delete.php">
                     </form>
                 </td>
         

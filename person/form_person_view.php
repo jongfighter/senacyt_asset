@@ -60,58 +60,61 @@ and open the template in the editor.
             $result = mssql_query($sql,$conn);
             ?>
                 
-        <table border ='1'>
-            <th>barcode</th>
-            <th>description</th>
-            <th>brand</th>
-            <th>model</th>
-            <th>ssn</th>
-            <th>purchase date</th>
-            <th>expired date </th>
-            <th>asset out</th>
-            <th>asset in</th>
-            <th>price</th>
-            <th>service provider</th>
-            <th>person</th>
-            <th>department</th>
-            <th>building</th>
-            <th>floor</th>
-            <th>location description</th>
-            <th> possible </th>
+          <table>
+           <tr class="tablecolor">
+            <th>placa</th>
+            <th>tipo </th>
+            <th>descripción</th>
+            <th>marca</th>
+            <th>modelo</th>
+            <th>serial</th>
+            <th>detalles</th>
+            <th>día de compra</th>
+            <th>final de garantía </th>
+            <th>salir activo</th>
+            <th>entrar activo</th>
+            <th>precio de compra</th>
+            <th>proveedor</th>
+            <th>funcionario</th>
+            <th>departamento</th>
+            <th>ubicación</th>
+            <th> posible </th>
             
-            <th>last handled</th>
+           
             <?php
             if($_SESSION['user_id']=='admin'){
             ?>
-            <th> admin </th>
+            <th>última modificación</th>
+            
             <?php }?>
-            <!--th 는 19개-->
+            
             
             
         
                 
                 
                 <?php
-$unhandled = 2; //define checking period;
+$unhandled = 3; //define checking period;
 while($row = mssql_fetch_array($result)) {
 ?>
+	</tr>
             <tr>
                 <td id="centro"><?php echo $row['barcode'];?></td>
+                <td id="centro"><?php echo $row['tipo'];?></td>
                 <td id="centro"><?php echo $row['_description'];?></td>
                 <td id="centro"><?php echo $row['brand'];?></td>
-             <td id="centro"><?php echo $row['model'];?></td>
-               <td id="centro"><?php echo $row['serialnumber'];?></td>
-                <td id="centro"><?php echo $row['purchase_date'];?></td>
-                <td id="centro"><?php echo $row['guarantee_expired'];?></td>
-                <td id="centro"><?php echo $row['out_date'];?></td>
-                <td id="centro"><?php echo $row['in_date'];?></td>
+                <td id="centro"><?php echo $row['model'];?></td>
+                <td id="centro"><?php echo $row['serialnumber'];?></td>
+                <td id="centro"><?php echo $row['details'];?></td>
+                <td id="centro"><?php echo date('d-m-Y',strtotime($row['purchase_date']));?></td>
+                <td id="centro"><?php echo date('d-m-Y',strtotime($row['guarantee_expired']));?></td>
+                <td id="centro"><?php echo date('d-m-Y',strtotime($row['out_date']));?></td>
+                <td id="centro"><?php echo date('d-m-Y',strtotime($row['in_date']));?></td>
                 <td id="centro"><?php echo $row['price'];?></td>
                 <td id="centro"><?php echo $row['_provider'];?></td>
                 <td id="centro"><?php echo $row['person'];?></td>
                 <td id="centro"><?php echo $row['department'];?></td>
-                <td id="centro"><?php echo $row['building'];?></td>
-                <td id="centro"><?php echo $row['_floor'];?></td>
-                <td id="centro"><?php echo $row['location_description'];?></td>
+                <td id="centro"><?php echo $row['building']." ".$row['_floor']." ".$row['location_description'];?></td>
                 <td id="centro"><?php 
                 if($row['available']==1){
                     echo "O";
@@ -119,6 +122,7 @@ while($row = mssql_fetch_array($result)) {
                 else{
                     echo "X";
                 }
+                 if($_SESSION['user_id']=='admin'){
                 ?></td>
                 <td        id='centro'         <?php
                 $strlast = $row['last_handled'];
@@ -129,37 +133,21 @@ while($row = mssql_fetch_array($result)) {
                     echo "bgcolor='#FF0000'";
                 } 
                  
-                ?>><?php echo $row['last_handled'];?></td>
+                ?>><?php echo date('d-m-Y',strtotime($row['last_handled']));?></td>
 
                 <?php
                 
-                if($_SESSION['user_id']=='admin'){
+               
                 ?>
-                <td>
-                    <form method = 'post'>
-                        <input type ='hidden' name ='asset_id' value ='<?php echo $row['asset_id'];?>'>
-                        <?php if($row['available']==1){?>
-                        <input type ='submit' value ='rent' formaction="form_rent.php">
-                        <input type ='submit' value ='assign' formaction="form_assign.php">
-                        <?php }?>
-                        <input type ='submit' value ='modify' formaction="form_modify.php">
-                        <?php
-                        if($row['available']==0){
-                            ?><input type ='submit' value ='return' formaction="do_return.php"><?php
-                       }
-                       ?>
-                        
-                        
-                    </form>
-                    
-                </td>
+
                 <?php
                 
-                        } ?>
+                        } ?>    
                 
             </tr> 
 <?php }?>
             </table>
-                         <?php include_once '../footer.php';?>
+        
+        <?php include_once '../footer.php';?>
     </body>
 </html>

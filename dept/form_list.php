@@ -52,12 +52,14 @@ and open the template in the editor.
                 $sql = $sql."select dept_id, dept_name, dept_location from Department";
             }
             $result = mssql_query($sql,$conn);
-            echo "<table border='1'><tr>";
-            for($i = 1; $i < mssql_num_fields($result); $i++) {
-            $field_info = mssql_fetch_field($result, $i);
-            echo "<th>{$field_info->name}</th>";
-        }
-        echo "</tr>";
+?>
+        <table border='1'>
+            <tr>
+                <th>departamento</th>
+                <th>ubicación</th>
+                    
+            </tr>
+    <?php
 
 // Print the data
     while($row = mssql_fetch_row($result)) {
@@ -69,7 +71,7 @@ and open the template in the editor.
                
             }
             else{
-                echo '<td ><input type ="text" value = "'.$_column.'" disabled = true ></td>';
+                echo '<td > '.$_column.'</td>';
             }
             $arraypass[$num]=$_column;
             $num = $num+1;
@@ -84,7 +86,7 @@ and open the template in the editor.
         ?>
         <form method="post" action ="do_delete.php">
             <input type ='hidden' name ='dept_id' value= '<?php echo $arraypass[0]?>'>
-            <input type="submit" name ="delet" value = "delete" >
+            <input type="submit" name ="delete" value = "borrar" >
         </form>
         </td>
         <?php

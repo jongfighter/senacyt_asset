@@ -70,7 +70,7 @@ log_name like '%{$p_name}%' or log_date like '%{$p_name}%' or p_name like '%{$p_
                
             }
             else{
-                echo '<td ><input type ="text" value = "'.$_column.'" disabled = true ></td>';
+                echo '<td>'.$_column.'</td>';
             }
             $num = $num+1;
         }

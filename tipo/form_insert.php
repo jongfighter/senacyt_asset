@@ -44,7 +44,7 @@ session_cache_limiter('nocache, must-revalidate');
         <?php include_once("../header.php");?>
         <form method ="post" onsubmit='return chk()' action ='do_insert.php' >
              <div>
-                 asset type : <input type ="text" name ="t_name" id = 't_name'>
+                 tipo de activo : <input type ="text" name ="t_name" id = 't_name'>
              </div>
 
              <div>

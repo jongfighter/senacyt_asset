@@ -53,14 +53,15 @@ p_name like '%{$p_name}%' or dept_name like '%{$p_name}%';";
                 $sql = $sql."select p_id, Department.dept_id as dept_id, p_lastname as lastname, p_name as name, dept_name as department, dept_location as location from Person inner join Department on Department.dept_id=Person.dept_id;";
             }
             $result = mssql_query($sql,$conn);
-            echo "<table border='1'><tr>";
-            for($i = 2; $i < mssql_num_fields($result); $i++) {
-            $field_info = mssql_fetch_field($result, $i);
-            echo "<th>{$field_info->name}</th>";
-        }
-        echo "<th> admin </th>";
-        echo "</tr>";
-
+     ?><table border='1'>
+         <tr>
+              <th>apellido</th>
+              <th>nombre</th>
+              <th>departamento</th>
+              <th>ubicación</th>
+              <th>admin</th>
+         </tr>
+<?php
 // Print the data
     while($row = mssql_fetch_row($result)) {
         $num = 0;
@@ -71,7 +72,7 @@ p_name like '%{$p_name}%' or dept_name like '%{$p_name}%';";
                
             }
             else{
-                echo '<td ><input type ="text" value = "'.$_column.'" disabled = true ></td>';
+                echo '<td >'.$_column.'</td>';
             }
             $arraypass[$num]=$_column;
             $num = $num+1;
@@ -83,9 +84,9 @@ p_name like '%{$p_name}%' or dept_name like '%{$p_name}%';";
         echo '<input type ="hidden" name = "p_name" value = "'.$arraypass[3].'">';
         echo'<input type ="hidden" name = "dept_name" value = "'.$arraypass[4].'">';
         echo'<input type ="hidden" name = "dept_location" value = "'.$arraypass[5].'">';
-        echo '<input type="submit" name ="submit" value = "modify" formaction="form_modify.php" > ';
-        echo '<input type="submit" name ="submit" value = "delete" formaction="do_delete.php"> ';
-        ?><input type="submit" name ="submit" value = "view" formaction="form_person_view.php">
+        echo '<input type="submit" name ="submit" value = "modificar" formaction="form_modify.php" > ';
+        echo '<input type="submit" name ="submit" value = "borrar" formaction="do_delete.php"> ';
+        ?><input type="submit" name ="submit" value = "ver info" formaction="form_person_view.php">
         
        <?php
         echo '</form> </td>';

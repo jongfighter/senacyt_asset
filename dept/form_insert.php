@@ -59,10 +59,10 @@ session_cache_limiter('nocache, must-revalidate');
         
          <form method ="post"  action ='do_insert.php' onsubmit ="return chk()" >
              <div>
-                 dept name : <input type ="text" name ="dept_name" id = 'name'>
+                 departamento : <input type ="text" name ="dept_name" id = 'name'>
              </div>
              <div>
-                 dept loc  : <input type ="text" name ="dept_loc" id = 'loc'>
+                 ubicación  : <input type ="text" name ="dept_loc" id = 'loc'>
              </div>
              <div>
                  <input type="submit" name ="submit" value = "insert" >

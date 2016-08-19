@@ -74,7 +74,7 @@ and open the template in the editor.
                
             }
             else{
-                echo '<td ><input type ="text" value = "'.$_column.'" disabled = true ></td>';
+                echo '<td >'.$_column.'</td>';
             }
             $arraypass[$num]=$_column;
             $num = $num+1;
@@ -89,7 +89,7 @@ and open the template in the editor.
         echo '</form>';
         echo '<form method="post" action="do_delete.php"> ';
         echo '<input type ="hidden" name = "loc_id" value = "'.$arraypass[0].'">';
-        echo '<input type="submit" name ="delete" value = "delete" > ';
+        echo '<input type="submit" name ="delete" value = "borrar" > ';
         echo '</form> </td>';
         echo "</tr>";
     }

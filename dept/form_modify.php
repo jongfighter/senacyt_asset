@@ -34,8 +34,8 @@ session_cache_limiter('nocache, must-revalidate');
         <br><form method = "post" name ='myform' id='myform' action='do_modify.php' onsubmit ="return validateForm('myform');">
        
         <input type='hidden' name='dept_id' value = '<?php echo $dept_id; ?>'>
-        <br>department name <input type='text' name='dept_name' value = '<?php echo $dept_name?>'>
-        <br>department location <input type='text' name='dept_location' value = '<?php echo $dept_location;?>'>
+        <br>departmento <input type='text' name='dept_name' value = '<?php echo $dept_name?>'>
+        <br>ubicación <input type='text' name='dept_location' value = '<?php echo $dept_location;?>'>
         <br><input type='submit' name='submit' value = 'submit'  formaction = 'do_modify.php'>
     
         </form></tr>

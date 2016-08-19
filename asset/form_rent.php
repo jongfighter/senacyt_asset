@@ -95,7 +95,7 @@ session_cache_limiter('nocache, must-revalidate');
                  ?>
              </select>
              <br>
-            location : 
+            ubicación : 
             <select name='loc_id'>
             <?php
                  
@@ -108,8 +108,8 @@ session_cache_limiter('nocache, must-revalidate');
                  ?>
             
             </select>
-            <div>lease date <input type='date' name ='asset_out' class="datepicker" value = '<?php echo date("Y-m-d");?>'required > </div>
-            <div> return date <input type ='date' name ='asset_in' class="datepicker" value = '<?php echo date("Y-m-d");?>'required>  </div>
+            <div>Día de alquilar <input type='date' name ='asset_out' class="datepicker" value = '<?php echo date("Y-m-d");?>'required > </div>
+            <div> Día de devolver <input type ='date' name ='asset_in' class="datepicker" value = '<?php echo date("Y-m-d");?>'required>  </div>
             
              <div>
                  

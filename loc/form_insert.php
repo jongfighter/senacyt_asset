@@ -44,13 +44,14 @@ session_cache_limiter('nocache, must-revalidate');
         <?php include_once("../header.php");?>
         <form method ="post" onsubmit='return chk()' action ='do_insert.php' >
              <div>
-                 location building : <input type ="text" name ="loc_building" id = 'building'>
+                 edificio : <input type ="text" name ="loc_building" id = 'building'>
              </div>
              <div>
-                 location floor  : <input type ="text" name ="loc_floor" id ='floor'>
+                 nivel(piso) : 
+            <input type ="text" name ="loc_floor" id ='floor'>
              </div>
              <div>
-                 location desc  : <input type ="text" name ="loc_desc" id = 'desc'>
+                 descripción  : <input type ="text" name ="loc_desc" id = 'desc'>
              </div>
              <div>
                  <input type="submit" name ="submit" value = "insert">
