@@ -72,27 +72,27 @@ session_cache_limiter('nocache, must-revalidate');
              <input type ="hidden" name ="asset_id" value = "<?php echo $row1['asset_id']?>">   <br> 
          <table>
 		 <tr>      
-            <td class="tablecolor">Placa : <input type ="hidden" name ="asset_barcode" value = "<?php echo $row1['asset_barcode']?>" > <?php echo $row1['asset_barcode']?>  </td> 
+            <td class="tablecolor">Placa : </td> <td class="tableinput"> <input type ="hidden" name ="asset_barcode" value = "<?php echo $row1['asset_barcode']?>" > <?php echo $row1['asset_barcode']?>  </td> 
          </tr><tr>		 
-			<td class="tablecolor">Descripción : <input type ="hidden" name ="asset_desc" value = "<?php echo $row1['asset_desc']?>" > <?php echo $row1['asset_desc']?> </td> 
+			<td class="tablecolor">Descripción : </td> <td class="tableinput"> <input type ="hidden" name ="asset_desc" value = "<?php echo $row1['asset_desc']?>" > <?php echo $row1['asset_desc']?> </td> 
          </tr><tr>   
-			<td class="tablecolor">Marca : <input type ="hidden" name ="asset_brand" value = "<?php echo $row1['asset_brand']?>" > <?php echo $row1['asset_brand']?> </td> 
+			<td class="tablecolor">Marca : </td> <td class="tableinput">  <input type ="hidden" name ="asset_brand" value = "<?php echo $row1['asset_brand']?>" > <?php echo $row1['asset_brand']?> </td> 
          </tr><tr>    
-			<td class="tablecolor">Modelo : <input type ="hidden" name ="asset_model" value = "<?php echo $row1['asset_model']?>"   > <?php echo $row1['asset_model']?>  </td> 
+			<td class="tablecolor">Modelo : </td> <td class="tableinput">   <input type ="hidden" name ="asset_model" value = "<?php echo $row1['asset_model']?>"   > <?php echo $row1['asset_model']?>  </td> 
          </tr><tr>   
-			<td class="tablecolor">Serial : <input type ="hidden" name ="asset_serial" value = "<?php echo $row1['asset_serial']?>" > <?php echo $row1['asset_serial']?>  </td> 
+			<td class="tablecolor">Serial : </td> <td class="tableinput">  <input type ="hidden" name ="asset_serial" value = "<?php echo $row1['asset_serial']?>" > <?php echo $row1['asset_serial']?>  </td> 
          </tr><tr>   
-			<td class="tablecolor">Detalls : <input type ="hidden" name ="asset_details" value = "<?php echo $row1['asset_details']?>" > <?php echo $row1['asset_details']?> </td> 
-         </tr><tr>   
-			<td class="tablecolor">Día de compras : <input type ="hidden" name ="asset_bought_date" value = "<?php echo $row1['asset_bought_date']?>" > <?php echo $row1['asset_bought_date']?> </td> 
-         </tr><tr>  
-			<td class="tablecolor">Final de garantía : <input type ="hidden" name ="asset_guarantee_expired" value = "<?php echo $row1['asset_guarantee_expired']?>" > <?php echo $row1['asset_guarantee_expired']?></td> 
-         </tr><tr>   
-			<td class="tablecolor">Precio de compras : <input type ="hidden" step="0.01" name ="asset_price" value = "<?php echo $row1['asset_price']?>"><?php echo $row1['asset_price']?></td> 
+			<td class="tablecolor">Detalls : </td> <td class="tableinput">  <input type ="hidden" name ="asset_details" value = "<?php echo $row1['asset_details']?>" > <?php echo $row1['asset_details']?> </td> 
          </tr><tr>    
-			<td class="tablecolor">Proveedor : <input type ="hidden" name ="asset_provider" value = "<?php echo $row1['asset_provider']?>"  > <?php echo $row1['asset_provider']?>  </td> 
+			<td class="tablecolor">Día de compras : </td> <td class="tableinput">  <input type ="hidden" name ="asset_bought_date" value = "<?php echo $row1['asset_bought_date']?>" > <?php echo $row1['asset_bought_date']?> </td> 
          </tr><tr>  
-			<td class="tablecolor">Funcionario quien alquila : 
+			<td class="tablecolor">Final de garantía : </td> <td class="tableinput">  <input type ="hidden" name ="asset_guarantee_expired" value = "<?php echo $row1['asset_guarantee_expired']?>" > <?php echo $row1['asset_guarantee_expired']?></td> 
+         </tr><tr>   
+			<td class="tablecolor">Precio de compras : </td> <td class="tableinput">  <input type ="hidden" step="0.01" name ="asset_price" value = "<?php echo $row1['asset_price']?>"><?php echo $row1['asset_price']?></td> 
+         </tr><tr>    
+			<td class="tablecolor">Proveedor : </td> <td class="tableinput">  <input type ="hidden" name ="asset_provider" value = "<?php echo $row1['asset_provider']?>"  > <?php echo $row1['asset_provider']?>  </td> 
+         </tr><tr>  
+			<td class="tablecolor">Funcionario quien alquila : </td> <td class="tableinput"> </td>
 		</tr>
 		</table>
 	<br>
