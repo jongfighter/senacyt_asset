@@ -3017,6 +3017,10 @@ td.tablecolor{
 	padding: 5px 5px;
 }
 
+td.tableinput{
+	padding: 5px 5px;
+}
+
 @media only screen and (max-width: 992px) {
   table.responsive-table {
     width: 100%;
