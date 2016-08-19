@@ -70,7 +70,7 @@ session_cache_limiter('nocache, must-revalidate');
              
             
              <input type ="hidden" name ="asset_id" value = "<?php echo $row1['asset_id']?>">   <br> 
-         <table>
+         <table class="marginleft">
 		 <tr>      
             <td class="tablecolor">Placa : </td> <td class="tableinput"> <input type ="hidden" name ="asset_barcode" value = "<?php echo $row1['asset_barcode']?>" > <?php echo $row1['asset_barcode']?>  </td> 
          </tr><tr>		 
