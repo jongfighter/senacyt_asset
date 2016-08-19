@@ -69,20 +69,34 @@ session_cache_limiter('nocache, must-revalidate');
         <form method ="post"  id="myform" onsubmit="return validateForm('myform')" > 
              
             
-             <input type ="hidden" name ="asset_id" value = "<?php echo $row1['asset_id']?>">   <br>
-             
-             Placa: <input type ="hidden" name ="asset_barcode" value = "<?php echo $row1['asset_barcode']?>" > <?php echo $row1['asset_barcode']?> <br>
-             Descripción : <input type ="hidden" name ="asset_desc" value = "<?php echo $row1['asset_desc']?>" > <?php echo $row1['asset_desc']?> <br>
-             Marca : <input type ="hidden" name ="asset_brand" value = "<?php echo $row1['asset_brand']?>" > <?php echo $row1['asset_brand']?> <br>
-             Modelo : <input type ="hidden" name ="asset_model" value = "<?php echo $row1['asset_model']?>"   > <?php echo $row1['asset_model']?> <br>
-             Serial : <input type ="hidden" name ="asset_serial" value = "<?php echo $row1['asset_serial']?>" > <?php echo $row1['asset_serial']?> <br>
-             Detalles : <input type ="hidden" name ="asset_details" value = "<?php echo $row1['asset_details']?>" > <?php echo $row1['asset_details']?> <br>
-             Día de compras : <input type ="hidden" name ="asset_bought_date" value = "<?php echo $row1['asset_bought_date']?>" > <?php echo $row1['asset_bought_date']?> <br>
-             Final de garantía : <input type ="hidden" name ="asset_guarantee_expired" value = "<?php echo $row1['asset_guarantee_expired']?>" > <?php echo $row1['asset_guarantee_expired']?> <br>
-             Precio de compras : <input type ="hidden" step="0.01" name ="asset_price" value = "<?php echo $row1['asset_price']?>"><?php echo $row1['asset_price']?> <br>
-             Proveedor : <input type ="hidden" name ="asset_provider" value = "<?php echo $row1['asset_provider']?>"  > <?php echo $row1['asset_provider']?> <br>
-            
-             Funcionario quien alquila :
+             <input type ="hidden" name ="asset_id" value = "<?php echo $row1['asset_id']?>">   <br> 
+         <table>
+		 <tr>      
+            <td class="tablecolor">Placa : <input type ="hidden" name ="asset_barcode" value = "<?php echo $row1['asset_barcode']?>" > <?php echo $row1['asset_barcode']?>  </td> 
+         </tr><tr>		 
+			<td class="tablecolor">Descripción : <input type ="hidden" name ="asset_desc" value = "<?php echo $row1['asset_desc']?>" > <?php echo $row1['asset_desc']?> </td> 
+         </tr><tr>   
+			<td class="tablecolor">Marca : <input type ="hidden" name ="asset_brand" value = "<?php echo $row1['asset_brand']?>" > <?php echo $row1['asset_brand']?> </td> 
+         </tr><tr>    
+			<td class="tablecolor">Modelo : <input type ="hidden" name ="asset_model" value = "<?php echo $row1['asset_model']?>"   > <?php echo $row1['asset_model']?>  </td> 
+         </tr><tr>   
+			<td class="tablecolor">Serial : <input type ="hidden" name ="asset_serial" value = "<?php echo $row1['asset_serial']?>" > <?php echo $row1['asset_serial']?>  </td> 
+         </tr><tr>   
+			<td class="tablecolor">Detalls : <input type ="hidden" name ="asset_details" value = "<?php echo $row1['asset_details']?>" > <?php echo $row1['asset_details']?> </td> 
+         </tr><tr>   
+			<td class="tablecolor">Día de compras : <input type ="hidden" name ="asset_bought_date" value = "<?php echo $row1['asset_bought_date']?>" > <?php echo $row1['asset_bought_date']?> </td> 
+         </tr><tr>  
+			<td class="tablecolor">Final de garantía : <input type ="hidden" name ="asset_guarantee_expired" value = "<?php echo $row1['asset_guarantee_expired']?>" > <?php echo $row1['asset_guarantee_expired']?></td> 
+         </tr><tr>   
+			<td class="tablecolor">Precio de compras : <input type ="hidden" step="0.01" name ="asset_price" value = "<?php echo $row1['asset_price']?>"><?php echo $row1['asset_price']?></td> 
+         </tr><tr>    
+			<td class="tablecolor">Proveedor : <input type ="hidden" name ="asset_provider" value = "<?php echo $row1['asset_provider']?>"  > <?php echo $row1['asset_provider']?>  </td> 
+         </tr><tr>  
+			<td class="tablecolor">Funcionario quien alquila : 
+		</tr>
+		</table>
+	<br>
+	<br>
              
              <select name ='p_id'>
                  <?php
