@@ -22,7 +22,9 @@ and open the template in the editor.
        ?>
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
 	<figure>
-		<img src="image/table.png" width="1210" height="415"/>
+		<div class="image">
+		<img src="image/table.png" width="1210" height="450"/>
+		</div>
 	</figure>
 </body>
            <?php
