@@ -91,8 +91,14 @@ session_cache_limiter('nocache, must-revalidate');
 			<td class="tablecolor">Precio de compras : </td> <td class="tableinput">  <input type ="hidden" step="0.01" name ="asset_price" value = "<?php echo $row1['asset_price']?>"><?php echo $row1['asset_price']?></td> 
          </tr><tr>    
 			<td class="tablecolor">Proveedor : </td> <td class="tableinput">  <input type ="hidden" name ="asset_provider" value = "<?php echo $row1['asset_provider']?>"  > <?php echo $row1['asset_provider']?>  </td> 
-         </tr><tr>  
-			<td class="tablecolor">Funcionario quien alquila : </td> <td class="tableinput"> <select name ='p_id'> <?php
+         </tr>
+		 
+		 </table> 
+		 
+		 <br>
+		 <br>
+		 
+			Funcionario quien alquila : <select name ='p_id'> <?php
               
                  while($row2 =  mssql_fetch_array($result_person)){
                      ?>
@@ -100,15 +106,11 @@ session_cache_limiter('nocache, must-revalidate');
                  <?php
                  }
                  ?>
-             </select></td>
-		</tr>
-		</table>
-	<br>
-	<br>
-                 
-             <br>
-            Ubicación : 
-            <select name='loc_id'>
+             </select>
+		
+		<br>
+		
+            Ubicación : <select name='loc_id'>
             <?php
                  
                  while($row3 =  mssql_fetch_array($result_loc)){
@@ -120,6 +122,9 @@ session_cache_limiter('nocache, must-revalidate');
                  ?>
             
             </select>
+            
+            <br>
+            
             <div>Día de alquilar <input type='date' name ='asset_out' class="datepicker" value = '<?php echo date("Y-m-d");?>'required > </div>
             <div> Día de devolver <input type ='date' name ='asset_in' class="datepicker" value = '<?php echo date("Y-m-d");?>'required>  </div>
             
@@ -137,7 +142,7 @@ session_cache_limiter('nocache, must-revalidate');
   
     $('.datepicker').pickadate({
 		selectMonths: true, // Creates a dropdown to control month
-		selectYears: 15 // Creates a dropdown of 15 years to control year
+		selectYears: 24 // Creates a dropdown of 15 years to control year
 	});
   
 	$(document)
