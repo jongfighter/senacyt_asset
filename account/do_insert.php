@@ -18,6 +18,7 @@ session_cache_limiter('nocache, must-revalidate');
         $p_lastname = $_POST['p_lastname'];
         $p_name = $_POST['p_name'];
         $login_identity = $_POST['login_identity'];
+        $login_authority = $_POST['login_authority'];
         $pw = $_POST['pwd'];
 
         $db_host = "localhost";
@@ -36,7 +37,7 @@ session_cache_limiter('nocache, must-revalidate');
         $rearray = mssql_fetch_array($res);
         $rep = $rearray[0];
         if($p_id != NULL && $rep == NULL){
-            $sql = "INSERT INTO Login (login_identity, login_password, p_id) VALUES('".$login_identity."',"."pwdencrypt('".$pw."'),".$p_id.");";
+            $sql = "INSERT INTO Login (login_identity, login_password, p_id, login_authority) VALUES('".$login_identity."',"."pwdencrypt('".$pw."'),".$p_id.",'".$login_authority."');";
             
             mssql_query($sql,$conn);
             echo "<script> alert('success');"

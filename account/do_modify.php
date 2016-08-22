@@ -24,6 +24,7 @@ session_cache_limiter('nocache, must-revalidate');
         $p_lastname = $_POST['person_lastname'];
         $p_name = $_POST['person_name'];
         $login_identity = $_POST['login_identity'];
+        $login_authority = $_POST['login_authority'];
         $pwd = $_POST['pwd'];
         $db_host = "localhost";
         $db_user = "sa";
@@ -42,12 +43,12 @@ session_cache_limiter('nocache, must-revalidate');
             echo '<br><a href="form_list.php">invalid name</a>';
         }
         else if($pwd==NULL){
-            $sql = "UPDATE Login SET  login_identity='{$login_identity}' WHERE p_id = {$p_id};";
+            $sql = "UPDATE Login SET  login_authority = '{$login_authority}', login_identity='{$login_identity}' WHERE p_id = {$p_id};";
             mssql_query($sql,$conn);
          
         }
         else{
-            $sql = "UPDATE Login SET  login_identity='{$login_identity}', login_password = pwdencrypt('{$pwd}') WHERE p_id = {$p_id};";
+            $sql = "UPDATE Login SET  login_authority = '{$login_authority}', login_identity='{$login_identity}', login_password = pwdencrypt('{$pwd}') WHERE p_id = {$p_id};";
             mssql_query($sql,$conn);
         }
         ?>

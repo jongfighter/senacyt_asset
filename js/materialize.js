@@ -6718,8 +6718,8 @@ DatePicker.defaults = (function( prefix ) {
 
         // Today and clear
         today: 'Hoy',
-        clear: 'Vacio',
-        close: 'OK',
+        clear: 'Claro',
+        close: 'X',
 
         // The format to show on the `input` element
         format: 'yyyy-mm-dd',

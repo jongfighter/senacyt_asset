@@ -39,6 +39,7 @@ session_cache_limiter('nocache, must-revalidate');
         $plastname = $_POST['p_lastname'];
         $pname = $_POST['p_name'];
         $login_identity = $_POST['log_identity'];
+        $login_authority = $_POST['log_authority'];
         ?>
         <?php
         ?>
@@ -49,6 +50,7 @@ session_cache_limiter('nocache, must-revalidate');
                  <input type ="hidden" name ="person_lastname" id = 'p_lastname' value = '<?php echo $plastname ?>'><br>
                  Nombre: <?php echo $pname ?><br>
                  <input type ="hidden" name ="person_name" id = 'p_name' value = '<?php echo $pname ?>'>
+                 autoridad: <input type ="text" name ="login_identity" id = 'login_identiity' value = '<?php echo $login_identity ?>'><br>
                  ID : <input type ="text" name ="login_identity" id = 'login_identiity' value = '<?php echo $login_identity ?>'><br>
                  Contraseña : <input type ="password" name ="pwd" id = 'pwd'>
                  

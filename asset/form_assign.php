@@ -64,58 +64,41 @@ session_start();
              
             <input type = 'hidden' name ='asset_id' value ='<?php echo $row1['asset_id']?>'> 
             
-             <table class="marginleft">
-		 <tr>      
-            <td class="tablecolor">Placa : </td> <td class="tableinput"> <input type ="hidden" name ="asset_barcode" value = "<?php echo $row1['asset_barcode']?>" > <?php echo $row1['asset_barcode']?>  </td> 
-         </tr><tr>		 
-			<td class="tablecolor">Descripción : </td> <td class="tableinput"> <input type ="hidden" name ="asset_desc" value = "<?php echo $row1['asset_desc']?>" > <?php echo $row1['asset_desc']?> </td> 
-         </tr><tr>   
-			<td class="tablecolor">Marca : </td> <td class="tableinput">  <input type ="hidden" name ="asset_brand" value = "<?php echo $row1['asset_brand']?>" > <?php echo $row1['asset_brand']?> </td> 
-         </tr><tr>    
-			<td class="tablecolor">Modelo : </td> <td class="tableinput">   <input type ="hidden" name ="asset_model" value = "<?php echo $row1['asset_model']?>"   > <?php echo $row1['asset_model']?>  </td> 
-         </tr><tr>   
-			<td class="tablecolor">Serial : </td> <td class="tableinput">  <input type ="hidden" name ="asset_serial" value = "<?php echo $row1['asset_serial']?>" > <?php echo $row1['asset_serial']?>  </td> 
-         </tr><tr>   
-			<td class="tablecolor">Detalls : </td> <td class="tableinput">  <input type ="hidden" name ="asset_details" value = "<?php echo $row1['asset_details']?>" > <?php echo $row1['asset_details']?> </td> 
-         </tr><tr>    
-			<td class="tablecolor">Día de compras : </td> <td class="tableinput">  <input type ="hidden" name ="asset_bought_date" value = "<?php echo $row1['asset_bought_date']?>" > <?php echo $row1['asset_bought_date']?> </td> 
-         </tr><tr>  
-			<td class="tablecolor">Final de garantía : </td> <td class="tableinput">  <input type ="hidden" name ="asset_guarantee_expired" value = "<?php echo $row1['asset_guarantee_expired']?>" > <?php echo $row1['asset_guarantee_expired']?></td> 
-         </tr><tr>   
-			<td class="tablecolor">Precio de compras : </td> <td class="tableinput">  <input type ="hidden" step="0.01" name ="asset_price" value = "<?php echo $row1['asset_price']?>"><?php echo $row1['asset_price']?></td> 
-         </tr><tr>    
-			<td class="tablecolor">Proveedor : </td> <td class="tableinput">  <input type ="hidden" name ="asset_provider" value = "<?php echo $row1['asset_provider']?>"  > <?php echo $row1['asset_provider']?>  </td> 
-         </tr>
-		 
-		 </table> 
-		 
-		 <br>
-		 <br>
-		 
-			Funcionario quien alquila : <select name ='p_id'> <?php
-              
+             Placa : <?php echo $row1['asset_barcode']?> <input type ="hidden" name ="asset_barcode" value = "<?php echo $row1['asset_barcode']?>" >   <br>
+             Descripción : <?php echo $row1['asset_desc']?> <input type ="hidden" name ="asset_desc" value = "<?php echo $row1['asset_desc']?>" >  <br>
+             Marca : <?php echo $row1['asset_brand']?> <input type ="hidden"  name ="asset_brand" value = "<?php echo $row1['asset_brand']?>"  >  <br>
+             Modelo :<?php echo $row1['asset_model']?> <input type ="hidden"  name ="asset_model" value = "<?php echo $row1['asset_model']?>"   >  <br>
+             Serial : <?php echo $row1['asset_serial']?><input type ="hidden"  name ="asset_serial" value = "<?php echo $row1['asset_serial']?>" >  <br>
+             Detalles :<?php echo $row1['asset_details']?> <input type ="hidden"  name ="asset_details" value = "<?php echo $row1['asset_details']?>" >  <br>
+             Día de compras : <?php echo $row1['asset_bought_date']?><input type ="hidden" name ="asset_bought_date" value = "<?php echo $row1['asset_bought_date']?>" >  <br>
+             Final de garantía : <?php echo $row1['asset_guarantee_expired']?> <input type ="hidden" name ="asset_guarantee_expired" value = "<?php echo $row1['asset_guarantee_expired']?>">  <br>
+             Precio de compras : <?php echo $row1['asset_price']?><input type ="hidden"  step="0.01" name ="asset_price" value = "<?php echo $row1['asset_price']?>">  <br>
+             Proveedor : <?php echo $row1['asset_provider']?><input type ="hidden"  name ="asset_provider" value = "<?php echo $row1['asset_provider']?>" >  <br>
+             Funcionario quien se asigna :
+             <select name ='p_id'>
+                 <?php
+                    mssql_fetch_array($result_person);
                  while($row2 =  mssql_fetch_array($result_person)){
                      ?>
-                 <option value='<?php echo $row2['p_id']?>'> <?php echo $row2['p_name']." ".$row2['p_lastname'];?></option>
+                 <option value='<?php echo $row2['p_id']?>'> <?php echo $row2['p_name']." ".$row2['p_lastname']?></option>
                  <?php
                  }
                  ?>
              </select>
-		
-		<br>
-		
-            Ubicación : <select name='loc_id'>
+             <br>
+            Ubicación : 
+            <select name='loc_id'>
             <?php
                  
                  while($row3 =  mssql_fetch_array($result_loc)){
                      ?>
-                 
                  <option value='<?php echo $row3['loc_id']?>'> <?php echo $row3['loc_building']." ".$row3['loc_floor']." ".$row3['loc_desc']?></option>
                  <?php
                  }
                  ?>
             
-            </select>
+             </select>
+            <br>
             <div>Día de alquilar <input type='date' name ='asset_out' class="datepicker" value = '<?php echo date("Y-m-d"); ?>'></div>
             
             

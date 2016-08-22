@@ -39,11 +39,11 @@ and open the template in the editor.
             if(isset($_POST['keyword'])){
                 $p_name = $_POST['keyword'];
                
-                $sql = $sql."select p_lastname, p_name, login_identity  from Login inner join Person on Person.p_id=Login.p_id where login_identity like '%{$p_name}%' or person.p_lastname like '%{$p_name}%' or person.p_name like '%{$p_name}%';";
+                $sql = $sql."select p_lastname, p_name, login_identity, login_authority  from Login inner join Person on Person.p_id=Login.p_id where login_identity like '%{$p_name}%' or person.p_lastname like '%{$p_name}%' or person.p_name like '%{$p_name}%';";
                
             }
             else{
-                $sql = $sql."select p_lastname, p_name, login_identity  from Login inner join Person on Person.p_id=Login.p_id;";
+                $sql = $sql."select p_lastname, p_name, login_identity, login_authority  from Login inner join Person on Person.p_id=Login.p_id;";
             }
             $result = mssql_query($sql,$conn);
             echo "<table border='1'><tr>";
@@ -52,6 +52,7 @@ and open the template in the editor.
                 <table border='1'> <tr class="tablecolor">
                         <th>Apellido</th>
                         <th>Nombre</th>
+                        <th>autoridad</th>
                         <th>ID</th>
                         <th>Admin</th>
             
@@ -76,6 +77,7 @@ and open the template in the editor.
         echo '<input type ="hidden" name = "p_lastname" value = "'.$arraypass[0].'">';
         echo '<input type ="hidden" name = "p_name" value = "'.$arraypass[1].'">';
         echo'<input type ="hidden" name = "login_identity" value = "'.$arraypass[2].'">';
+        echo'<input type ="hidden" name = "login_autoridad" value = "'.$arraypass[3].'">';
         echo '<input type="submit" name ="submit" value = "modificar" formaction="form_modify.php" > ';
         echo '<input type="submit" name ="submit" value = "borrar" formaction="do_delete.php"> ';
         ?>
