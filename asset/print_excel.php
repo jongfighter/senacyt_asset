@@ -26,6 +26,7 @@ $yourname = trim(''.$yourname);
 if ($yourname=='') $yourname = "(no name)";
 
 // A recordset for merging tables//
+$dept_id = $_POST['dept_id'];
 
 // Other single data items//
 $in_date = $_POST['asset_in'];
@@ -46,28 +47,34 @@ $x_barcode = $_POST['asset_barcode'];
 $loc_bf = $_SESSION['location_before'];
 
 $loc_ft = $_POST['loc_id'];
-$p_id = $_POST['p_id'];
+$curr_p_id = $_POST['curr_p_id']; //dar 
+
+$p_id = $_POST['p_id']; //recibir
 $db_host = "localhost";
             $db_user = "sa";
             $db_pw = "vamosit";
             $db_name = "senacyt_asset";
             $conn = mssql_connect($db_host, $db_user, $db_pw);
             mssql_select_db($db_name, $conn);
-            $p_sql ="select p_name, p_lastname from dbo.person where p_id = {$p_id}";
-            $p_res = mssql_query($p_sql,$conn);
-            $loc_bf_sql = "select * from dbo.loc where loc_id={$loc_bf}";
-            $loc_bf_res = mssql_query($loc_bf_sql, $conn);
-            $loc_ft_sql ="select * from dbo.loc where loc_id={$loc_ft}";
-            $loc_ft_res = mssql_query($loc_ft_sql, $conn);
-            $p_row = mssql_fetch_array($p_res);
-            $loc_bf_row = mssql_fetch_array($loc_bf_res);
-            $loc_ft_row = mssql_fetch_array($loc_ft_res);
+            $rcv_sql ="select p_name, p_lastname, dept_id from dbo.person where p_id = {$p_id}";
+            $rcv_res = mssql_query($rcv_sql,$conn);
+            $rcv_row = mssql_fetch_array($rcv_res);
+            $dar_sql="SELECT p_name, p_lastname, dept_id from dbo.person where p_id = {$curr_p_id};";
+            $dar_res = mssql_query($dar_sql, $conn);
+            $dar_row = mssql_fetch_array($dar_res);
+            $rcv_dept_id = $rcv_row['dept_id'] ;
+            $dar_dept_id = $dar_row['dept_id'];
+            $rcv_dept_sql = "SELECT dept_name FROM dbo.Department WHERE dept_id = {$rcv_dept_id}";
+            $dar_dept_sql = "SELECT dept_name FROM dbo.Department WHERE dept_id = {$dar_dept_id}";
+            $rcv_dept_res = mssql_query($rcv_dept_sql, $conn);
+            $dar_dept_res = mssql_query($dar_dept_sql, $conn);
+            $dar_dept_row = mssql_fetch_array($dar_dept_res);
+            $rcv_dept_row = mssql_fetch_array($rcv_dept_res);
             
-
-$x_curr= $loc_bf_row['loc_building']." ".$loc_bf_row['loc_floor']." ".$loc_bf_row['loc_desc'];
-
-$x_future = $loc_ft_row['loc_building']." ".$loc_ft_row['loc_floor']." ".$loc_ft_row['loc_desc'];
-$x_person = $p_row['p_name']." ".$p_row['p_lastname'];
+$rcv_person = $rcv_row['p_name']." ".$rcv_row['p_lastname'];
+$dar_person = $dar_row['p_name']." ".$dar_row['p_lastname'];
+$dar_dept = $dar_dept_row['dept_name'];
+$rcv_dept = $rcv_dept_row['dept_name'];
 // -----------------
 // Load the template
 // -----------------

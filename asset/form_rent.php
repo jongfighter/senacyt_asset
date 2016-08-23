@@ -19,8 +19,8 @@ session_cache_limiter('nocache, must-revalidate');
         header("Location : ../main.php");
     }
             $asset_id = $_POST['asset_id'];
-   
-            
+            $curr_p_id =(int) $_POST['p_id'];
+                       
             $db_host = "localhost";
             $db_user = "sa";
             $db_pw = "vamosit";
@@ -30,11 +30,14 @@ session_cache_limiter('nocache, must-revalidate');
             $sql = "select * from dbo.Asset where asset_id =".$asset_id;
             $sql2 = "select * from dbo.Person;";
             $sql3 = "select * from dbo.Loc;";
+            $sql4 = "SELECT * FROM dbo.Department;";
             $result_asset = mssql_query($sql,$conn);
             $result_person = mssql_query($sql2, $conn);
             $result_loc = mssql_query($sql3,$conn);
+            $result_dept = mssql_query($sql4, $conn);
+            $row_dept = mssql_fetch_array($result_dept);
             $row1 = mssql_fetch_array($result_asset);
-           
+            
             
             
 ?>
@@ -68,8 +71,9 @@ session_cache_limiter('nocache, must-revalidate');
              ?>
         <form method ="post"  id="myform" onsubmit="return validateForm('myform')" > 
              
-            
+            <input type='hidden' name ='curr_p_id' value ="<?php echo  $curr_p_id;?>"> 
              <input type ="hidden" name ="asset_id" value = "<?php echo $row1['asset_id']?>">   <br> 
+             
          <table class="marginleft">
 		 <tr>      
             <td class="tablecolor">Placa : </td> <td class="tableinput"> <input type ="hidden" name ="asset_barcode" value = "<?php echo $row1['asset_barcode']?>" > <?php echo $row1['asset_barcode']?>  </td> 
@@ -96,9 +100,10 @@ session_cache_limiter('nocache, must-revalidate');
 		 </table> 
 		 
 		 <br>
-		 <br>
+      
+		
 		 
-			Funcionario quien alquila : <select name ='p_id'> <?php
+			A quien alquila : <select name ='p_id'> <?php
               
                  while($row2 =  mssql_fetch_array($result_person)){
                      ?>
@@ -110,18 +115,7 @@ session_cache_limiter('nocache, must-revalidate');
 		
 		<br>
 		
-            Ubicación : <select name='loc_id'>
-            <?php
-                 
-                 while($row3 =  mssql_fetch_array($result_loc)){
-                     ?>
-                 
-                 <option value='<?php echo $row3['loc_id']?>'> <?php echo $row3['loc_building']." ".$row3['loc_floor']." ".$row3['loc_desc']?></option>
-                 <?php
-                 }
-                 ?>
-            
-            </select>
+
             
             <br>
             

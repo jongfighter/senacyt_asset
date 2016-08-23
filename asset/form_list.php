@@ -65,7 +65,7 @@ and open the template in the editor.
                 asset_out out_date,
                 asset_in in_date,
                 asset_price price,
-                
+                p_id,
                 asset_provider _provider,
 		p_name person, dept_name department,
                 loc_building as building, 
@@ -93,7 +93,7 @@ and open the template in the editor.
                 asset_out out_date,
                 asset_in in_date,
                 asset_price price,
-           
+          A.p_id as p_id,
                 asset_provider _provider,
 		p_name person, dept_name department,
                 loc_building as building, loc_floor as _floor, loc_desc location_description,
@@ -116,7 +116,7 @@ and open the template in the editor.
                 asset_out out_date,
                 asset_in in_date,
                 asset_price price,
-           
+           A.p_id as p_id,
                 asset_provider _provider,
 		p_name person, dept_name department,
                 loc_building as building, loc_floor as _floor, loc_desc location_description,
@@ -141,7 +141,7 @@ asset_desc _description,
                 asset_out out_date,
                 asset_in in_date,
                 asset_price price,
-               
+               A.p_id as p_id,
 	    asset_provider _provider,
 		 p_name person, dept_name department,
 	    loc_building as building, loc_floor as _floor, loc_desc location_description,
@@ -197,7 +197,7 @@ asset_desc _description,
             <?php
             if($_SESSION['user_id']=='admin'){
             ?>
-            <th>Última modificación</th>
+         
             <th> Admin </th>
             <?php }?>
             
@@ -207,7 +207,7 @@ asset_desc _description,
                 
                 
                 <?php
-$unhandled = 3; //define checking period;
+$unhandled = 1; //define checking period;
 while($row = mssql_fetch_array($result)) {
 ?>
 	</tr>
@@ -222,7 +222,18 @@ while($row = mssql_fetch_array($result)) {
                 <td id="centro"><?php echo date('d-m-Y',strtotime($row['purchase_date']));?></td>
                 <td id="centro"><?php echo date('d-m-Y',strtotime($row['guarantee_expired']));?></td>
                 <td id="centro"><?php echo date('d-m-Y',strtotime($row['out_date']));?></td>
-                <td id="centro"><?php echo date('d-m-Y',strtotime($row['in_date']));?></td>
+                <td id="centro"
+                    <?php
+                     $strlast = $row['in_date'];
+                $end = new DateTime($strlast);
+                $start = new DateTime();
+                $interval = (int) ($start->format('U')-$end->format('U'))/(60*60*24);
+                if($interval>$unhandled&&$row['available']==0){ 
+                    echo "bgcolor='#FF0000'";
+                } 
+                    
+                    ?>
+                    ><?php echo date('d-m-Y',strtotime($row['in_date']));?></td>
                 <td id="centro"><?php echo $row['price'];?></td>
                 <td id="centro"><?php echo $row['_provider'];?></td>
                 <td id="centro"><?php echo $row['person'];?></td>
@@ -236,25 +247,12 @@ while($row = mssql_fetch_array($result)) {
                     echo "X";
                 }
                  if($_SESSION['user_id']=='admin'){
-                ?></td>
-                <td        id='centro'         <?php
-                $strlast = $row['last_handled'];
-                $end = new DateTime($strlast);
-                $start = new DateTime();
-                $interval = (int) ($start->format('U')-$end->format('U'))/(60*60*24);
-                if($interval>$unhandled){
-                    echo "bgcolor='#FF0000'";
-                } 
-                 
-                ?>><?php echo date('d-m-Y',strtotime($row['last_handled']));?></td>
 
-                <?php
-                
-               
                 ?>
                 <td>
                     <form method = 'post'>
                         <input type ='hidden' name ='asset_id' value ='<?php echo $row['asset_id'];?>'>
+                        <input type ='hidden' name ='p_id' value ='<?php echo $row['p_id'];?>'>
                         <?php if($row['available']==1){?>
                         <input type ='submit' value ='alquilar' formaction="form_rent.php">
                         <input type ='submit' value ='asignar' formaction="form_assign.php">
@@ -263,7 +261,7 @@ while($row = mssql_fetch_array($result)) {
                         <?php
                         if($row['available']==0){
                             ?>  
-                                <input type ='submit' value ='transferir' formaction="form_rent.php">
+                               <!-- <input type ='submit' value ='transferir' formaction="form_rent.php"> -->
                                 <input type ='submit' value ='devolver' formaction="do_return.php">
                             <?php
                         }

@@ -25,7 +25,7 @@ session_cache_limiter('nocache, must-revalidate');
             $conn = mssql_connect($db_host, $db_user, $db_pw);
             mssql_select_db($db_name, $conn);
             $sql = "select * from dbo.Asset where asset_id = {$asset_id};";
-            $sql2 = "select * from dbo.Person order by p_name asc;";
+            $sql2 = "select * from dbo.Person order by p_name asc, p_lastname asc;";
             $sql3 = "select * from dbo.Loc order by loc_building asc, loc_floor asc, loc_desc asc;";
             $result_asset = mssql_query($sql,$conn);
             $result_person = mssql_query($sql2, $conn);
@@ -78,15 +78,7 @@ session_cache_limiter('nocache, must-revalidate');
 		 <br>
 		 <br>
 		 
-			Funcionario quien alquila : <select name ='p_id'> <?php
-              
-                 while($row2 =  mssql_fetch_array($result_person)){
-                     ?>
-                 <option value='<?php echo $row2['p_id']?>'> <?php echo $row2['p_name']." ".$row2['p_lastname'];?></option>
-                 <?php
-                 }
-                 ?>
-             </select>
+
 		
 		<br>
 		
