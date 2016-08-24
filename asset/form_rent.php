@@ -98,7 +98,7 @@ session_cache_limiter('nocache, must-revalidate');
          </tr>
 		 
 		 </table> 
-		 
+		 <div class="marginleft">
 		 <br>
                         Quien presta : <?php echo $fullname;?>
 		
@@ -139,6 +139,7 @@ session_cache_limiter('nocache, must-revalidate');
                  
                  <input type="submit" name ="optype" value = "confirmar" formaction="do_rent.php">
                  <input type="submit" name ="excel" value = "excel" formaction="print_excel.php">
+            </div>
             </div>
         </form>
         <?php include_once '../footer.php';?>
