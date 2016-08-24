@@ -35,7 +35,6 @@ session_cache_limiter('nocache, must-revalidate');
         include_once("../header.php");
         
         ?>
-          <div class="marginleft">
         
         <?php
         
@@ -48,6 +47,8 @@ session_cache_limiter('nocache, must-revalidate');
         ?>
         <?php
         ?>
+        
+        <div class="marginleft">
         
         <form method ="post" action="do_modify.php" id="myform" onsubmit ="return validateForm('myform');"> 
              <div>
