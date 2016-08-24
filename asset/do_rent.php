@@ -15,10 +15,16 @@ session_cache_limiter('nocache, must-revalidate');
 
 <?php
             $asset_id = $_POST['asset_id'];
+         
             $in = $_POST['asset_in'];
+    
             $out = $_POST['asset_out'];
+       
             $loc_id = $_POST['loc_id'];
+            
             $p_id  = $_POST['p_id'];
+         
+            echo '<br>';
             $today = date("Y-m-d");
             $db_host = "localhost";
             $db_user = "sa";
@@ -36,15 +42,15 @@ session_cache_limiter('nocache, must-revalidate');
             }
             
             else{
-            $sql = "update Asset set asset_in = '9999-12-31', asset_out = '{$out}', loc_id ={$loc_id}, p_id = {$p_id}, pos={$z}, "
+            $sql = "update Asset set asset_in =null, asset_out = '{$out}', loc_id ={$loc_id}, p_id = {$p_id}, pos={$z}, "
             . "asset_last_touch = '{$today}'  "
             . "where asset_id = {$asset_id} ;";
             }
-
-            
+     
             mssql_query($sql,$conn);
             mssql_close();
-?><meta http-equiv="refresh" content="0;url=form_list.php">
+?>
 
 
 
+<meta http-equiv="refresh" content="0;url=form_list.php">

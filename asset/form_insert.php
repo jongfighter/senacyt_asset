@@ -69,7 +69,7 @@ session_cache_limiter('nocache, must-revalidate');
             $db_name = "senacyt_asset";
             $conn = mssql_connect($db_host, $db_user, $db_pw);
             mssql_select_db($db_name, $conn);
-            $sql = "select t_id, t_name from dbo.tipo;";
+            $sql = "select t_id, t_name from dbo.tipo order by t_name;";
             $result = mssql_query($sql,$conn);
              while($row =  mssql_fetch_array($result)){
                      ?>
@@ -79,6 +79,34 @@ session_cache_limiter('nocache, must-revalidate');
                  
                  ?>
              </select>
+             <div>
+               Ubicación &nbsp; &nbsp; &nbsp;&nbsp;  &nbsp; &nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;  :       <select name ='loc_id' id = 'location_name'>
+                 <?php
+                 $sql = "select loc_id, loc_building, loc_floor, loc_desc from dbo.Loc order by loc_building, loc_floor, loc_desc;";
+                $result = mssql_query($sql,$conn);
+                 while($row =  mssql_fetch_array($result)){
+                     ?>
+                 <option value='<?php echo $row['loc_id']?>'> <?php echo "Edificio. ".$row['loc_building'].' Nivel '.$row['loc_floor'].' '. $row['loc_desc'] ?></option>
+                 <?php
+                 }
+                 
+                 ?>
+             </select>
+             </div>
+             <div>
+                Funcionario &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; :      <select name ='Person' id = 'Person'>
+                 <?php
+                 $sql = "select p_id, p_lastname, p_name from dbo.Person order by p_name, p_lastname;";
+                $result = mssql_query($sql,$conn);
+                 while($row =  mssql_fetch_array($result)){
+                     ?>
+                 <option value='<?php echo $row['p_id']?>'> <?php echo $row['p_name']." ".$row['p_lastname'] ?></option>
+                 <?php
+                 }
+                 
+                 ?>
+             </select>
+             </div>
        <div> 
             <input type="submit" name ="submit" value = "insertar"> &nbsp;&nbsp;
          <button type ="button"  onclick="history.back()"> volver </button> 
@@ -92,7 +120,7 @@ session_cache_limiter('nocache, must-revalidate');
   
     $('.datepicker').pickadate({
 		selectMonths: true, // Creates a dropdown to control month
-		selectYears: 24 // Creates a dropdown of 15 years to control year
+		selectYears: 15 // Creates a dropdown of 15 years to control year
 	});
   
 	$(document)

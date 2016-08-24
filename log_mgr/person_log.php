@@ -27,7 +27,7 @@ and open the template in the editor.
         
 <?php
             include_once("log_header.php");
-            include_once("../form_person_log_search.php");
+             include_once ("../form_log_search.html");
            
 ?>
         <form method ='post' action="person_export_excel.php">
