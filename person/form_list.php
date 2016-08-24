@@ -1,7 +1,7 @@
 <?php
 session_cache_limiter('nocache, must-revalidate');
     session_start();
-    echo "account : ".$_SESSION['user_id'];
+  
     if($_SESSION['user_id']!='admin'){
         ?>
 <script>alert("sign in with admin account"); </script>
@@ -25,15 +25,10 @@ and open the template in the editor.
         
 <?php
             include_once("../header.php");
+            ?><div class='marginleft'><?php
             include_once ("../form_search.html");
 
-?>
-        <form method ='post' action="../do_export_excel.php">
-            <input type ='hidden' name ='searchtext' value ='<?php echo $_POST['keyword'];?>'>
-            <input type ='hidden' name ='checkvalue' value =<?php echo $_POST['check'];?>>
-            <input type ='submit' name ='print' value = 'excel'>
-        </from>
-<?php
+
             
             $db_host = "localhost";
             $db_user = "sa";
@@ -58,46 +53,42 @@ p_name like '%{$p_name}%' or dept_name like '%{$p_name}%';";
               <th>Apellido</th>
               <th>Nombre</th>
               <th>Departamento</th>
-              <th>Ubicación</th>
+            
               <th>Admin</th>
          </tr>
 <?php
 // Print the data
-    while($row = mssql_fetch_row($result)) {
-        $num = 0;
-        $arraypass[6];
-        echo "<tr>";
-        foreach($row as $_column) {
-            if($num<=1){
-               
-            }
-            else{
-                echo '<td >'.$_column.'</td>';
-            }
-            $arraypass[$num]=$_column;
-            $num = $num+1;
-        }
-        echo '<td>';
-        echo '<form method="post"> ';
-        echo '<input type ="hidden" name = "p_id" value = "'.$arraypass[0].'">';
-        echo '<input type ="hidden" name = "p_lastname" value = "'.$arraypass[2].'">';
-        echo '<input type ="hidden" name = "p_name" value = "'.$arraypass[3].'">';
-        echo'<input type ="hidden" name = "dept_name" value = "'.$arraypass[4].'">';
-        echo'<input type ="hidden" name = "dept_location" value = "'.$arraypass[5].'">';
-        echo '<input type="submit" name ="submit" value = "modificar" formaction="form_modify.php" > ';
-        echo '<input type="submit" name ="submit" value = "borrar" formaction="do_delete.php"> ';
-        ?><input type="submit" name ="submit" value = "ver información" formaction="form_person_view.php">
+    while($row = mssql_fetch_array($result)) {
+        ?>
+         <td><?php echo $row['lastname'];?></td>
+         <td><?php echo $row['name'];?></td>
+         <td><?php echo $row['department'];?></td>
+         
+            
+            <?php
         
-       <?php
-        echo '</form> </td>';
-        echo "</tr>";
-    }
+        ?>
+        <td>
+            <form method="post">
+                <input type ="hidden" name = "p_id" value = "<?php echo $row['p_id'];?>">
+                <input type ="hidden" name = "p_lastname" value = "<?php echo $row['lastname'];?>">
+                <input type ="hidden" name = "p_name" value = "<?php echo $row['name'];?>">
+                <input type ="hidden" name = "dept_name" value = "<?php echo $row['department'];?>">
+                
+                <input type="submit" name ="submit" value = "modificar" formaction="form_modify.php" > 
+                <input type="submit" name ="submit" value = "borrar" formaction="do_delete.php"> 
+                <input type="submit" name ="submit" value = "ver información" formaction="form_person_view.php">
 
-echo "</table>";
- ?>
+            </form> 
+        </td>
+        </tr>
+<?php    } ?>
+
+</table>
+ 
         
             
-        </form>
+            </div>
         <?php include_once '../footer.php';?>
     </body>
 </html>

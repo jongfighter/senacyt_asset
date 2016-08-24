@@ -3,7 +3,7 @@
 session_cache_limiter('nocache, must-revalidate');
 
     session_start();
-   echo "account : ".$_SESSION['user_id'];
+   
     if($_SESSION['user_id']!='admin'){    
         ?>
 <script>alert("no access right");</script>
@@ -48,7 +48,7 @@ session_cache_limiter('nocache, must-revalidate');
 <!-- table -->
 <!-- 내비 desktp&mobile -->
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
-   <div class="marginleft">
+    <div class="marginleft">
    <div class="container2">
         Placa &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;<input type ="text" name ="asset_barcode" id = "barcode"> <br>
         Descripción &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;<input type ="text" name ="asset_desc" id = "desc" > <br>
@@ -114,7 +114,7 @@ session_cache_limiter('nocache, must-revalidate');
         </div> 
       <br>
    </div>
-   </div>
+    </div>
 </body>
 <!-- end -->
         <?php include_once '../footer.php';?>
@@ -122,7 +122,7 @@ session_cache_limiter('nocache, must-revalidate');
   
     $('.datepicker').pickadate({
 		selectMonths: true, // Creates a dropdown to control month
-		selectYears: 24 // Creates a dropdown of 15 years to control year
+		selectYears: 15 // Creates a dropdown of 15 years to control year
 	});
   
 	$(document)

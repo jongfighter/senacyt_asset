@@ -2,7 +2,7 @@
 
 session_cache_limiter('nocache, must-revalidate');
     session_start();
-    echo "account : ". $_SESSION['user_id'];
+   
     
 ?>
 <!DOCTYPE html>
@@ -12,36 +12,35 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <html>
-	
-	  <div class="marginleft">
     
         
 <?php
                
             include_once("../header.php");
+            ?><div class="marginleft"><?php
             include_once ("../form_search.html");
-?>
-   
+            ?>
         <?php 
         
         if($_SESSION['user_id']=='admin'){
         ?>
+    
         <form method = 'post' action = 'form_list.php'>
-            <input type ='submit' name ='ssuubmit' value ='check'>
+            <input type ='submit' name ='ssuubmit' value ='retraso'>
             <input type ='hidden' name ='check' value =1>
         </form>
 <?php
         }   
         ?>
     
-        <form method ='post' action="../do_export_excel.php">
+        <form method ='post' action="do_export_excel.php">
             <input type ='hidden' name ='searchtext' value ='<?php echo $_POST['keyword'];?>'>
             <input type ='hidden' name ='checkvalue' value =<?php echo $_POST['check'];?>>
             <input type ='submit' name ='print' value = 'excel'>
         </form>
-
+   
         <?php  
-            $delay_day = 3;
+            $delay_day = 1;
             $delay_to_check = date('Y-m-d',time()-(60*60*24*($delay_day)));
             $db_host = "localhost";
             $db_user = "sa";
@@ -173,7 +172,7 @@ asset_desc _description,
             <input type='submit' name='sub' value='buscar'>
             
         </form>
-
+            </div>
                 
         <table class="marginleft">
            <tr class="tablecolor">
@@ -294,7 +293,6 @@ while($row = mssql_fetch_array($result)) {
             </tr> 
 <?php }?>
             </table>
-            </div>
         
         <?php include_once '../footer.php';?>
     </body>

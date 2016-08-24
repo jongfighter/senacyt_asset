@@ -3018,7 +3018,7 @@ td.tablecolor{
 
 td.tableinput{
 	padding: 5px 5px;
-	width: 100%;
+	width: 50%; 
 }
 
 
@@ -3439,7 +3439,7 @@ input[type=range] + .thumb {
 }
 
 .marginleft{
-	margin-left: 50px;
+	margin-left: 35px;
 }
 
 @media only screen and (min-width: 601px) {
@@ -6513,7 +6513,7 @@ input[type=checkbox]:not(:disabled).tabbed:focus ~ .lever::after {
 
 select {
   background-color: #E7E7E7;
-  width: 25%;
+  width: 13%;
   padding: 4px;
   border: 1px solid #878787;
   border-radius: 2px;

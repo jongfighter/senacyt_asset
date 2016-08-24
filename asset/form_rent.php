@@ -3,7 +3,7 @@
 session_cache_limiter('nocache, must-revalidate');
 
     session_start();
-    echo "account : ".$_SESSION['user_id'];
+    
     if($_SESSION['user_id']!='admin'){    
         ?>
 <script>alert("no access right");</script>
@@ -140,8 +140,8 @@ session_cache_limiter('nocache, must-revalidate');
                  <input type="submit" name ="optype" value = "confirmar" formaction="do_rent.php">
                  <input type="submit" name ="excel" value = "excel" formaction="print_excel.php">
             </div>
-            </div>
         </form>
+</div>
         <?php include_once '../footer.php';?>
     </body>
 </html>

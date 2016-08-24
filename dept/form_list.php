@@ -3,7 +3,7 @@
 session_cache_limiter('nocache, must-revalidate');
 
     session_start();
-echo "account : ".$_SESSION['user_id'];
+
     if($_SESSION['user_id']!='admin'){    
         ?>
 <script>alert("no access right");</script>
@@ -28,13 +28,7 @@ and open the template in the editor.
 <?php
             include_once("../header.php");
             include_once ("../form_search.html");
-?>
-        <form method ='post' action="../do_export_excel.php">
-            <input type ='hidden' name ='searchtext' value ='<?php echo $_POST['keyword'];?>'>
-            <input type ='hidden' name ='checkvalue' value =<?php echo $_POST['check'];?>>
-            <input type ='submit' name ='print' value = 'excel'>
-        </form>
-<?php
+
             
             $db_host = "localhost";
             $db_user = "sa";

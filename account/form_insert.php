@@ -3,7 +3,7 @@
 session_cache_limiter('nocache, must-revalidate');
 
     session_start();
-    echo "account : ".$_SESSION['user_id'];
+   
     if($_SESSION['user_id']!='admin'){    
         ?>
 <script>alert("no access right");</script>

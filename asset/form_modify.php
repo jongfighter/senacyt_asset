@@ -3,7 +3,7 @@
 session_cache_limiter('nocache, must-revalidate');
 
     session_start();
-    echo "account : ".$_SESSION['user_id'];
+    
     if($_SESSION['user_id']!='admin'){    
         ?>
 <script>alert("no access right");</script>
@@ -65,38 +65,38 @@ session_cache_limiter('nocache, must-revalidate');
         <form method ="post" > 
               
              <input type ="hidden" name ="asset_id"  value = "<?php echo $row1['asset_id']?>">  <br>
-	<table class="marginleft">
+<table class="marginleft">
 		 <tr>      
-            <td class="tablecolor">Placa : </td> <td class="tableinput"> <input type ="text" name ="asset_barcode" value = "<?php echo $row1['asset_barcode']?>" > </td> 
+            <td class="tablecolor">Placa  </td> <td class="tableinput"> <input type ="text" name ="asset_barcode" value = "<?php echo $row1['asset_barcode']?>" > </td> 
          </tr><tr>		 
-			<td class="tablecolor">Descripción : </td> <td class="tableinput"> <input type ="text" name ="asset_desc" value = "<?php echo $row1['asset_desc']?>" > </td> 
+			<td class="tablecolor">Descripción  </td> <td class="tableinput"> <input type ="text" name ="asset_desc" value = "<?php echo $row1['asset_desc']?>" > </td> 
          </tr><tr>   
-			<td class="tablecolor">Marca : </td> <td class="tableinput">  <input type ="text" name ="asset_brand" value = "<?php echo $row1['asset_brand']?>" >  </td> 
+			<td class="tablecolor">Marca  </td> <td class="tableinput">  <input type ="text" name ="asset_brand" value = "<?php echo $row1['asset_brand']?>" >  </td> 
          </tr><tr>    
-			<td class="tablecolor">Modelo : </td> <td class="tableinput">   <input type ="text" name ="asset_model" value = "<?php echo $row1['asset_model']?>"   >  </td> 
+			<td class="tablecolor">Modelo  </td> <td class="tableinput">   <input type ="text" name ="asset_model" value = "<?php echo $row1['asset_model']?>"   >  </td> 
          </tr><tr>   
-			<td class="tablecolor">Serial : </td> <td class="tableinput">  <input type ="text" name ="asset_serial" value = "<?php echo $row1['asset_serial']?>" >  </td> 
+			<td class="tablecolor">Serial  </td> <td class="tableinput">  <input type ="text" name ="asset_serial" value = "<?php echo $row1['asset_serial']?>" >  </td> 
          </tr><tr>   
-			<td class="tablecolor">Detalls : </td> <td class="tableinput">  <input type ="text" name ="asset_details" value = "<?php echo $row1['asset_details']?>" >  </td> 
+			<td class="tablecolor">Detalls  </td> <td class="tableinput">  <input type ="text" name ="asset_details" value = "<?php echo $row1['asset_details']?>" >  </td> 
          </tr><tr>    
-			<td class="tablecolor">Día de compras : </td> <td class="tableinput">  <input type ="text"  class="datepicker"  name ="asset_bought_date" value = "<?php echo $row1['asset_bought_date']?>" > </td> 
+			<td class="tablecolor">Día de compras  </td> <td class="tableinput">  <input type ="text"  class="datepicker"  name ="asset_bought_date" value = "<?php echo $row1['asset_bought_date']?>" > </td> 
          </tr><tr>  
-			<td class="tablecolor">Final de garantía : </td> <td class="tableinput">  <input type ="text"  class="datepicker" name ="asset_guarantee_expired" value = "<?php echo $row1['asset_guarantee_expired']?>" > </td> 
+			<td class="tablecolor">Final de garantía  </td> <td class="tableinput">  <input type ="text"  class="datepicker" name ="asset_guarantee_expired" value = "<?php echo $row1['asset_guarantee_expired']?>" > </td> 
          </tr><tr>   
-			<td class="tablecolor">Precio de compras : </td> <td class="tableinput">  <input type ="number" step="0.01" name ="asset_price" value = "<?php echo $row1['asset_price']?>"></td> 
+			<td class="tablecolor">Precio de compras  </td> <td class="tableinput">  <input type ="number" step="0.01" name ="asset_price" value = "<?php echo $row1['asset_price']?>"></td> 
          </tr><tr>    
-			<td class="tablecolor">Proveedor : </td> <td class="tableinput">  <input type ="text" name ="asset_provider" value = "<?php echo $row1['asset_provider']?>"  >   </td> 
+			<td class="tablecolor">Proveedor  </td> <td class="tableinput">  <input type ="text" name ="asset_provider" value = "<?php echo $row1['asset_provider']?>"  >   </td> 
          </tr>
 		 
 		 </table> 
-	<div class="marginleft">
+		 
 		 <br>
 		 <br>
 		 
 
 		
 		<br>
-		
+                <div class ='marginleft'>
             Ubicación : <select name='loc_id'>
             <?php
                  
@@ -109,7 +109,6 @@ session_cache_limiter('nocache, must-revalidate');
                  ?>
             
             </select>
-           
             
             <br>
              
@@ -118,7 +117,6 @@ session_cache_limiter('nocache, must-revalidate');
             </div>
         </form>
         <button type ="button"  onclick="history.back()"> volver </button>
-        
         </div>
         <?php include_once '../footer.php';?>
     </body>
