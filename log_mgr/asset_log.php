@@ -23,8 +23,8 @@ and open the template in the editor.
 
         
 <?php
-        
             include_once("log_header.php");
+            include_once("../form_asset_log_search.php");
            
 ?>
     
