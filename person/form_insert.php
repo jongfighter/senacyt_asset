@@ -39,8 +39,8 @@ session_cache_limiter('nocache, must-revalidate');
 
     </head>
     <body>
+        <div class="marginleft">
         <form method ="post"  action ='do_insert.php' onsubmit='return chk()'>
-            <div class="marginleft">
              <div>
                  Apellido : <input type ="text" name ="p_lastname" id = 'p_lastname'>
              </div>
