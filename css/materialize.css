@@ -3018,7 +3018,7 @@ td.tablecolor{
 
 td.tableinput{
 	padding: 5px 5px;
-	width: 50%; 
+	width: 100%;
 }
 
 
@@ -6513,7 +6513,7 @@ input[type=checkbox]:not(:disabled).tabbed:focus ~ .lever::after {
 
 select {
   background-color: #E7E7E7;
-  width: 13%;
+  width: 25%;
   padding: 4px;
   border: 1px solid #878787;
   border-radius: 2px;
