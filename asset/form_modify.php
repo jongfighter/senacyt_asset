@@ -65,7 +65,7 @@ session_cache_limiter('nocache, must-revalidate');
         <form method ="post" > 
               
              <input type ="hidden" name ="asset_id"  value = "<?php echo $row1['asset_id']?>">  <br>
-<table class="marginleft">
+	<table class="marginleft">
 		 <tr>      
             <td class="tablecolor">Placa : </td> <td class="tableinput"> <input type ="text" name ="asset_barcode" value = "<?php echo $row1['asset_barcode']?>" > </td> 
          </tr><tr>		 
@@ -89,7 +89,7 @@ session_cache_limiter('nocache, must-revalidate');
          </tr>
 		 
 		 </table> 
-		 
+	<div class="marginleft">
 		 <br>
 		 <br>
 		 
@@ -109,6 +109,7 @@ session_cache_limiter('nocache, must-revalidate');
                  ?>
             
             </select>
+           
             
             <br>
              
@@ -117,6 +118,8 @@ session_cache_limiter('nocache, must-revalidate');
             </div>
         </form>
         <button type ="button"  onclick="history.back()"> volver </button>
+        
+        </div>
         <?php include_once '../footer.php';?>
     </body>
 </html>
