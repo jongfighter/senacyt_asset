@@ -48,6 +48,7 @@ session_cache_limiter('nocache, must-revalidate');
 <!-- table -->
 <!-- 내비 desktp&mobile -->
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
+   <div class="marginleft">
    <div class="container2">
         Placa &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;<input type ="text" name ="asset_barcode" id = "barcode"> <br>
         Descripción &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;<input type ="text" name ="asset_desc" id = "desc" > <br>
@@ -112,6 +113,7 @@ session_cache_limiter('nocache, must-revalidate');
          <button type ="button"  onclick="history.back()"> volver </button> 
         </div> 
       <br>
+   </div>
    </div>
 </body>
 <!-- end -->
