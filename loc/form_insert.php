@@ -42,6 +42,8 @@ session_cache_limiter('nocache, must-revalidate');
     </head>
     <body>
         <?php include_once("../header.php");?>
+        
+        <div class="marginleft">
         <form method ="post" onsubmit='return chk()' action ='do_insert.php' >
              <div>
                  Edificio : <input type ="text" name ="loc_building" id = 'building'>
@@ -59,5 +61,18 @@ session_cache_limiter('nocache, must-revalidate');
             </div>
         </form>
         <button type ="button"  onclick="history.back()"> volver </button>
-    </body>
+        </div>
+    </body> 
+     <!--  Scripts-->
+  <script src="js/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+
+  
+  <!-- CSS  -->
+  <link href="fonts/material_icons.woff" rel="stylesheet">
+  <link href="fonts/montserrat.woff" rel="stylesheet" type="text/css">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    
 </html>
