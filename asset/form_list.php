@@ -182,7 +182,7 @@ asset_desc _description,
             <th>Modelo</th>
             <th>Serial</th>
             <th>Detalles</th>
-            <th>Día de compra</th>
+            <th>Fecha de compra</th>
             <th>Final de garantía </th>
             <th>Salir activo</th>
             <th>Entrar activo</th>
@@ -273,7 +273,7 @@ while($row = mssql_fetch_array($result)) {
                         }
                         ?>                        
                         <?php if($row['available']==1){?>
-                        <input type ='submit' value ='alquilar' formaction="form_rent.php">
+                        <input type ='submit' value ='prestar' formaction="form_rent.php">
                         <input type ='submit' value ='asignar' formaction="form_assign.php">
                         
                         <?php }?>

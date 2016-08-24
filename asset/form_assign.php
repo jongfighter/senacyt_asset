@@ -100,10 +100,10 @@ session_cache_limiter('nocache, must-revalidate');
 		 </table> 
 		 
 		 <br>
-                        Quien alquila : <?php echo $fullname;?>
+                        Quien asigna : <?php echo $fullname;?>
 		
                  <br>
-			A quien alquila : <select name ='p_id'> <?php
+			A quien asigna : <select name ='p_id'> <?php
               
                  while($row2 =  mssql_fetch_array($result_person)){
                      ?>
