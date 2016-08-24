@@ -27,7 +27,7 @@ session_cache_limiter('nocache, must-revalidate');
             $price = $_POST['asset_price'];
             $provider = $_POST['asset_provider'];        
             $loc_id = $_POST['loc_id'];
-            $p_id  = $_POST['p_id'];
+            
             $today = date("Y-m-d");
             $db_host = "localhost";
             $db_user = "sa";
@@ -38,13 +38,12 @@ session_cache_limiter('nocache, must-revalidate');
             $z =0;
             $sql= "";
                  $sql = "update dbo.Asset set asset_barcode = '{$barcode}', asset_desc = '{$desc}',"
-                 . " loc_id = {$loc_id}, p_id = {$p_id}, asset_model = '{$model}', asset_brand = '{$brand}',"
+                 . " loc_id = {$loc_id},asset_model = '{$model}', asset_brand = '{$brand}',"
                  . "asset_serial = '{$serial}', asset_details = '{$details}',  asset_bought_date = '{$purchase}', asset_guarantee_expired = '{$guarantee}',"
                  . "asset_price =  {$price}, asset_provider = '{$provider}' "
                  . "where asset_id = {$asset_id} ;";
                  
-         
-
+   
             
             mssql_query($sql,$conn);
             mssql_close();

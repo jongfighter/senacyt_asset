@@ -27,6 +27,8 @@ session_cache_limiter('nocache, must-revalidate');
              $price = $_POST['asset_price'];
              $provider = $_POST['asset_provider'];
              $tipo = $_POST['type'];
+             $loc = $_POST['loc_id'];
+             $pid = $_POST['Person'];
              $today = date("Y-m-d");
             $db_host = "localhost";
             $db_user = "sa";
@@ -34,13 +36,14 @@ session_cache_limiter('nocache, must-revalidate');
             $db_name = "senacyt_asset";
             $conn = mssql_connect($db_host, $db_user, $db_pw);
             mssql_select_db($db_name, $conn);
-             $sql = "INSERT into dbo.Asset"
+            
+            $sql = "INSERT into dbo.Asset"
                     . " (asset_barcode, asset_desc, asset_brand, asset_model, asset_serial, asset_details, asset_bought_date, asset_last_touch "
                     . ", asset_in,asset_guarantee_expired ,  asset_price, loc_id, p_id, asset_provider, t_id)"
-                    . " values('{$bar}', '{$desc}', '{$brand}', '{$model}', '{$serial}','{$details}', '{$bought_date}', '{$today}', '{$today}', '{$expired}', '{$price}', 1,1,'{$provider}', {$tipo});";
+                    . " values('{$bar}', '{$desc}', '{$brand}', '{$model}', '{$serial}','{$details}', '{$bought_date}', '{$today}', '{$today}', '{$expired}', {$price}, {$loc},{$pid},'{$provider}', {$tipo});";
             mssql_query($sql,$conn);
-           
-            ?><meta http-equiv="refresh" content="0;url=form_list.php">
+          
+            ?>
             
             
-            
+            <meta http-equiv="refresh" content="0;url=form_list.php">

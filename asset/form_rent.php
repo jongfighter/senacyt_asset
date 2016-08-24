@@ -19,8 +19,8 @@ session_cache_limiter('nocache, must-revalidate');
         header("Location : ../main.php");
     }
             $asset_id = $_POST['asset_id'];
-            $curr_p_id =(int) $_POST['p_id'];
-                       
+            $curr_p_id = $_POST['p_id'];
+            $fullname = $_POST['p_fullname'];
             $db_host = "localhost";
             $db_user = "sa";
             $db_pw = "vamosit";
@@ -100,9 +100,9 @@ session_cache_limiter('nocache, must-revalidate');
 		 </table> 
 		 
 		 <br>
-      
+                        Quien alquila : <?php echo $fullname;?>
 		
-		 
+                 <br>
 			A quien alquila : <select name ='p_id'> <?php
               
                  while($row2 =  mssql_fetch_array($result_person)){
@@ -118,7 +118,20 @@ session_cache_limiter('nocache, must-revalidate');
 
             
             <br>
-            
+            <div>
+               Ubicación &nbsp; &nbsp; &nbsp;&nbsp;  &nbsp;&nbsp;   &nbsp;&nbsp;  :       <select name ='loc_id' id = 'location_name'>
+                 <?php
+                 $sql = "select loc_id, loc_building, loc_floor, loc_desc from dbo.Loc order by loc_building, loc_floor, loc_desc;";
+                $result = mssql_query($sql,$conn);
+                 while($row =  mssql_fetch_array($result)){
+                     ?>
+                 <option value='<?php echo $row['loc_id']?>'> <?php echo $row['loc_id']; echo "Edificio. ".$row['loc_building'].' Nivel '.$row['loc_floor'].' '. $row['loc_desc'] ?></option>
+                 <?php
+                 }
+                 
+                 ?>
+             </select>
+             </div>
             <div>Día de alquilar <input type='date' name ='asset_out' class="datepicker" value = '<?php echo date("Y-m-d");?>'required > </div>
             <div> Día de devolver <input type ='date' name ='asset_in' class="datepicker" value = '<?php echo date("Y-m-d");?>'required>  </div>
             

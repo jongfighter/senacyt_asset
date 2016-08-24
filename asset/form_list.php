@@ -65,7 +65,7 @@ and open the template in the editor.
                 asset_out out_date,
                 asset_in in_date,
                 asset_price price,
-                p_id,
+                A.p_id p_id,
                 asset_provider _provider,
 		p_name person, dept_name department,
                 loc_building as building, 
@@ -93,7 +93,7 @@ and open the template in the editor.
                 asset_out out_date,
                 asset_in in_date,
                 asset_price price,
-          A.p_id as p_id,
+                A.p_id as p_id,
                 asset_provider _provider,
 		p_name person, dept_name department,
                 loc_building as building, loc_floor as _floor, loc_desc location_description,
@@ -116,7 +116,7 @@ and open the template in the editor.
                 asset_out out_date,
                 asset_in in_date,
                 asset_price price,
-           A.p_id as p_id,
+                A.p_id p_id,
                 asset_provider _provider,
 		p_name person, dept_name department,
                 loc_building as building, loc_floor as _floor, loc_desc location_description,
@@ -143,7 +143,7 @@ asset_desc _description,
                 asset_price price,
                A.p_id as p_id,
 	    asset_provider _provider,
-		 p_name person, dept_name department,
+		 p_name, p_lastname, dept_name department,
 	    loc_building as building, loc_floor as _floor, loc_desc location_description,
             pos as available
 		 from Asset A inner join tipo T on T.t_id = A.t_id inner join Person P on A.p_id = P.p_id inner join Loc L on L.loc_id= A.loc_id inner join Department D on D.dept_id = P.dept_id ;";
@@ -191,7 +191,7 @@ asset_desc _description,
             <th>Funcionario</th>
             <th>Departamento</th>
             <th>Ubicación</th>
-            <th>Posible </th>
+            <th>Estatus </th>
             
            
             <?php
@@ -233,10 +233,19 @@ while($row = mssql_fetch_array($result)) {
                 } 
                     
                     ?>
-                    ><?php echo date('d-m-Y',strtotime($row['in_date']));?></td>
+                    ><?php 
+                    
+                     $tmpdate = date('d-m-Y',strtotime($row['in_date']));
+                     if($tmpdate =='31-12-1969'){
+                         
+                     }
+                     else{
+                         echo $tmpdate;
+                     }
+                    ?></td>
                 <td id="centro"><?php echo $row['price'];?></td>
                 <td id="centro"><?php echo $row['_provider'];?></td>
-                <td id="centro"><?php echo $row['person'];?></td>
+                <td id="centro"><?php echo $row['p_name']." ".$row['p_lastname'];?></td>
                 <td id="centro"><?php echo $row['department'];?></td>
                 <td id="centro"><?php echo $row['building']." ".$row['_floor']." ".$row['location_description'];?></td>
                 <td id="centro"><?php 
@@ -253,20 +262,24 @@ while($row = mssql_fetch_array($result)) {
                     <form method = 'post'>
                         <input type ='hidden' name ='asset_id' value ='<?php echo $row['asset_id'];?>'>
                         <input type ='hidden' name ='p_id' value ='<?php echo $row['p_id'];?>'>
-                        <?php if($row['available']==1){?>
-                        <input type ='submit' value ='alquilar' formaction="form_rent.php">
-                        <input type ='submit' value ='asignar' formaction="form_assign.php">
-                        <?php }?>
-                        <input type ='submit' value ='modificar' formaction="form_modify.php">
+                        <input type ='hidden' name ='p_fullname' value ='<?php echo $row['p_name']." ".$row['p_lastname'];?>'>
                         <?php
                         if($row['available']==0){
                             ?>  
                                <!-- <input type ='submit' value ='transferir' formaction="form_rent.php"> -->
                                 <input type ='submit' value ='devolver' formaction="do_return.php">
+                                
                             <?php
                         }
-                        ?>
-                       <input type ="submit" value ='borrar' formaction='do_delete.php'>
+                        ?>                        
+                        <?php if($row['available']==1){?>
+                        <input type ='submit' value ='alquilar' formaction="form_rent.php">
+                        <input type ='submit' value ='asignar' formaction="form_assign.php">
+                        
+                        <?php }?>
+                        <input type ='submit' value ='modificar' formaction="form_modify.php">
+
+                       <input type ="submit" value ='borrar' formaction='do_delete.php' onclick="return confirm('Are you sure you want to delete this item?');">
                         
                         
                     </form>
@@ -283,3 +296,5 @@ while($row = mssql_fetch_array($result)) {
         <?php include_once '../footer.php';?>
     </body>
 </html>
+
+
