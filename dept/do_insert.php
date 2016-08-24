@@ -23,7 +23,6 @@ session_cache_limiter('nocache, must-revalidate');
 
         // put your code here
         $dename = $_POST['dept_name'];
-        $deloc = $_POST['dept_loc'];
         $db_host = "localhost";
         $db_user = "sa";
         $db_pw = "vamosit";
@@ -34,7 +33,7 @@ session_cache_limiter('nocache, must-revalidate');
         $res = mssql_query($sql, $conn);
         $rearray = mssql_fetch_array($res);
         if($rearray[0] == NULL){
-            $sql = "insert into department (dept_name, dept_location) values ('".$dename."'".", '".$deloc."');";
+            $sql = "insert into department (dept_name) values ('".$dename."');";
             mssql_query($sql, $conn);
              ?><script>alert("success");</script>';<?php
         }

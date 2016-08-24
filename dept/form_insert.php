@@ -29,8 +29,7 @@ session_cache_limiter('nocache, must-revalidate');
               function chk(){
 
                   var name= document.getElementById("name").value;     
-                  var loc = document.getElementById("loc").value;
-                 
+                  
                   if(isNull(name)){
                       alert("type department name");
                       
@@ -60,9 +59,6 @@ session_cache_limiter('nocache, must-revalidate');
          <form method ="post"  action ='do_insert.php' onsubmit ="return chk()" >
              <div>
                  Departamento : <input type ="text" name ="dept_name" id = 'name'>
-             </div>
-             <div>
-                 Ubicación  : <input type ="text" name ="dept_loc" id = 'loc'>
              </div>
              <div>
                  <input type="submit" name ="submit" value = "insertar" >

@@ -40,17 +40,16 @@ and open the template in the editor.
             if(isset($_POST['keyword'])){
                 $p_name = $_POST['keyword'];
               
-                $sql = $sql."select dept_id, dept_name, dept_location from Department where dept_name = '%{$p_name}%' or dept_location = '%{$p_name}%'";
+                $sql = $sql."select dept_id, dept_name from Department where dept_name = '%{$p_name}%'";
             }
             else{
-                $sql = $sql."select dept_id, dept_name, dept_location from Department";
+                $sql = $sql."select dept_id, dept_name from Department";
             }
             $result = mssql_query($sql,$conn);
 ?>
         <table border='1'>
             <tr class="tablecolor">
                 <th>Departamento</th>
-                <th>Ubicación</th>
                 <th>Admin</th>   
             </tr>
     <?php
@@ -58,7 +57,7 @@ and open the template in the editor.
 // Print the data
     while($row = mssql_fetch_row($result)) {
         $num = 0;
-        $arraypass[3];
+        $arraypass[2];
         echo "<tr>";
         foreach($row as $_column) {
             if($num==0){
@@ -74,7 +73,6 @@ and open the template in the editor.
         echo '<form method="post" action="form_modify.php"> ';
         echo '<input type ="hidden" name = "dept_id" value = "'.$arraypass[0].'">';
         echo '<input type ="hidden" name = "dept_name" value = "'.$arraypass[1].'">';
-        echo'<input type ="hidden" name = "dept_location" value = "'.$arraypass[2].'">';
         echo '<input type="submit" name ="submit" value = "modificar" > ';
         echo '</form> ';
         ?>

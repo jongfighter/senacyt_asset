@@ -24,7 +24,6 @@ session_cache_limiter('nocache, must-revalidate');
         // put your code here
         $dept_id = $_POST['dept_id'];
         $dept_name = $_POST['dept_name'];
-        $dept_location = $_POST['dept_location'];
         $db_host = "localhost";
         $db_user = "sa";
         $db_pw = "vamosit";
@@ -34,10 +33,10 @@ session_cache_limiter('nocache, must-revalidate');
         
 
         
-        $sql = "UPDATE dbo.Department SET dept_name ='{$dept_name}', dept_location = '{$dept_location}' WHERE dept_id = {$dept_id};";
+        $sql = "UPDATE dbo.Department SET dept_name ='{$dept_name}' WHERE dept_id = {$dept_id};";
         mssql_query($sql,$conn);
         
-        $sql = "select dept_id, dept_name, dept_location from dbo.Department where dept_id = ".$dept_id.";";
+        $sql = "select dept_id, dept_name from dbo.Department where dept_id = ".$dept_id.";";
         $res = mssql_query($sql, $conn);
         
         $rearray = mssql_fetch_array($res);

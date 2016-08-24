@@ -27,7 +27,6 @@ session_cache_limiter('nocache, must-revalidate');
         // put your code here
         $dept_id = $_POST['dept_id'];
         $dept_name = $_POST['dept_name'];
-        $dept_location = $_POST['dept_location'];
         ?>
      
     
@@ -35,7 +34,6 @@ session_cache_limiter('nocache, must-revalidate');
        
         <input type='hidden' name='dept_id' value = '<?php echo $dept_id; ?>'>
         <br>Departmento <input type='text' name='dept_name' value = '<?php echo $dept_name?>'>
-        <br>Ubicación <input type='text' name='dept_location' value = '<?php echo $dept_location;?>'>
         <br><input type='submit' name='submit' value = 'confirmar'  formaction = 'do_modify.php'>
     
         </form></tr>
