@@ -27,7 +27,8 @@ and open the template in the editor.
         
 <?php
             include_once("log_header.php");
- include_once ("../form_log_search.html");
+            include_once("../form_loc_log_search.php");
+
 ?>
         <form method ='post' action="loc_export_excel.php">
             <input type ='hidden' name ='searchtext' value ='<?php echo $_POST['keyword'];?>'>
