@@ -40,12 +40,12 @@ and open the template in the editor.
             if(isset($_POST['keyword'])){
                 $p_name = $_POST['keyword'];
                
-                $sql = $sql."select p_id , Department.dept_id as dept_id, p_lastname as lastname, p_name as name, dept_name as department, dept_location as location from Person inner join Department on Department.dept_id=Person.dept_id where 
+                $sql = $sql."select p_id , Department.dept_id as dept_id, p_lastname as lastname, p_name as name, dept_name as department from Person inner join Department on Department.dept_id=Person.dept_id where 
 p_name like '%{$p_name}%' or dept_name like '%{$p_name}%';";
                
             }
             else{
-                $sql = $sql."select p_id, Department.dept_id as dept_id, p_lastname as lastname, p_name as name, dept_name as department, dept_location as location from Person inner join Department on Department.dept_id=Person.dept_id;";
+                $sql = $sql."select p_id, Department.dept_id as dept_id, p_lastname as lastname, p_name as name, dept_name as department from Person inner join Department on Department.dept_id=Person.dept_id;";
             }
             $result = mssql_query($sql,$conn);
      ?><table border='1'>

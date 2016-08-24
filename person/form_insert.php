@@ -40,6 +40,7 @@ session_cache_limiter('nocache, must-revalidate');
     </head>
     <body>
         <form method ="post"  action ='do_insert.php' onsubmit='return chk()'>
+            <div class="leftmargin">
              <div>
                  Apellido : <input type ="text" name ="p_lastname" id = 'p_lastname'>
              </div>
@@ -66,6 +67,7 @@ session_cache_limiter('nocache, must-revalidate');
             
         </form>
         <button type ="button"  onclick="history.back()"> volver </button>
+        </div>
         <?php include_once '../footer.php';?>
     </body>
 </html>
