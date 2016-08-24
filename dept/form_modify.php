@@ -21,17 +21,15 @@ session_cache_limiter('nocache, must-revalidate');
     </head>
     <body>
         <?php
-        include_once("../header.php"); ?>
-        
-          <div class="marginleft">
+        include_once("../header.php"); 
    
-        <?php
         // put your code here
         $dept_id = $_POST['dept_id'];
         $dept_name = $_POST['dept_name'];
         ?>
      
-    
+        <div class="marginleft">
+            
         <br><form method = "post" name ='myform' id='myform' action='do_modify.php' onsubmit ="return validateForm('myform');">
        
         <input type='hidden' name='dept_id' value = '<?php echo $dept_id; ?>'>
