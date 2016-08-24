@@ -12,6 +12,8 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <html>
+	
+	  <div class="marginleft">
     
         
 <?php
@@ -292,6 +294,7 @@ while($row = mssql_fetch_array($result)) {
             </tr> 
 <?php }?>
             </table>
+            </div>
         
         <?php include_once '../footer.php';?>
     </body>
