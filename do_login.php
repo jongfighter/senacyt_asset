@@ -3,10 +3,7 @@ if(!isset($_POST['user_id']) || !isset($_POST['user_pw'])) exit;
 $user_id = $_POST['user_id'];
 $user_pw = $_POST['user_pw'];
 
-$db_host = "DESKTOP-R5UU8SH\SENACYTINSTANCE";
-$db_user = "sa";
-$db_pw = "vamosit";
-$db_name = "senacyt_asset";
+require_once 'setting.php';
 $conn = mssql_connect($db_host, $db_user, $db_pw);
 mssql_select_db($db_name, $conn);
 $sql = "select login_identity, login_authority from Login WHERE PWDCOMPARE('".$user_pw."', login_password ) =1 and login_identity = '".$user_id."'";
