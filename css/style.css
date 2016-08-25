@@ -1,5 +1,30 @@
+img.imageLogoSenacyt{
+	min-height: 100%;
+	min-width: 1024px;
+	width: 100%;
+	height: auto;
+	position: fixed;
+	top: 10px;
+	left: 10px;
+	bottom: 10px;
+	right: 10px;
+}
+
+@media screen and (max-width: 1024px){
+   /* 그림을 브라우저의 중앙에 맞춘다. -512는 1024 의 반값으로 중앙정렬을 위한 것이다. */
+img.imageLogoSenacyt{
+  left: 50%;
+margin-left: -512px; }
+}
+
+div#imageLogoSenacyt{
+     /* relative; 가 필수, 안하면 화면이 커지지 않는다. */
+  position: relative; 
+}
+
 body{
 	font-family: Montserrat;
+
 }
 
 p{
