@@ -19,10 +19,7 @@ and open the template in the editor.
     <body>
         
 <?php
-            $db_host = "localhost";
-            $db_user = "sa";
-            $db_pw = "vamosit";
-            $db_name = "senacyt_asset";
+            require_once '../setting.php';
             $conn = mssql_connect($db_host, $db_user, $db_pw);
             mssql_select_db($db_name, $conn);
             $sql = "";

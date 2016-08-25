@@ -85,7 +85,7 @@ session_cache_limiter('nocache, must-revalidate');
          </tr><tr>   
 			<td class="tablecolor">Detalls  </td> <td class="tableinput">  <input type ="hidden" name ="asset_details" value = "<?php echo $row1['asset_details']?>" > <?php echo $row1['asset_details']?> </td> 
          </tr><tr>    
-			<td class="tablecolor">Día de compras  </td> <td class="tableinput">  <input type ="hidden" name ="asset_bought_date" value = "<?php echo $row1['asset_bought_date']?>" > <?php echo $row1['asset_bought_date']?> </td> 
+			<td class="tablecolor">Fecha de compras  </td> <td class="tableinput">  <input type ="hidden" name ="asset_bought_date" value = "<?php echo $row1['asset_bought_date']?>" > <?php echo $row1['asset_bought_date']?> </td> 
          </tr><tr>  
 			<td class="tablecolor">Final de garantía  </td> <td class="tableinput">  <input type ="hidden" name ="asset_guarantee_expired" value = "<?php echo $row1['asset_guarantee_expired']?>" > <?php echo $row1['asset_guarantee_expired']?></td> 
          </tr><tr>   
@@ -129,7 +129,7 @@ session_cache_limiter('nocache, must-revalidate');
             
             <br>
             
-            <div>Día de alquilar <input type='date' name ='asset_out' class="datepicker" value = '<?php echo date("Y-m-d");?>'required > </div>
+            <div>Fecha de Prestar <input type='date' name ='asset_out' class="datepicker" value = '<?php echo date("Y-m-d");?>'required > </div>
       
             
              <div>
