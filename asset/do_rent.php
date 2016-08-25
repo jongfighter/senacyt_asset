@@ -24,7 +24,7 @@ session_cache_limiter('nocache, must-revalidate');
             
             $p_id  = $_POST['p_id'];
          
-            echo '<br>';
+            
             $today = date("Y-m-d");
             require_once '../setting.php';
             $conn = mssql_connect($db_host, $db_user, $db_pw);

@@ -22,7 +22,7 @@ session_cache_limiter('nocache, must-revalidate');
             $brand = $_POST['asset_brand'];
             $serial = $_POST['asset_serial'];
             $asset_respon = $_POST['asset_respon'];
-            echo $asset_respon;
+
             $details = $_POST['asset_details'];
             $purchase = $_POST['asset_bought_date'];
             $guarantee = $_POST['asset_guarantee_expired'];
@@ -30,7 +30,7 @@ session_cache_limiter('nocache, must-revalidate');
             $provider = $_POST['asset_provider'];        
             $loc_id = $_POST['loc_id'];
             $avail = $_POST['available'];
-            echo $avail;
+       
             $today = date("Y-m-d");
             require_once '../setting.php';
             $conn = mssql_connect($db_host, $db_user, $db_pw);
@@ -53,8 +53,7 @@ session_cache_limiter('nocache, must-revalidate');
                  . "where asset_id = {$asset_id} ;";
              
             }
- echo $sql;
-                 
+    
    
             
             mssql_query($sql,$conn);
@@ -62,4 +61,4 @@ session_cache_limiter('nocache, must-revalidate');
 ?>
 
 
-<!--<meta http-equiv="refresh" content="0;url=form_list.php">
+<meta http-equiv="refresh" content="0;url=form_list.php">

@@ -62,7 +62,7 @@ require_once '../setting.php';
     <body>
              <?php include_once("../header.php");?>
         
-        <form method ="post" id='myform' onsubmit="return validateForm('myform') > 
+        <form method ="post" id='myform' onsubmit="return validateForm('myform')" > 
               
              <input type ="hidden" name ="asset_id"  value = "<?php echo $row1['asset_id']?>">  <br>
            
