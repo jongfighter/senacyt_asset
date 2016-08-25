@@ -22,8 +22,8 @@ and open the template in the editor.
        ?>
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
 	<figure>
-		<div class="image">
-		<img src="image/table.png" width="1210" height="450"/>
+		<div id="imageLogoSenacyt">
+			<img class="imageLogoSenacyt" src="image/Logo-Senacyt.png" alt=""  />
 		</div>
 	</figure>
 </body>
