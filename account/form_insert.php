@@ -30,10 +30,22 @@ session_cache_limiter('nocache, must-revalidate');
 <html>
     <head>
         <meta charset="UTF-8">
+        <!--  Scripts-->
+        <script src="js/jquery-2.1.1.min.js"></script>
+        <script src="js/materialize.js"></script>
+        <script src="js/init.js"></script>
+
+  
+        <!-- CSS  -->
+        <link href="fonts/material_icons.woff" rel="stylesheet">
+        <link href="fonts/montserrat.woff" rel="stylesheet" type="text/css">
+        <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
         <title></title>
 
     </head>
     <body>
+          <div class="marginleft">
         <form method ="post"  action ='do_insert.php' onsubmit='return chk()'>
             <div>
                  Apellido : <input type ="text" name ="p_lastname" id = 'p_lastname'>
@@ -62,6 +74,7 @@ session_cache_limiter('nocache, must-revalidate');
             
         </form>
         <button type ="button"  onclick="history.back()"> volver </button>
+        </div>
         <?php include_once '../footer.php';?>
     </body>
 </html>

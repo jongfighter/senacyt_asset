@@ -34,6 +34,10 @@ session_cache_limiter('nocache, must-revalidate');
         <?php
         include_once("../header.php");
         
+        ?>
+        
+        <?php
+        
         
         // put your code here
         $plastname = $_POST['p_lastname'];
@@ -44,6 +48,8 @@ session_cache_limiter('nocache, must-revalidate');
         ?>
         <?php
         ?>
+        
+        <div class="marginleft">
         
         <form method ="post" action="do_modify.php" id="myform" onsubmit ="return validateForm('myform');"> 
              <div>
@@ -64,6 +70,20 @@ session_cache_limiter('nocache, must-revalidate');
             
         </form>
         <button type ="button"  onclick="history.back()"> volver </button>
+        </div>
         <?php include_once '../footer.php';?>
     </body>
+      <!--  Scripts-->
+  <script src="js/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+
+  
+  <!-- CSS  -->
+  <link href="fonts/material_icons.woff" rel="stylesheet">
+  <link href="fonts/montserrat.woff" rel="stylesheet" type="text/css">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+   
 </html>

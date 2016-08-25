@@ -26,8 +26,10 @@ and open the template in the editor.
     <body>
         
 <?php
-            include_once("../header.php");
-            include_once ("../form_search.html");
+            include_once("../header.php"); ?>
+              <div class="marginleft">
+                  <?php
+            include_once ("../form_search.html"); 
 
             
             $db_host = "localhost";
@@ -91,7 +93,18 @@ echo "</table>";
         
             
         </form>
+        </div>
         <?php include_once '../footer.php';?>
     </body>
-    
+      <!--  Scripts-->
+  <script src="js/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+
+  
+  <!-- CSS  -->
+  <link href="fonts/material_icons.woff" rel="stylesheet">
+  <link href="fonts/montserrat.woff" rel="stylesheet" type="text/css">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </html>
