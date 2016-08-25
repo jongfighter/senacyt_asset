@@ -81,6 +81,7 @@ require_once '../setting.php';
 ?>
             </table>
             </div>
+        <?php include_once '../footer.php';?>
     </body>
     
     <!--  Scripts-->
