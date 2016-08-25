@@ -134,7 +134,7 @@ require_once '../setting.php';
             
              <div>
                  
-                 <input type="submit" name ="optype" value = "confirmar" formaction="do_rent.php">
+                 <input type="submit" name ="optype" value = "confirmar" formaction="do_rent.php" onclick="return confirm('Are you sure you print excel?');">
                  <input type="submit" name ="excel" value = "excel" formaction="print_excel.php">
             </div>
         </form>

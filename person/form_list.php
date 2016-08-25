@@ -73,7 +73,7 @@ p_name like '%{$p_name}%' or dept_name like '%{$p_name}%';";
                 <input type ="hidden" name = "dept_name" value = "<?php echo $row['department'];?>">
                 
                 <input type="submit" name ="submit" value = "modificar" formaction="form_modify.php" > 
-                <input type="submit" name ="submit" value = "borrar" formaction="do_delete.php"> 
+                <input type="submit" name ="submit" value = "borrar" formaction="do_delete.php" onclick="return confirm('Are you sure you want to delete this item?');"> 
                 <input type="submit" name ="submit" value = "ver información" formaction="form_person_view.php">
 
             </form> 

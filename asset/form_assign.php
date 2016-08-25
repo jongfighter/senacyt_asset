@@ -134,8 +134,8 @@ session_cache_limiter('nocache, must-revalidate');
             
              <div>
                  
-                 <input type="submit" name ="optype" value = "confirmar" formaction="do_rent.php">
-                 <input type="submit" name ="excel" value = "excel" formaction="print_excel2.php">
+                 <input type="submit" name ="optype" value = "confirmar" formaction="do_rent.php" onclick="return confirm('Are you sure you want to delete this item?');">
+                 <input type="submit" name ="excel" value = "excel" formaction="print_excel2.php" >
             </div>
         </form>
         <?php include_once '../footer.php';?>

@@ -14,11 +14,8 @@ session_cache_limiter('nocache, must-revalidate');
 ?>
 <?php
 
-            $asset_id = $_POST['asset_id'];
-            $db_host = "localhost";
-            $db_user = "sa";
-            $db_pw = "vamosit";
-            $db_name = "senacyt_asset";
+         
+require_once '../setting.php';
             $conn = mssql_connect($db_host, $db_user, $db_pw);
             mssql_select_db($db_name, $conn);
             $sql = "select dept_id, dept_name from dbo.Department";
@@ -38,14 +35,21 @@ session_cache_limiter('nocache, must-revalidate');
 
         
         // put your code here
-require_once '../setting.php';
+
         ?>
         <?php
         ?>
           <div class="marginleft">
         <form method ="post" action="do_modify.php" id="myform" onsubmit ="return validateForm('myform');"> 
              <div>
-                 <input type ='hidden' name ='person_id' value = '<?php echo $pid?>'>
+                 <?php
+                 $p_id = $_POST['p_id'];
+                 $plastname=$_POST['p_lastname'];
+                 $pname = $_POST['p_name'];
+                 $deptname = $_POST['dept_id'];
+                 ?>
+                 <input type ='hidden' name ='person_id' value = '<?php echo $p_id?>'>
+                 
                  Apellido: <input type ="text" name ="person_lastname" id = 'p_lastname' value = '<?php echo $plastname ?>'>
                  </div>
             <div>
@@ -65,7 +69,7 @@ require_once '../setting.php';
                  
              </div>
              <div>
-                 <input type="submit" name ="submit" value = "modificar" onclick="return chk()">
+                 <input type="submit" name ="submit" value = "modificar">
                  
             </div>
             

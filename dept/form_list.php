@@ -75,7 +75,7 @@ and open the template in the editor.
         echo '<input type="submit" name ="submit" value = "modificar" > ';
         echo '</form> ';
         ?>
-        <form method="post" action ="do_delete.php">
+        <form method="post" action ="do_delete.php" onclick="return confirm('Are you sure you want to delete this item?');">
             <input type ='hidden' name ='dept_id' value= '<?php echo $arraypass[0]?>'>
             <input type="submit" name ="delete" value = "borrar" >
         </form>

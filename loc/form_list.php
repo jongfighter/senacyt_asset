@@ -82,7 +82,9 @@ require_once '../setting.php';
         echo'<input type ="hidden" name = "loc_desc" value = "'.$arraypass[3].'">';
         echo '<input type="submit" name ="submit" value = "modificar" > ';
         echo '</form>';
-        echo '<form method="post" action="do_delete.php"> ';
+   ?>
+        <form method="post" action="do_delete.php" onclick="return confirm('Are you sure you want to delete this item?');"> 
+            <?php
         echo '<input type ="hidden" name = "loc_id" value = "'.$arraypass[0].'">';
         echo '<input type="submit" name ="delete" value = "borrar" > ';
         echo '</form> </td>';

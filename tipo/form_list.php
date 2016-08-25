@@ -68,7 +68,7 @@ require_once '../setting.php';
                         </td>
                         <td>
                         <input type='submit' name ='submit' value ='modificar' formaction = "form_modify.php">
-                        <input type='submit' name ='submit' value ='borrar' formaction="do_delete.php">
+                        <input type='submit' name ='submit' value ='borrar' formaction="do_delete.php" onclick="return confirm('Are you sure you want to delete this item?');">
                     </form>
                 </td>
         

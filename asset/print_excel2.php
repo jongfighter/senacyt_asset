@@ -82,7 +82,7 @@ $rcv_dept = $rcv_dept_row['dept_name'];
 // -----------------
 
 $template = '../FormulariodeUsodeEquiponuevo.xlsx';
-
+$fn ='Formulario_de_Uso_de_Equipo_nuevo';
 $TBS->LoadTemplate($template, OPENTBS_ALREADY_UTF8); // Also merge some [onload] automatic fields (depends of the type of document).
 
 // ----------------------
@@ -120,7 +120,7 @@ if (isset($_POST['debug']) && ($_POST['debug']=='show'))    $TBS->Plugin(OPENTBS
 
 // Define the name of the output file
 $save_as = (isset($_POST['save_as']) && (trim($_POST['save_as'])!=='') && ($_SERVER['SERVER_NAME']=='localhost')) ? trim($_POST['save_as']) : '';
-$output_file_name = str_replace('.', '_'.date('Y-m-d').$save_as.'.', $template);
+$output_file_name = $fn."_".date('Y-m-d')."_".$rcv_person."_".$x_barcode.$save_as.".xlsx";
 if ($save_as==='') {
 	// Output the result as a downloadable file (only streaming, no data saved in the server)
 	$TBS->Show(OPENTBS_DOWNLOAD, $output_file_name); // Also merges all [onshow] automatic fields.
