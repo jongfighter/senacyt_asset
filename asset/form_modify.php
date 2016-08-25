@@ -13,16 +13,13 @@ session_cache_limiter('nocache, must-revalidate');
         
 ?>
 <?php 
-
+require_once '../setting.php';
     if(!isset($_POST['asset_id'])){
         header("Location : ../main.php");
     }
             $asset_id = $_POST['asset_id'];
             $avail = $_POST['available'];
-            $db_host = "localhost";
-            $db_user = "sa";
-            $db_pw = "vamosit";
-            $db_name = "senacyt_asset";
+
             $conn = mssql_connect($db_host, $db_user, $db_pw);
             mssql_select_db($db_name, $conn);
             $sql = "select * from dbo.Asset where asset_id = {$asset_id};";
@@ -64,6 +61,7 @@ session_cache_limiter('nocache, must-revalidate');
     
     <body>
              <?php include_once("../header.php");?>
+        
         <form method ="post" id='myform' onsubmit="return validateForm('myform') > 
               
              <input type ="hidden" name ="asset_id"  value = "<?php echo $row1['asset_id']?>">  <br>

@@ -38,10 +38,7 @@ session_cache_limiter('nocache, must-revalidate');
 
         
         // put your code here
-        $pid = $_POST['p_id'];
-        $plastname = $_POST['p_lastname'];
-        $pname = $_POST['p_name'];
-        $deptname = $_POST['dept_name'];
+require_once '../setting.php';
         ?>
         <?php
         ?>

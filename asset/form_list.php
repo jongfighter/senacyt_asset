@@ -19,6 +19,8 @@ and open the template in the editor.
             include_once("../header.php");
             ?><div class="marginleft"><?php
             include_once ("../form_search.html");
+            require_once '../setting.php';
+            
             ?>
         <?php 
         
@@ -42,10 +44,7 @@ and open the template in the editor.
         <?php  
             $delay_day = 1;
             $delay_to_check = date('Y-m-d',time()-(60*60*24*($delay_day)));
-            $db_host = "localhost";
-            $db_user = "sa";
-            $db_pw = "vamosit";
-            $db_name = "senacyt_asset";
+     
             $conn = mssql_connect($db_host, $db_user, $db_pw);
             mssql_select_db($db_name, $conn);
             $sql = "";
