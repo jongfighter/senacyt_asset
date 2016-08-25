@@ -1,9 +1,9 @@
-﻿<?php
+<?php
 
 session_cache_limiter('nocache, must-revalidate');
 
     session_start();
-    echo "account : ".$_SESSION['user_id'];
+   echo "account : ".$_SESSION['user_id'];
     if($_SESSION['user_id']!='admin'){    
         ?>
 <script>alert("no access right");</script>
@@ -44,10 +44,10 @@ and open the template in the editor.
             if(isset($_POST['keyword'])){
                 $p_name = $_POST['keyword'];
               
-                $sql = $sql."select dept_id, log_name, log_date, dept_name, dept_location from log_Department where log_name = '%{$p_name}%' or log_date = '%{$p_name}%' or dept_name = '%{$p_name}%' or dept_location = '%{$p_name}%'";
+                $sql = $sql."select dept_id, log_name, log_date, dept_name from log_Department where log_name = '%{$p_name}%' or log_date = '%{$p_name}%' or dept_name = '%{$p_name}%'";
             }
             else{
-                $sql = $sql."select dept_id, log_name, log_date, dept_name, dept_location from log_Department";
+                $sql = $sql."select dept_id, log_name, log_date, dept_name from log_Department";
             }
             $result = mssql_query($sql,$conn);
 ?>
@@ -56,7 +56,6 @@ and open the template in the editor.
                 <th>Tipo de reportes</th>
                 <th>Día de reportes</th>
                 <th>Departamento</th>
-                <th>Ubicación</th>
                 
             </tr>
         <?php

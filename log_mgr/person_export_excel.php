@@ -21,11 +21,11 @@ header( "Content-Disposition: attachment; filename=employee_log.xls" );
             if(isset($_POST['keyword'])){
                 $p_name = $_POST['keyword'];
                 
-                $sql = $sql."select p_id, log_name, log_date, p_lastname, p_name, dept_name, dept_location, Department.dept_id as dept_id from log_Person inner join Department on Department.dept_id=log_Person.dept_id where 
+                $sql = $sql."select p_id, log_name, log_date, p_lastname, p_name, dept_name, Department.dept_id as dept_id from log_Person inner join Department on Department.dept_id=log_Person.dept_id where 
 log_name like '%{$p_name}%' or log_date like '%{$p_name}%' or p_name like '%{$p_name}%' or dept_name like '%{$p_name}%';";
             }
             else{
-                $sql = $sql."select p_id, log_name, log_date, p_lastname, p_name, dept_name, dept_location from log_Person, Department where log_Person.dept_id = Department.dept_id";
+                $sql = $sql."select p_id, log_name, log_date, p_lastname, p_name, dept_name from log_Person, Department where log_Person.dept_id = Department.dept_id";
             }
             $result = mssql_query($sql,$conn);
             echo "<table border='1'><tr>";

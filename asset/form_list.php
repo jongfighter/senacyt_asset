@@ -228,10 +228,10 @@ while($row = mssql_fetch_array($result)) {
                 <td id="centro"
                     <?php
                      $strlast = $row['in_date'];
-                $end = new DateTime($strlast);
-                $start = new DateTime();
-                $interval = (int) ($start->format('U')-$end->format('U'))/(60*60*24);
-                if($interval>$unhandled&&$row['available']==0){ 
+                    $end = new DateTime($strlast);
+                    $start = new DateTime();
+                    $interval = (int) ($start->format('U')-$end->format('U'))/(60*60*24);
+                    if($interval>$unhandled&&$row['available']==0){ 
                     echo "bgcolor='#FF0000'";
                 } 
                     
