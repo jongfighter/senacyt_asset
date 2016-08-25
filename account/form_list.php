@@ -49,14 +49,14 @@ and open the template in the editor.
                 $sql = $sql."select p_lastname, p_name, login_identity, login_authority  from Login inner join Person on Person.p_id=Login.p_id;";
             }
             $result = mssql_query($sql,$conn);
-            echo "<table border='1'><tr>";
+         
             
         ?>
                 <table border='1'> <tr class="tablecolor">
                         <th>Apellido</th>
                         <th>Nombre</th>
-                        <th>autoridad</th>
                         <th>ID</th>
+                        <th>autoridad</th>
                         <th>Admin</th>
             
                         
@@ -66,24 +66,30 @@ and open the template in the editor.
         
 
 // Print the data
-    while($row = mssql_fetch_row($result)) {
-        $num = 0;
-        $arraypass[3];
-        echo "<tr>";
-        foreach($row as $_column) {
-            echo '<td>'.$_column.'</td>';
-            $arraypass[$num]=$_column;
-            $num = $num+1;
-        }
-        echo '<td>';
-        echo '<form method="post"> ';
-        echo '<input type ="hidden" name = "p_lastname" value = "'.$arraypass[0].'">';
-        echo '<input type ="hidden" name = "p_name" value = "'.$arraypass[1].'">';
-        echo'<input type ="hidden" name = "login_identity" value = "'.$arraypass[2].'">';
-        echo'<input type ="hidden" name = "login_autoridad" value = "'.$arraypass[3].'">';
-        echo '<input type="submit" name ="submit" value = "modificar" formaction="form_modify.php" > ';
-        echo '<input type="submit" name ="submit" value = "borrar" formaction="do_delete.php"> ';
-        ?>
+    while($row = mssql_fetch_array($result)) {
+       ?>
+                    
+                    
+        <tr>
+
+        <td>
+            <?php echo $row['p_lastname'];?>
+        </td>
+        <td><?php echo $row['p_name'];?>
+        </td>
+        <td><?php echo $row['login_identity'];?>
+        </td>
+        <td> <?php echo $row['login_authority'];?>
+        </td>
+        <td>
+        <form method="post"> 
+        <input type ="hidden" name = "p_lastname" value = "<?php echo $row['p_lastname'];?>">
+        <input type ="hidden" name = "p_name" value = "<?php echo $row['p_name'];?>">
+        <input type ="hidden" name = "login_identity" value = "<?php echo $row['login_identity'];?>" >
+        <input type ="hidden" name = "login_authority" value = "<?php echo $row['login_authority'];?>" >
+        <input type="submit" name ="submit" value = "modificar" formaction="form_modify.php" > 
+        <input type="submit" name ="submit" value = "borrar" formaction="do_delete.php"> 
+        </td>
         
        <?php
         echo '</form> </td>';

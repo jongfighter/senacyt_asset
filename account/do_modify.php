@@ -24,7 +24,9 @@ session_cache_limiter('nocache, must-revalidate');
         $p_lastname = $_POST['person_lastname'];
         $p_name = $_POST['person_name'];
         $login_identity = $_POST['login_identity'];
+       
         $login_authority = $_POST['login_authority'];
+        
         $pwd = $_POST['pwd'];
         $db_host = "localhost";
         $db_user = "sa";
@@ -52,7 +54,6 @@ session_cache_limiter('nocache, must-revalidate');
             mssql_query($sql,$conn);
         }
         ?>
-        <script>alert("éxito"); </script>
-        <meta http-equiv="refresh" content="0;url=form_list.php">
-    </body>
-</html>
+                
+   <meta http-equiv="refresh" content="0;url=form_list.php">
+    

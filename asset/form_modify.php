@@ -18,6 +18,7 @@ session_cache_limiter('nocache, must-revalidate');
         header("Location : ../main.php");
     }
             $asset_id = $_POST['asset_id'];
+            $avail = $_POST['available'];
             $db_host = "localhost";
             $db_user = "sa";
             $db_pw = "vamosit";
@@ -27,6 +28,7 @@ session_cache_limiter('nocache, must-revalidate');
             $sql = "select * from dbo.Asset where asset_id = {$asset_id};";
             $sql2 = "select * from dbo.Person order by p_name asc, p_lastname asc;";
             $sql3 = "select * from dbo.Loc order by loc_building asc, loc_floor asc, loc_desc asc;";
+            
             $result_asset = mssql_query($sql,$conn);
             $result_person = mssql_query($sql2, $conn);
             $result_loc = mssql_query($sql3,$conn);
@@ -62,9 +64,10 @@ session_cache_limiter('nocache, must-revalidate');
     
     <body>
              <?php include_once("../header.php");?>
-        <form method ="post" > 
+        <form method ="post" id='myform' onsubmit="return validateForm('myform') > 
               
              <input type ="hidden" name ="asset_id"  value = "<?php echo $row1['asset_id']?>">  <br>
+           
 <table class="marginleft">
 		 <tr>      
             <td class="tablecolor">Placa  </td> <td class="tableinput"> <input type ="text" name ="asset_barcode" value = "<?php echo $row1['asset_barcode']?>" > </td> 
@@ -103,16 +106,48 @@ session_cache_limiter('nocache, must-revalidate');
                  while($row3 =  mssql_fetch_array($result_loc)){
                      ?>
                  
-                 <option value='<?php echo $row3['loc_id']?>'> <?php echo $row3['loc_building']." ".$row3['loc_floor']." ".$row3['loc_desc']?></option>
+                 <option value='<?php echo $row3['loc_id']?>'
+                                         <?php if($row3['loc_id']==$row1['loc_id_bf']){?>
+                    selected='selected'
+                    <?php
+                 }
+                 ?>
+                         
+                         > <?php echo "Edificio ".$row3['loc_building']." Nivel ".$row3['loc_floor']." ".$row3['loc_desc']?></option>
                  <?php
                  }
                  ?>
             
             </select>
+             Asset Manager : <select name='asset_respon'>
+            <?php
+                 
+                 while($row2 =  mssql_fetch_array($result_person)){
+                     ?>
+                 
+                 <option value='<?php
+               
+                 
+                 echo $row2['p_id']?>'
+                 <?php if($row2['p_id']==$row1['asset_respon']){?>
+                    selected='selected'
+                    <?php
+                 }
+                 ?>
+                 
+                 
+                 >
+ <?php echo $row2['p_name']." ".$row2['p_lastname'];?></option>
+                 <?php
+                 }
+                 ?>
             
+            </select>           
             <br>
              
              <div>
+                
+                 <input type='hidden' name='available' value ='<?php echo $avail;?>'>
                  <input type="submit" name ="rent" value = "confirmar" formaction="do_modify.php">
             </div>
         </form>

@@ -42,11 +42,18 @@ session_cache_limiter('nocache, must-revalidate');
             echo '<br><a href="form_list.php">invalid data</a>';
             }
             else{
-                $sql = "DELETE from dbo.Person where p_id= '{$p_id}';";
-                mssql_query($sql,$conn);
-                
-                        echo "<script> alert('success');"
-        . "window.location.href = 'form_list.php';</script>";
+                $sql = "DELETE from dbo.Person where p_id= {$p_id};";
+                echo $sql;
+                $ffff = mssql_query($sql,$conn);
+                if($ffff){
+                                            echo "<script> alert('success');";
+       // . "window.location.href = 'form_list.php';</script>";
+                }
+                else{
+                                            echo "<script> alert('referenced by log');";
+       // . "window.location.href = 'form_list.php';</script>";
+                }
+
             }
         }
         else{

@@ -79,14 +79,15 @@ and open the template in the editor.
             else if(isset($_POST['tipo'])&&$_POST['tipo']!='basicoption'){
                 
                 $p_name = $_POST['tipo'];
-
+          
                 $sql = $sql."select asset_id, 
-                t_name tipo,
-                asset_barcode barcode, 
-                asset_desc _description,
-                asset_brand brand,
-                asset_model model,
-                asset_serial serialnumber,
+t_name tipo,                    
+asset_barcode barcode, 
+                    
+asset_desc _description,
+ asset_brand brand,
+  asset_model model,
+   asset_serial serialnumber,
                 asset_details details,
                 asset_bought_date purchase_date,
                 asset_last_touch last_handled,
@@ -94,12 +95,14 @@ and open the template in the editor.
                 asset_out out_date,
                 asset_in in_date,
                 asset_price price,
-                A.p_id as p_id,
-                asset_provider _provider,
-		p_name person, dept_name department,
-                loc_building as building, loc_floor as _floor, loc_desc location_description,
-                pos as available
-                from Asset A inner join tipo T on T.t_id = A.t_id inner join Person P on A.p_id = P.p_id inner join Loc L on L.loc_id= A.loc_id inner join Department D on D.dept_id = P.dept_id where t_name='{$p_name}';";
+               A.p_id as p_id,
+	    asset_provider _provider,
+		 p_name, p_lastname, dept_name department,
+	    loc_building as building, loc_floor as _floor, loc_desc location_description,
+            pos as available
+		 from Asset A inner join tipo T on T.t_id = A.t_id inner join Person P on A.p_id = P.p_id inner join Loc L on L.loc_id= A.loc_id inner join Department D on D.dept_id = P.dept_id 
+                  where t_name = '{$p_name}';";
+                
                 
             }
             else if($check==1){
@@ -248,7 +251,7 @@ while($row = mssql_fetch_array($result)) {
                 <td id="centro"><?php echo $row['_provider'];?></td>
                 <td id="centro"><?php echo $row['p_name']." ".$row['p_lastname'];?></td>
                 <td id="centro"><?php echo $row['department'];?></td>
-                <td id="centro"><?php echo $row['building']." ".$row['_floor']." ".$row['location_description'];?></td>
+                <td id="centro"><?php echo "Edificio ".$row['building']." Nivel ".$row['_floor']." ".$row['location_description'];?></td>
                 <td id="centro"><?php 
                 if($row['available']==1){
                     echo "O";
@@ -263,6 +266,7 @@ while($row = mssql_fetch_array($result)) {
                     <form method = 'post'>
                         <input type ='hidden' name ='asset_id' value ='<?php echo $row['asset_id'];?>'>
                         <input type ='hidden' name ='p_id' value ='<?php echo $row['p_id'];?>'>
+                        <input type ='hidden' name ='available' value ='<?php echo $row['available'];?>'>
                         <input type ='hidden' name ='p_fullname' value ='<?php echo $row['p_name']." ".$row['p_lastname'];?>'>
                         <?php
                         if($row['available']==0){

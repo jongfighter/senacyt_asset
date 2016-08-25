@@ -14,7 +14,6 @@ session_cache_limiter('nocache, must-revalidate');
 ?>
 <?php
 
-    echo $_SESSION['user_id'];
     include_once("../header.php");
            
 ?>
@@ -34,7 +33,7 @@ session_cache_limiter('nocache, must-revalidate');
         <script src="js/jquery-2.1.1.min.js"></script>
         <script src="js/materialize.js"></script>
         <script src="js/init.js"></script>
-
+        <script src="../chk.js"></script>
   
         <!-- CSS  -->
         <link href="fonts/material_icons.woff" rel="stylesheet">
@@ -46,19 +45,30 @@ session_cache_limiter('nocache, must-revalidate');
     </head>
     <body>
           <div class="marginleft">
-        <form method ="post"  action ='do_insert.php' onsubmit='return chk()'>
+        <form method ="post"  action ='do_insert.php' id='myform' onsubmit="return validateForm('myform')">
             <div>
-                 Apellido : <input type ="text" name ="p_lastname" id = 'p_lastname'>
-            </div>
-            <div>
-                 Nombre : <input type ="text" name ="p_name" id = 'p_name'>
+                <?php
+                    $sql = "select p_id, p_name, p_lastname from dbo.Person order by p_name, p_lastname";
+                     $result = mssql_query($sql,$conn);
+                
+
+                ?>
+                Nombre : 
+                <select name ='p_id'><?php
+                    while($row = mssql_fetch_array($result)){
+                        ?>
+                    <option value ='<?php echo $row['p_id'];?>'> <?php echo $row['p_name']." ".$row['p_lastname'];?></option>
+                            <?php
+                    }
+                    ?>
+                </select>
+                
             </div>
             <div>
                  autoridad : 
-                 <select name =login_authority">
-                     <option value="admin"> admin</option>
-                     <option value="otros"> otros</option>
-                     
+                 <select name ="login_authority" id = 'login_authority'>
+                     <option value='admin'> admin</option>
+                     <option value='otros'> otros</option>
                  </select>
             </div>
             <div>

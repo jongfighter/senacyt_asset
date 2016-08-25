@@ -42,9 +42,11 @@ session_cache_limiter('nocache, must-revalidate');
         // put your code here
         $plastname = $_POST['p_lastname'];
         $pname = $_POST['p_name'];
-        $login_identity = $_POST['log_identity'];
-        
-        $login_authority = $_POST['log_authority'];
+     
+        $login_identity = $_POST['login_identity'];
+    
+        $login_authority = $_POST['login_authority'];
+    
         ?>
         <?php
         ?>
@@ -55,10 +57,16 @@ session_cache_limiter('nocache, must-revalidate');
              <div>
                  Apellido : <?php echo $plastname ?> <br>
                  <input type ="hidden" name ="person_lastname" id = 'p_lastname' value = '<?php echo $plastname ?>'><br>
-                 Nombre: <?php echo $pname ?><br>
+                 Nombre: <?php echo $pname;?><br>
+                 
                  <input type ="hidden" name ="person_name" id = 'p_name' value = '<?php echo $pname ?>'>
-                 autoridad: <input type ="text" name ="login_identity" id = 'login_identiity' value = '<?php echo $login_identity ?>'><br>
-                 ID : <input type ="text" name ="login_identity" id = 'login_identiity' value = '<?php echo $login_identity ?>'><br>
+                 autoridad:                  <select name ='login_authority'>
+                     <option value="admin"> admin</option>
+                     <option value="otros"> otros</option>
+                     
+                 </select>
+                 <br>
+                 ID : <?php echo $login_identity; ?><input type ="hidden" name ="login_identity" id = 'login_identiity' value = '<?php echo $login_identity; ?>'><br>
                  Contraseña : <input type ="password" name ="pwd" id = 'pwd'>
                  
                  
@@ -77,7 +85,7 @@ session_cache_limiter('nocache, must-revalidate');
   <script src="js/jquery-2.1.1.min.js"></script>
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
-
+  <script src="../chk.js"></script>
   
   <!-- CSS  -->
   <link href="fonts/material_icons.woff" rel="stylesheet">

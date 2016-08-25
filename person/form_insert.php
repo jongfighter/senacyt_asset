@@ -36,11 +36,11 @@ session_cache_limiter('nocache, must-revalidate');
     <head>
         <meta charset="UTF-8">
         <title></title>
-
+<script src='../chk.js'></script>
     </head>
     <body>
         <div class="marginleft">
-        <form method ="post"  action ='do_insert.php' onsubmit='return chk()'>
+        <form method ="post"  action ='do_insert.php' id='myform' onsubmit="return validateForm('myform')">
              <div>
                  Apellido : <input type ="text" name ="p_lastname" id = 'p_lastname'>
              </div>

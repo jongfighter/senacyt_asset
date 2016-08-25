@@ -17,34 +17,13 @@ session_cache_limiter('nocache, must-revalidate');
     <head>
         <meta charset="UTF-8">
         <title></title>
-        <script type = "text/javascript">
-               function isNull(text){
-                      if(text===null||text===""){
-                          return true;
-                      }
-                      else{
-                          return false;
-                      }
-                  }
-              function chk(){
 
-                  var building = document.getElementById("building").value;     
-                  var floor = document.getElementById("floor").value;
-                  var desc = document.getElementById("desc").value;
-                 
-                  if(isNull(building)||isNull(floor)||isNull(desc)){
-                      alert("invalid input");
-                      return false;
-                  }
-                  return true;
-              }  
-        </script>
     </head>
     <body>
         <?php include_once("../header.php");?>
         
         <div class="marginleft">
-        <form method ="post" onsubmit='return chk()' action ='do_insert.php' >
+        <form method ="post" id='myform' onsubmit="return validateForm('myform')" action ='do_insert.php' >
              <div>
                  Edificio : <input type ="text" name ="loc_building" id = 'building'>
              </div>
@@ -67,7 +46,7 @@ session_cache_limiter('nocache, must-revalidate');
   <script src="js/jquery-2.1.1.min.js"></script>
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
-
+<script src='../chk.js'></script>
   
   <!-- CSS  -->
   <link href="fonts/material_icons.woff" rel="stylesheet">

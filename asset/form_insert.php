@@ -42,7 +42,7 @@ session_cache_limiter('nocache, must-revalidate');
     
     <body>
         <?php include_once("../header.php");?>
-        <form method ="post" action ="do_insert.php" onsubmit="return validateForm('myform')">
+        <form method ="post" action ="do_insert.php" id='myform' onsubmit="return validateForm('myform')">
              
        
 <!-- table -->
