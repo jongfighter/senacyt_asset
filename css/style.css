@@ -1,12 +1,11 @@
 img.imageLogoSenacyt{
-	min-height: 100%;
+	min-height: 70%;
 	min-width: 1024px;
 	width: 100%;
 	height: auto;
 	position: fixed;
-	top: 10px;
+	top: 100px;
 	left: 10px;
-	bottom: 10px;
 	right: 10px;
 }
 
