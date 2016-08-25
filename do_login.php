@@ -3,7 +3,7 @@ if(!isset($_POST['user_id']) || !isset($_POST['user_pw'])) exit;
 $user_id = $_POST['user_id'];
 $user_pw = $_POST['user_pw'];
 
-$db_host = "localhost";
+$db_host = "DESKTOP-R5UU8SH\SENACYTINSTANCE";
 $db_user = "sa";
 $db_pw = "vamosit";
 $db_name = "senacyt_asset";

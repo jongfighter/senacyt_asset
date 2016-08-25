@@ -23,10 +23,7 @@ session_cache_limiter('nocache, must-revalidate');
 
         // put your code here
         $dename = $_POST['dept_name'];
-        $db_host = "localhost";
-        $db_user = "sa";
-        $db_pw = "vamosit";
-        $db_name = "senacyt_asset";
+        require_once '../setting.php';
         $conn = MSSQL_CONNECT($db_host, $db_user, $db_pw) or DIE("DATABASE FAILED TO RESPOND."); ;
         mssql_select_db($db_name, $conn) or DIE("Table unavailable");
         $sql = "select dept_id from department where dept_name='".$dename."'";

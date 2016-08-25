@@ -31,10 +31,7 @@ and open the template in the editor.
         $t_id = $_POST['t_id'];
         $t_name = $_POST['t_name'];
 
-        $db_host = "localhost";
-        $db_user = "sa";
-        $db_pw = "vamosit";
-        $db_name = "senacyt_asset";
+        require_once '../setting.php';
         $conn = MSSQL_CONNECT($db_host, $db_user, $db_pw) or DIE("DATABASE FAILED TO RESPOND."); ;
         mssql_select_db($db_name, $conn) or DIE("Table unavailable");
         $sql = "select t_id from dbo.tipo where t_name='{$t_name}';";

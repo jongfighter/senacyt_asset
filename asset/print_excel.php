@@ -50,10 +50,7 @@ $loc_ft = $_POST['loc_id'];
 $curr_p_id = $_POST['curr_p_id']; //dar 
 
 $p_id = $_POST['p_id']; //recibir
-$db_host = "localhost";
-            $db_user = "sa";
-            $db_pw = "vamosit";
-            $db_name = "senacyt_asset";
+require_once '../setting.php';
             $conn = mssql_connect($db_host, $db_user, $db_pw);
             mssql_select_db($db_name, $conn);
             $rcv_sql ="select p_name, p_lastname, dept_id from dbo.person where p_id = {$p_id}";

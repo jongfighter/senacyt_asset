@@ -56,7 +56,7 @@ session_cache_limiter('nocache, must-revalidate');
         Modelo &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;<input type ="text" name ="asset_model" id = "model"> <br>
         Serial &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;<input type ="text" name ="asset_serial" id = "serial">  <br>
         Detalles &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;<input type ="text" name ="asset_details" id = "details"> <br>
-        Día de compra &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;<input type ="date" class="datepicker" name ="asset_bought_date" id = "purchase_date"> <br>
+        Fecha de compra &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;<input type ="date" class="datepicker" name ="asset_bought_date" id = "purchase_date"> <br>
         Final de garantía &nbsp;&nbsp;&nbsp;:&nbsp;<input type ="date" class="datepicker" name ="asset_guarantee_expired" id = "guarantee_end"> <br>
         Precio de compra &nbsp;:&nbsp;<input type ="number" step="0.01" name ="asset_price" id = "purchase_price"> <br>
         Proveedor &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;<input type ="text" name ="asset_provider" id = "asset_provider">
