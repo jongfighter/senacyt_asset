@@ -52,7 +52,7 @@ session_cache_limiter('nocache, must-revalidate');
             mssql_query($sql,$conn);
         }
         ?>
-        <script>alert("done"); </script>
+        <script>alert("éxito"); </script>
         <meta http-equiv="refresh" content="0;url=form_list.php">
     </body>
 </html>

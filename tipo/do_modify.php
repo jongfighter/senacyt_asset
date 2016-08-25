@@ -47,10 +47,10 @@ session_cache_limiter('nocache, must-revalidate');
        ?>
         <?php
         if($res){
-            ?><script>alert("modification success")</script>;<?php
+            ?><script>alert("éxtio")</script>;<?php
         }
         else{
-            ?><script>alert("modification failed")</script>;<?php
+            ?><script>alert("fracaso")</script>;<?php
         }
         ?>
         <meta http-equiv="refresh" content="0;url=form_list.php">

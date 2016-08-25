@@ -102,13 +102,13 @@ and open the template in the editor.
         <table border ='1'>
             <tr class="tablecolor">
             <th>Tipo de reportes</th>
-            <th>Día de reportes</th>
+            <th>Fecha de reportes</th>
             <th>Placa</th>
             <th>Descripción</th>
             <th>Marca</th>
             <th>Modelo</th>
             <th>Serial</th>
-            <th>Día de compras</th>
+            <th>Fecha de compras</th>
             <th>Final de garantía</th>
             <th>Salir de activos</th>
             <th>Entrar de activos</th>
@@ -117,7 +117,7 @@ and open the template in the editor.
             <th>Funcionario</th>
             <th>Departamento</th>
             <th>Ubicación</th>
-            <th>Posible</th>
+            <th>Estatus</th>
             </tr>
             
             <!--th 는 19개-->

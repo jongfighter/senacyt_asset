@@ -42,7 +42,12 @@ session_cache_limiter('nocache, must-revalidate');
                  Nombre : <input type ="text" name ="p_name" id = 'p_name'>
             </div>
             <div>
-                 autoridad : <input type ="text" name ="login_authority" id = 'login_authority'>
+                 autoridad : 
+                 <select name =login_authority">
+                     <option value="admin"> admin</option>
+                     <option value="otros"> otros</option>
+                     
+                 </select>
             </div>
             <div>
                  ID : <input type ="text" name ="login_identity" id = 'login_identity'>

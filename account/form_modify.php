@@ -39,6 +39,7 @@ session_cache_limiter('nocache, must-revalidate');
         $plastname = $_POST['p_lastname'];
         $pname = $_POST['p_name'];
         $login_identity = $_POST['log_identity'];
+        
         $login_authority = $_POST['log_authority'];
         ?>
         <?php

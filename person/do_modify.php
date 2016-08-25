@@ -53,7 +53,7 @@ session_cache_limiter('nocache, must-revalidate');
          
         }
         ?>
-        <script>alert("done"); </script>
+        <script>alert("éxito"); </script>
         <meta http-equiv="refresh" content="0;url=form_list.php">
     </body>
 </html>

@@ -42,13 +42,13 @@ session_cache_limiter('nocache, must-revalidate');
         $rearray = mssql_fetch_array($res);
         if($res){
             ?>
-        <script>alert("modification success");</script>
+         <script>alert("éxito"); </script>
                 <meta http-equiv="refresh" content="0;url=form_list.php">
                 <?php
         }
         else{
             ?>
-                <script>alert("modification failed");</script>
+                <script>alert("fracaso");</script>
                 <meta http-equiv="refresh" content="0;url=form_list.php">
                 <?php
         }
